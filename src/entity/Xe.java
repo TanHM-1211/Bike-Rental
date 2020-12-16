@@ -6,8 +6,95 @@ package entity;
  * Create at 9:49 AM , 12/16/2020
  */
 
-public class Xe {
 
+public class Xe {
+    private int id;
+    private String loaiXe;
+    private int bienSoXe;
+    private int idBaiXe;
+    private int tienCoc;
+    private int trangThai;
+
+    public Xe(){
+    }
+
+    public Xe(int id, String loaiXe, int bienSoXe, int idBaiXe, int tienCoc, int trangThai) {
+        this.id = id;
+        this.loaiXe = loaiXe;
+        this.bienSoXe = bienSoXe;
+        this.idBaiXe = idBaiXe;
+        this.tienCoc = tienCoc;
+        this.trangThai = trangThai;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getLoaiXe() {
+        return loaiXe;
+    }
+
+    public void setLoaiXe(String loaiXe) {
+        this.loaiXe = loaiXe;
+    }
+
+    public int getBienSoXe() {
+        return bienSoXe;
+    }
+
+    public void setBienSoXe(int bienSoXe) {
+        this.bienSoXe = bienSoXe;
+    }
+
+    public int getIdBaiXe() {
+        return idBaiXe;
+    }
+
+    public void setIdBaiXe(int idBaiXe) {
+        this.idBaiXe = idBaiXe;
+    }
+
+    public int getTienCoc() {
+        return tienCoc;
+    }
+
+    public void setTienCoc(int tienCoc) {
+        this.tienCoc = tienCoc;
+    }
+
+    public int getTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(int trangThai) {
+        this.trangThai = trangThai;
+    }
+}
+
+
+class XeDapDien extends Xe{
+    private int pin;
+
+    public XeDapDien(){
+    }
+
+    public XeDapDien(int id, String loaiXe, int bienSoXe, int idBaiXe, int tienCoc, int trangThai, int pin) {
+        super(id, loaiXe, bienSoXe, idBaiXe, tienCoc, trangThai);
+        this.pin = pin;
+    }
+
+    public int getPin() {
+        return pin;
+    }
+
+    public void setPin(int pin) {
+        this.pin = pin;
+    }
 }
 /**
 use [CapstoneProject];
@@ -32,19 +119,8 @@ INSERT INTO XeDapDien
 (007,75,N'Xe ??p ?i?n',112456,001,630000,0),
 (011,86,N'Xe ??p ?i?n',112246,003,450000,0);
 
-INSERT INTO BaiXe
- (id,tenBaiXe,diaChi,dienTich)
- VALUES
- (001,N'Eco Bách Khoa',N'1 Hai Bà Tr?ng Hà N?i',300),
- (002,N'Eco Meo',N'1 Hoàng Thái Hà N?i',300),
- (003,N'Eco Thai',N'12 Thái Th?nh Hà N?i',300)
- ;
 
- INSERT INTO GiaoDichThueXe
- (id,idXe,idNguoiDung,idBaiXeThue,idBaiXeTra,thoiDiemThue,thoiDiemTra,tongThoiGianDung,idTheGiaoDich,cachThue)
- VALUES
- (002,003,001,001,003,'20201120 09:15:20','20201120 15:5:20',15,'118131_group11_2020',1),
- (003,009,001,001,002,'20201130 13:32:20','20201130 17:15:20',15,'118131_group11_2020',1);
+
 
  INSERT INTO GiaoDichThueXe
  (id,idXe,idNguoiDung,idBaiXeThue,thoiDiemThue,tongThoiGianDung,idTheGiaoDich,cachThue)
