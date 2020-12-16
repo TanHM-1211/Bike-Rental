@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (c) 2017, Gluon and/or its affiliates.
+    All rights reserved. Use is subject to license terms.
+
+    This file is available and licensed under the following license:
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+
+   - Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+   - Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in
+     the documentation and/or other materials provided with the distribution.
+   - Neither the name of Oracle Corporation and Gluon nor the names of its
+     contributors may be used to endorse or promote products derived
+     from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import com.gluonhq.charm.glisten.mvc.View?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.ImageInput?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="68.0" prefWidth="331.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="#669900" layoutX="35.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EcoBike">
+               <font>
+                  <Font name="Vivaldi Italic" size="40.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="60.0" fitWidth="66.0" layoutX="224.0" layoutY="4.0">
+               <image>
+                  <Image url="@../fig/logo6-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+         <effect>
+            <ColorAdjust contrast="0.67" />
+         </effect>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ChoiceBox layoutX="26.0" layoutY="30.0" prefHeight="45.0" prefWidth="63.0">
+               <effect>
+                  <ImageInput x="0.5" y="0.5">
+                     <source>
+                        <Image url="@../fig/menu.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+            </ChoiceBox>
+            <TextField layoutX="115.0" layoutY="36.0" prefHeight="32.0" prefWidth="208.0" promptText="nhap dia chi" />
+            <GridPane layoutX="51.0" layoutY="122.0" prefHeight="355.0" prefWidth="252.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="83.0" prefWidth="240.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e1e8f2" height="60.0" layoutY="14.0" stroke="#669900" strokeType="INSIDE" strokeWidth="2.0" width="252.0" />
+                        <Text fill="#669900" layoutX="21.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 Thái Thịnh, Đống Đa, Hà Nội" />
+                        <Text fill="#669900" layoutX="3.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bãi xe 01">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="83.0" prefWidth="240.0" GridPane.rowIndex="1">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5d5eb" height="60.0" layoutY="14.0" stroke="#669900" strokeType="INSIDE" strokeWidth="2.0" width="252.0" />
+                        <Text fill="#669900" layoutX="21.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 Thái Thịnh, Đống Đa, Hà Nội" />
+                        <Text fill="#669900" layoutX="3.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bãi xe 01">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="83.0" prefWidth="240.0" GridPane.rowIndex="2">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f1f5d6" height="60.0" layoutY="14.0" stroke="#669900" strokeType="INSIDE" strokeWidth="2.0" width="252.0" />
+                        <Text fill="#669900" layoutX="21.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 Thái Thịnh, Đống Đa, Hà Nội" />
+                        <Text fill="#669900" layoutX="3.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bãi xe 01">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="83.0" prefWidth="240.0" GridPane.rowIndex="3">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d8f8d1" height="60.0" layoutY="14.0" stroke="#669900" strokeType="INSIDE" strokeWidth="2.0" width="252.0" />
+                        <Text fill="#669900" layoutX="21.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 Thái Thịnh, Đống Đa, Hà Nội" />
+                        <Text fill="#669900" layoutX="3.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bãi xe 01">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+   </center>
+</View>
