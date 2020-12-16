@@ -1,8 +1,10 @@
 .project
+.classpath
 .vscode
 .idea
 *.class
 out/
+bin/
 *.ipynb
 test/notebook
 /bin/
