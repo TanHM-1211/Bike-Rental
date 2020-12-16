@@ -7,6 +7,7 @@ package entity;
  */
 
 public class BaiXe {
+
     public BaiXe() {
     }
 }
