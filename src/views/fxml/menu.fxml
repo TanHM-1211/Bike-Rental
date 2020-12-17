@@ -3,7 +3,6 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.ImageInput?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -34,13 +33,6 @@
             <MenuItem mnemonicParsing="false" text="Thông tin cá nhân" />
             <MenuItem mnemonicParsing="false" text="Đãng xuất" />
         </items>
-         <effect>
-            <ImageInput>
-               <source>
-                  <Image url="file:/D:/Java%20Project/CapstoneProject/assets/images/menu.png" />
-               </source>
-            </ImageInput>
-         </effect>
       </MenuButton>
    </children>
 </AnchorPane>
