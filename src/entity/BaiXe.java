@@ -1,5 +1,8 @@
 package entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Project Ecobike System
  * User: Nhom 11
@@ -52,6 +55,17 @@ public class BaiXe {
 
     public void setDienTich(int dienTich) {
         this.dienTich = dienTich;
+    }
+
+    //test
+    public static List getAll(){
+        ArrayList list = new ArrayList();
+        for (int i = 1 ; i <= 4 ; i ++){
+            BaiXe baiXe = new BaiXe(i,"baixe"+i,"hanoi",i*1000);
+            list.add(baiXe);
+        }
+        return list;
+
     }
 }
 

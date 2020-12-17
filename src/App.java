@@ -6,10 +6,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import utils.Configs;
-import views.screen.GiaoDienNhapMaVach;
-import views.screen.thueXe.GiaoDienChonTheThanhToan;
-import views.screen.thueXe.GiaoDienXacNhanThanhToan;
-import views.screen.xemThongTin.GiaoDienThongTinXe;
+import views.screen.giaoDienChinh.GiaoDienChinh;
 
 
 import java.io.IOException;
@@ -53,26 +50,9 @@ public class App extends Application {
            // After fade out, load actual content
            fadeOut.setOnFinished((e) -> {
                 try {
-//                    GiaoDienChinh giaoDienChinh = new GiaoDienChinh(primaryStage, Configs.HOME_PATH);
-//                    giaoDienChinh.setScreenTitle("Start screen");
-//                    giaoDienChinh.show();
-
-//                    GiaoDienNhapMaVach giaoDienNhapMaVach = new GiaoDienNhapMaVach(primaryStage, Configs.MAVACH_PATH);
-//                    giaoDienNhapMaVach.setScreenTitle("Nhap ma vach");
-//                    giaoDienNhapMaVach.show();
-
-                    GiaoDienThongTinXe giaoDienThongTinXethongTinXe = new GiaoDienThongTinXe(primaryStage, Configs.THUEXE_THONGTINXE_PATH);
-                    giaoDienThongTinXethongTinXe.setScreenTitle("Thong tin xe");
-                    giaoDienThongTinXethongTinXe.setIcon();
-                    giaoDienThongTinXethongTinXe.show();
-
-//                    GiaoDienChonTheThanhToan giaoDienChonTheThanhToan = new GiaoDienChonTheThanhToan(primaryStage, Configs.THUEXE_CHONTHE_PATH);
-//                    giaoDienChonTheThanhToan.setScreenTitle("Chon the");
-//                    giaoDienChonTheThanhToan.show();
-
-//                    GiaoDienXacNhanThanhToan giaoDienXacNhanThanhToan = new GiaoDienXacNhanThanhToan(primaryStage, Configs.THUEXE_XACNHAN_PATH);
-//                    giaoDienXacNhanThanhToan.setScreenTitle("Xac Nhan");
-//                    giaoDienXacNhanThanhToan.show();
+                    GiaoDienChinh giaoDienChinh = new GiaoDienChinh(primaryStage, Configs.HOME_PATH);
+                    giaoDienChinh.setScreenTitle("Start screen");
+                    giaoDienChinh.show();
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }

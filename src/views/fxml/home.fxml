@@ -5,11 +5,8 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" >
     <children>
       <VBox prefHeight="600.0" prefWidth="335.0">
          <children>
@@ -26,64 +23,6 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
-                     <children>
-                        <AnchorPane prefHeight="83.0" prefWidth="240.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e1e8f2" height="60.0" layoutY="14.0" stroke="#669900" strokeType="INSIDE" strokeWidth="2.0" width="252.0" />
-                              <Text fill="#669900" layoutX="21.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 Thái Thịnh, Đống Đa, Hà Nội">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font></Text>
-                              <Text fill="#669900" layoutX="3.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bãi xe 01">
-                                 <font>
-                                    <Font name="System Bold" size="20.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="83.0" prefWidth="240.0" GridPane.rowIndex="1">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5d5eb" height="60.0" layoutY="14.0" stroke="#669900" strokeType="INSIDE" strokeWidth="2.0" width="252.0" />
-                              <Text fill="#669900" layoutX="21.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 Thái Thịnh, Đống Đa, Hà Nội">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font></Text>
-                              <Text fill="#669900" layoutX="3.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bãi xe 01">
-                                 <font>
-                                    <Font name="System Bold" size="20.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="83.0" prefWidth="240.0" GridPane.rowIndex="2">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f1f5d6" height="60.0" layoutY="14.0" stroke="#669900" strokeType="INSIDE" strokeWidth="2.0" width="252.0" />
-                              <Text fill="#669900" layoutX="21.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 Thái Thịnh, Đống Đa, Hà Nội">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font></Text>
-                              <Text fill="#669900" layoutX="3.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bãi xe 01">
-                                 <font>
-                                    <Font name="System Bold" size="20.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="83.0" prefWidth="240.0" GridPane.rowIndex="3">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d8f8d1" height="60.0" layoutY="14.0" stroke="#669900" strokeType="INSIDE" strokeWidth="2.0" width="252.0" />
-                              <Text fill="#669900" layoutX="21.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 Thái Thịnh, Đống Đa, Hà Nội">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font></Text>
-                              <Text fill="#669900" layoutX="3.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bãi xe 01">
-                                 <font>
-                                    <Font name="System Bold" size="20.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </AnchorPane>
-                     </children>
                   </GridPane>
                </children>
             </AnchorPane>
