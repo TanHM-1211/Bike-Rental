@@ -37,7 +37,7 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Text>
-                  <Button blendMode="SRC_ATOP" layoutX="187.0" layoutY="106.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="105.0" style="-fx-background-color: #008000; -fx-background-radius: 15;" stylesheets="@buton.css" text="Thuê Xe" textFill="WHITE">
+                  <Button blendMode="SRC_ATOP" layoutX="187.0" layoutY="106.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="105.0" style="-fx-background-color: #008000; -fx-background-radius: 15;" text="Thuê xe" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
