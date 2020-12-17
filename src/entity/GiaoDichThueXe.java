@@ -9,38 +9,38 @@ import java.util.Date;
  */
 
 public class GiaoDichThueXe {
-    private int id;
+    private int idGiaoDichThueXe;
     private int idXe;
     private int idNguoiDung;
+    private int soTien;
     private int idBaiXeThue;
-    private int IdBaiXeTra;
+    private int idBaiXeTra;
     private Date thoiDiemThue;
     private Date thoiDiemTra;
-    private int tongThoiGianDung;
     private String idTheGiaoDich;
     private int cachThue;
 
     public GiaoDichThueXe(){}
 
-    public GiaoDichThueXe(int id, int idXe, int idNguoiDung, int idBaiXeThue, int idBaiXeTra, Date thoiDiemThue, Date thoiDiemTra, int tongThoiGianDung, String idTheGiaoDich, int cachThue) {
-        this.id = id;
+    public GiaoDichThueXe(int idGiaoDichThueXe, int idXe, int idNguoiDung, int soTien, int idBaiXeThue, int idBaiXeTra, Date thoiDiemThue, Date thoiDiemTra, String idTheGiaoDich, int cachThue) {
+        this.idGiaoDichThueXe = idGiaoDichThueXe;
         this.idXe = idXe;
         this.idNguoiDung = idNguoiDung;
+        this.soTien = soTien;
         this.idBaiXeThue = idBaiXeThue;
-        IdBaiXeTra = idBaiXeTra;
+        this.idBaiXeTra = idBaiXeTra;
         this.thoiDiemThue = thoiDiemThue;
         this.thoiDiemTra = thoiDiemTra;
-        this.tongThoiGianDung = tongThoiGianDung;
         this.idTheGiaoDich = idTheGiaoDich;
         this.cachThue = cachThue;
     }
 
-    public int getId() {
-        return id;
+    public int getIdGiaoDichThueXe() {
+        return idGiaoDichThueXe;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdGiaoDichThueXe(int idGiaoDichThueXe) {
+        this.idGiaoDichThueXe = idGiaoDichThueXe;
     }
 
     public int getIdXe() {
@@ -59,6 +59,14 @@ public class GiaoDichThueXe {
         this.idNguoiDung = idNguoiDung;
     }
 
+    public int getSoTien() {
+        return soTien;
+    }
+
+    public void setSoTien(int soTien) {
+        this.soTien = soTien;
+    }
+
     public int getIdBaiXeThue() {
         return idBaiXeThue;
     }
@@ -68,11 +76,11 @@ public class GiaoDichThueXe {
     }
 
     public int getIdBaiXeTra() {
-        return IdBaiXeTra;
+        return this.idBaiXeTra;
     }
 
     public void setIdBaiXeTra(int idBaiXeTra) {
-        IdBaiXeTra = idBaiXeTra;
+        this.idBaiXeTra = idBaiXeTra;
     }
 
     public Date getThoiDiemThue() {
@@ -89,14 +97,6 @@ public class GiaoDichThueXe {
 
     public void setThoiDiemTra(Date thoiDiemTra) {
         this.thoiDiemTra = thoiDiemTra;
-    }
-
-    public int getTongThoiGianDung() {
-        return tongThoiGianDung;
-    }
-
-    public void setTongThoiGianDung(int tongThoiGianDung) {
-        this.tongThoiGianDung = tongThoiGianDung;
     }
 
     public String getIdTheGiaoDich() {

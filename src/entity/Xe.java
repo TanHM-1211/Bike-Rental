@@ -10,21 +10,23 @@ package entity;
 public class Xe {
     private int id;
     private String loaiXe;
-    private int bienSoXe;
+    private String bienSoXe;
     private int idBaiXe;
     private int tienCoc;
     private int trangThai;
+    private Integer pin ;
 
     public Xe(){
     }
 
-    public Xe(int id, String loaiXe, int bienSoXe, int idBaiXe, int tienCoc, int trangThai) {
+    public Xe(int id, String loaiXe, String bienSoXe, int idBaiXe, int tienCoc, int trangThai, Integer pin) {
         this.id = id;
         this.loaiXe = loaiXe;
         this.bienSoXe = bienSoXe;
         this.idBaiXe = idBaiXe;
         this.tienCoc = tienCoc;
         this.trangThai = trangThai;
+        this.pin = pin;
     }
 
     public int getId() {
@@ -43,11 +45,11 @@ public class Xe {
         this.loaiXe = loaiXe;
     }
 
-    public int getBienSoXe() {
+    public String getBienSoXe() {
         return bienSoXe;
     }
 
-    public void setBienSoXe(int bienSoXe) {
+    public void setBienSoXe(String bienSoXe) {
         this.bienSoXe = bienSoXe;
     }
 
@@ -74,28 +76,16 @@ public class Xe {
     public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
     }
-}
 
-
-class XeDapDien extends Xe{
-    private int pin;
-
-    public XeDapDien(){
-    }
-
-    public XeDapDien(int id, String loaiXe, int bienSoXe, int idBaiXe, int tienCoc, int trangThai, int pin) {
-        super(id, loaiXe, bienSoXe, idBaiXe, tienCoc, trangThai);
-        this.pin = pin;
-    }
-
-    public int getPin() {
+    public Integer getPin() {
         return pin;
     }
 
-    public void setPin(int pin) {
+    public Integer setPin(int pin) {
         this.pin = pin;
     }
 }
+
 /**
 use [CapstoneProject];
 
