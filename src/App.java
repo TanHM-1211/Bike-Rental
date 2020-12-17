@@ -6,7 +6,14 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import utils.Configs;
+
 import views.screen.giaoDienChinh.GiaoDienChinh;
+
+import views.screen.GiaoDienXacNhanTraXe;
+import views.screen.thueXe.GiaoDienXacNhanThanhToan;
+import views.screen.xemThongTin.GiaoDienThongTinBaiXe;
+import views.screen.xemThongTin.GiaoDienThongTinXeDangThue;
+
 
 
 import java.io.IOException;
@@ -50,9 +57,43 @@ public class App extends Application {
            // After fade out, load actual content
            fadeOut.setOnFinished((e) -> {
                 try {
-                    GiaoDienChinh giaoDienChinh = new GiaoDienChinh(primaryStage, Configs.HOME_PATH);
+                      GiaoDienChinh giaoDienChinh = new GiaoDienChinh(primaryStage, Configs.HOME_PATH);
                     giaoDienChinh.setScreenTitle("Start screen");
                     giaoDienChinh.show();
+
+//                    GiaoDienChinh giaoDienChinh = new GiaoDienChinh(primaryStage, Configs.HOME_PATH);
+//                    giaoDienChinh.setScreenTitle("Start screen");
+//                    giaoDienChinh.show();
+
+//                    GiaoDienNhapMaVach giaoDienNhapMaVach = new GiaoDienNhapMaVach(primaryStage, Configs.MAVACH_PATH);
+//                    giaoDienNhapMaVach.setScreenTitle("Nhap ma vach");
+//                    giaoDienNhapMaVach.show();
+
+//                    GiaoDienThongTinXe giaoDienThongTinXe = new GiaoDienThongTinXe(primaryStage, Configs.THUEXE_THONGTINXE_PATH);
+//                    giaoDienThongTinXe.setScreenTitle("Thong tin xe");
+//                    giaoDienThongTinXe.setIcon();
+//                    giaoDienThongTinXe.show();
+
+//                    GiaoDienChonTheThanhToan giaoDienChonTheThanhToan = new GiaoDienChonTheThanhToan(primaryStage, Configs.THUEXE_CHONTHE_PATH);
+//                    giaoDienChonTheThanhToan.setScreenTitle("Chon the");
+//                    giaoDienChonTheThanhToan.show();
+
+//                    GiaoDienXacNhanThanhToan giaoDienXacNhanThanhToan = new GiaoDienXacNhanThanhToan(primaryStage, Configs.THUEXE_XACNHAN_PATH);
+//                    giaoDienXacNhanThanhToan.setScreenTitle("Xac Nhan");
+//                    giaoDienXacNhanThanhToan.show();
+
+//                    GiaoDienThongTinBaiXe giaoDienThongTinBaiXe = new GiaoDienThongTinBaiXe(primaryStage, Configs.THONGTIN_BAIXE_PATH);
+//                    giaoDienThongTinBaiXe.setScreenTitle("Thong tin bai xe");
+//                    giaoDienThongTinBaiXe.setIcon();
+//                    giaoDienThongTinBaiXe.show();
+
+//                    GiaoDienThongTinXeDangThue giaoDienThongTinXe = new GiaoDienThongTinXeDangThue(primaryStage, Configs.TRAXE_THONGTINXE_PATH);
+//                    giaoDienThongTinXe.setScreenTitle("Thong tin xe");
+//                    giaoDienThongTinXe.setIcon();
+//                    giaoDienThongTinXe.show();
+
+                    GiaoDienXacNhanTraXe giaoDienXacNhanTraXe = new GiaoDienXacNhanTraXe(primaryStage, Configs.THUEXE_XACNHAN_PATH);
+                    giaoDienXacNhanTraXe.show();
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }

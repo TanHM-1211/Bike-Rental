@@ -34,10 +34,10 @@ public class GiaoDienMenu  implements Initializable{
         // set logo icon
         setImage(this.logo,"logo.png");
         //set menu icon
-        ImageView imageMenu;
-        File file = new File(Configs.IMAGE_PATH+"menu.png");
-        Image image = new Image(file.toURI().toString());
-        ImageView imageView = new ImageView(image);
-        menu.setGraphic(imageView);
+//        ImageView imageMenu;
+//        File file = new File(Configs.IMAGE_PATH+"menu.png");
+//        Image image = new Image(file.toURI().toString());
+//        ImageView imageView = new ImageView(image);
+//        menu.setGraphic(imageView);
     }
 }

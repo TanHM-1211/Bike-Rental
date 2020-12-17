@@ -13,16 +13,13 @@ import java.io.IOException;
  * Create at 9:52 AM , 12/16/2020
  */
 
-public class GiaoDienThongTinBaiXe extends BaseScreenHandler{
+public class GiaoDienThongTinXeDangThue extends BaseScreenHandler{
     @FXML
-    ImageView bike1;
-    @FXML
-    ImageView bike2;
+    ImageView bike;
     public void setIcon(){
-        setImage(this.bike1,"bike2.png");
-        setImage(this.bike2,"bike2.png");
+        setImage(this.bike,"bike.png");
     }
-    public GiaoDienThongTinBaiXe(Stage stage, String screenPath) throws IOException {
+    public GiaoDienThongTinXeDangThue(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
 
     }
