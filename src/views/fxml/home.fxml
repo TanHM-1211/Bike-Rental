@@ -59,7 +59,7 @@
             </Text>
             <ImageView fitHeight="60.0" fitWidth="66.0" layoutX="224.0" layoutY="4.0">
                <image>
-                  <Image url="@../fig/logo6-removebg-preview.png" />
+                  <Image url="@../../../assets/images/logo.png" />
                </image>
             </ImageView>
          </children>
@@ -75,7 +75,7 @@
                <effect>
                   <ImageInput x="0.5" y="0.5">
                      <source>
-                        <Image url="@../fig/menu.png" />
+                        <Image url="file:/F:/2020/20202/ThietKeXayDungPhanMem/Project/CapstoneProject/assets/images/menu.png" />
                      </source>
                   </ImageInput>
                </effect>
