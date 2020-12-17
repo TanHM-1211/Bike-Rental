@@ -14,11 +14,6 @@ import java.io.IOException;
  */
 
 public class GiaoDienThongTinBaiXe extends BaseScreenHandler{
-    @FXML
-    ImageView bike;
-    public void setIcon(){
-        setImage(this.bike,"bike.png");
-    }
     public GiaoDienThongTinBaiXe(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
 
