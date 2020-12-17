@@ -1,4 +1,4 @@
-package views.screen.thueXe;
+package views.screen;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
@@ -13,8 +13,9 @@ import java.io.IOException;
  * Create at 9:52 AM , 12/16/2020
  */
 
-public class GiaoDienXacNhanThanhToan extends BaseScreenHandler{
-    public GiaoDienXacNhanThanhToan(Stage stage, String screenPath) throws IOException {
+public class GiaoDienXacNhanTraXe extends BaseScreenHandler{
+
+    public GiaoDienXacNhanTraXe(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
 
     }

@@ -44,10 +44,11 @@ public class Configs {
 	public static final String MENU_PATH  = "/views/fxml/menu.fxml";
 	public static final String MAVACH_PATH  = "/views/fxml/nhapMaVach.fxml";
 	public static final String THUEXE_THONGTINXE_PATH  = "/views/fxml/thueXeThongTinXe.fxml";
+    public static final String TRAXE_THONGTINXE_PATH  = "/views/fxml/traxeThongTinXe.fxml";
+    public static final String THONGTIN_BAIXE_PATH  = "/views/fxml/thongTinBaiXe.fxml";
 	public static final String THUEXE_CHONTHE_PATH  = "/views/fxml/chonTheThanhToan.fxml";
 	public static final String THUEXE_XACNHAN_PATH  = "/views/fxml/xacNhanThanhToan.fxml";
-	public static final String THONGTIN_BAIXE_PATH  = "/views/fxml/xacNhanThanhToan.fxml";
-	public static final String TRAXE_THONGTINXE_PATH  = "/views/fxml/traxeThongTinXe.fxml";
+
 	public static Font REGULAR_FONT = Font.font("Segoe UI", FontWeight.NORMAL, FontPosture.REGULAR, 24);
 
 	public static String[] PROVINCES = { "Bắc Giang", "Bắc Kạn", "Cao Bằng", "Hà Giang", "Lạng Sơn", "Phú Thọ",
