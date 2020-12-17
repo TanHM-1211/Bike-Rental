@@ -35,15 +35,15 @@ public class BaiXeDAO implements DAO<BaiXe> {
         listBaiXe.add(BaiXe);
     }
 
-//    @Override
-//    public void update(BaiXe BaiXe, String[] params) {
+    @Override
+    public void update(BaiXe BaiXe, String[] params) {
 //        BaiXe.setName(Objects.requireNonNull(
 //                params[0], "Name cannot be null"));
 //        BaiXe.setEmail(Objects.requireNonNull(
 //                params[1], "Email cannot be null"));
-//
-//        listBaiXe.add(BaiXe);
-//    }
+
+        listBaiXe.add(BaiXe);
+    }
 
     @Override
     public void delete(BaiXe BaiXe) {

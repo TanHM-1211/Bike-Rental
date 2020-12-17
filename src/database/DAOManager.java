@@ -9,16 +9,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import config.Config;
+import utils.Configs;
 
 public class DAOManager {
     // JDBC Driver Name And Database URL
-    public static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    public static String DB_URL = "jdbc:mysql://Localhost/" + Config.databaseName;
+    public static String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+    public static String port = "3306";
+    public static String DB_URL = "jdbc:mysql://localhost:" + port + "/" + Configs.DB_NAME;
 
     //  Database Credentials
-    public static String DB_USER = Config.databaseUserName;
-    public static String DB_PASS = Config.databasePassword;
+    public static String DB_USER = Configs.DB_USERNAME;
+    public static String DB_PASS = Configs.DB_PASSWORD;
 
     // Database Connection
     Connection conn = null;
@@ -27,7 +28,7 @@ public class DAOManager {
     public DAOManager() throws Exception
     {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName(JDBC_DRIVER);
             System.out.println("Created DB Connection....");
         } catch (ClassNotFoundException e) {
             // Handle errors for Class.forName
@@ -41,6 +42,7 @@ public class DAOManager {
     public void open() throws SQLException {
         try {
             if (this.conn == null && this.stmt == null) {
+//                System.out.println(DB_URL);
                 this.conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
                 this.stmt = conn.createStatement();
             }

@@ -78,10 +78,10 @@ public class Xe {
     }
 
     public Integer getPin() {
-        return pin;
+        return this.pin;
     }
 
-    public Integer setPin(int pin) {
+    public void setPin(int pin) {
         this.pin = pin;
     }
 }
