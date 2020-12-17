@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -20,7 +21,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage){
         try {
-            StackPane root = (StackPane) FXMLLoader.load(getClass().getResource(Configs.SPLASH_SCREEN_PATH));
+            AnchorPane root = FXMLLoader.load(getClass().getResource(Configs.SPLASH_SCREEN_PATH));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -46,10 +47,10 @@ public class App extends Application {
             // After fade out, load actual content
             fadeOut.setOnFinished((e) -> {
                 try {
-                    HomeScreenHandler homeHandler = new HomeScreenHandler(primaryStage, Configs.HOME_PATH);
-                    homeHandler.setScreenTitle("Home Screen");
-                    homeHandler.setImage();
-                    homeHandler.show();
+                    AnchorPane root1 = FXMLLoader.load(getClass().getResource(Configs.HOME_PATH));
+                    Scene scene1 = new Scene(root1);
+                    primaryStage.setScene(scene1);
+                    primaryStage.show();
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }

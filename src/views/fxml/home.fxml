@@ -32,44 +32,16 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import com.gluonhq.charm.glisten.mvc.View?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.ColorAdjust?>
-<?import javafx.scene.effect.ImageInput?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <AnchorPane prefHeight="68.0" prefWidth="331.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER">
-         <children>
-            <Text fill="#669900" layoutX="35.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EcoBike">
-               <font>
-                  <Font name="Vivaldi Italic" size="40.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="60.0" fitWidth="66.0" layoutX="224.0" layoutY="4.0">
-               <image>
-                  <Image url="@../../../assets/images/logo.png" />
-               </image>
-            </ImageView>
-         </children>
-         <effect>
-            <ColorAdjust contrast="0.67" />
-         </effect>
-      </AnchorPane>
-   </top>
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="6.0" layoutY="116.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <ChoiceBox layoutX="26.0" layoutY="30.0" prefHeight="45.0" prefWidth="63.0">
                <effect>
@@ -82,15 +54,15 @@
             </ChoiceBox>
             <TextField layoutX="115.0" layoutY="36.0" prefHeight="32.0" prefWidth="208.0" promptText="nhap dia chi" />
             <GridPane layoutX="51.0" layoutY="122.0" prefHeight="355.0" prefWidth="252.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
                   <AnchorPane prefHeight="83.0" prefWidth="240.0">
                      <children>
@@ -140,5 +112,22 @@
             </GridPane>
          </children>
       </AnchorPane>
-   </center>
-</View>
+      <AnchorPane layoutX="2.0" layoutY="14.0" prefHeight="68.0" prefWidth="331.0" style="-fx-background-color: green;">
+         <children>
+            <Text fill="#669900" layoutX="35.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EcoBike">
+               <font>
+                  <Font name="Vivaldi Italic" size="40.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="60.0" fitWidth="66.0" layoutX="224.0" layoutY="4.0">
+               <image>
+                  <Image url="@../../../assets/images/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+         <effect>
+            <ColorAdjust contrast="0.67" />
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>
