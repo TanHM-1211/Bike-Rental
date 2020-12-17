@@ -1,4 +1,4 @@
-package views.screen;
+package views.screen.traXe;
 
 /**
  * Project Ecobike System
@@ -6,5 +6,5 @@ package views.screen;
  * Create at 9:53 AM , 12/16/2020
  */
 
-public class GiaoDienInterbank {
+public class GiaoDienTraXe {
 }
