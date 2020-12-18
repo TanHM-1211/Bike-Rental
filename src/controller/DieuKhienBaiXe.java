@@ -1,7 +1,9 @@
 package controller;
 
 import entity.BaiXe;
+import entity.Xe;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,9 +13,23 @@ import java.util.List;
  */
 
 public class DieuKhienBaiXe {
+
     public DieuKhienBaiXe() {
     }
     public List getALLBaiXe(){
-        return new BaiXe().getAll();
+        return BaiXe.getAll();
     }
+    public List getLoaiXe(String loaiXe){
+        List listAllXe = BaiXe.getXe();
+        ArrayList xeTheoLoai = new ArrayList();
+        for(Object object: listAllXe){
+            Xe xe = (Xe) object;
+            if (xe.getLoaiXe().getTenLoaiXe().equals(loaiXe)){
+                xeTheoLoai.add(xe);
+            }
+        }
+        return xeTheoLoai;
+
+    }
+
 }
