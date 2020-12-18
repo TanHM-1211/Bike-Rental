@@ -8,7 +8,11 @@ import java.util.Date;
  * Create at 9:50 AM , 12/16/2020
  */
 
-public class GiaoDichThueXe {
+/*
+    Doc va ghi
+ */
+
+public class GiaoDichThueXe{
     private int idGiaoDichThueXe;
     private int idXe;
     private int idNguoiDung;
@@ -18,6 +22,9 @@ public class GiaoDichThueXe {
     private GiaoDichThanhToan thanhToanTra;
     private int soTien;
 
+    public static String paramsName = "";
+    public static String name = "giao_dich_thue_xe";
+
     public GiaoDichThueXe(){}
 
     public GiaoDichThueXe(int idGiaoDichThueXe, int idXe, int idNguoiDung, int idBaiXeThue, GiaoDichThanhToan thanhToanThue) {
@@ -26,6 +33,32 @@ public class GiaoDichThueXe {
         this.idNguoiDung = idNguoiDung;
         this.idBaiXeThue = idBaiXeThue;
         this.thanhToanThue = thanhToanThue;
+    }
+
+    @Override
+    public String toString() {
+        if (this.thanhToanTra != null)
+            return "(" +
+                    "idGiaoDichThueXe=" + idGiaoDichThueXe +
+                    ", idXe=" + idXe +
+                    ", idNguoiDung=" + idNguoiDung +
+                    ", idBaiXeThue=" + idBaiXeThue +
+                    ", idBaiXeTra=" + idBaiXeTra +
+                    ", thanhToanThue=" + thanhToanThue +
+                    ", thanhToanTra=" + thanhToanTra +
+                    ", soTien=" + soTien +
+                    '}';
+        else
+            return "(" +
+                "idGiaoDichThueXe=" + idGiaoDichThueXe +
+                ", idXe=" + idXe +
+                ", idNguoiDung=" + idNguoiDung +
+                ", idBaiXeThue=" + idBaiXeThue +
+                ", idBaiXeTra=" + idBaiXeTra +
+                ", thanhToanThue=" + thanhToanThue +
+                ", thanhToanTra=" + thanhToanTra +
+                ", soTien=" + soTien +
+                '}';
     }
 
     public int getIdGiaoDichThueXe() {

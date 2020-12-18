@@ -14,51 +14,37 @@ import java.util.Optional;
 
 public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
     private List<GiaoDichThueXe> listGiaoDichThueXe = new ArrayList<>();
+    private DAOManager daoManager = DAOManager.getInstance();
 
-    public GiaoDichThueXeDAO() {
-    }
+    public GiaoDichThueXeDAO(){}
 
     @Override
-    public Optional<GiaoDichThueXe> get(int id) {
-        return Optional.ofNullable(listGiaoDichThueXe.get((int) id));
+    public GiaoDichThueXe get(int id) {
+        return null;
     }
 
     @Override
     public List<GiaoDichThueXe> getAll() {
-        return listGiaoDichThueXe;
+        return null;
     }
 
     @Override
     public void save(GiaoDichThueXe giaoDichThueXe) {
-        listGiaoDichThueXe.add(giaoDichThueXe);
+
     }
 
     @Override
     public void update(GiaoDichThueXe giaoDichThueXe, String[] params) {
-//        Xe.setName(Objects.requireNonNull(
-//                params[0], "Name cannot be null"));
-//        Xe.setEmail(Objects.requireNonNull(
-//                params[1], "Email cannot be null"));
 
-        listGiaoDichThueXe.add(giaoDichThueXe);
     }
 
     @Override
     public void delete(GiaoDichThueXe giaoDichThueXe) {
-        listGiaoDichThueXe.remove(giaoDichThueXe);
+
     }
 
     @Override
     public String getInsertQuery(List<GiaoDichThueXe> list) {
-        for (GiaoDichThueXe giaoDichThueXe:
-                listGiaoDichThueXe) {
-
-        }
-        return "";
-    }
-
-    @Override
-    public void getFromDB() {
-
+        return null;
     }
 }

@@ -1,7 +1,9 @@
 package database;
 
+import entity.The;
 import entity.Xe;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,24 +15,17 @@ import java.util.Optional;
 
 
 public class XeDAO implements DAO<Xe> {
-    private List<Xe> listXe;
-    private DAOManager daoManager;
+    private List<Xe> listXe = new ArrayList<>();
+    private DAOManager daoManager = DAOManager.getInstance();
 
     public XeDAO() {
         this.listXe = this.getAll();
     }
 
-    public DAOManager getDaoManager() {
-        return daoManager;
-    }
-
-    public void setDaoManager(DAOManager daoManager) {
-        this.daoManager = daoManager;
-    }
 
     @Override
-    public Optional<Xe> get(int id) {
-        return Optional.ofNullable(listXe.get((int) id));
+    public Xe get(int id) {
+        return new Xe();
     }
 
     @Override
@@ -66,9 +61,5 @@ public class XeDAO implements DAO<Xe> {
         }
         return "";
     }
-
-    @Override
-    public void getFromDB() {
-
-    }
+    
 }

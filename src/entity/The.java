@@ -2,6 +2,9 @@ package entity;
 
 import utils.Configs;
 
+/*
+    Chi doc
+ */
 public class The {
     private String id;
     private String owner;

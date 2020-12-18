@@ -1,7 +1,8 @@
 package database;
 
+import entity.Xe;
+
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Project Ecobike System
@@ -11,7 +12,7 @@ import java.util.Optional;
 
 public interface DAO<T> {
 
-    Optional<T> get(int id);
+    T get(int id);
 
     List<T> getAll();
 
@@ -23,5 +24,5 @@ public interface DAO<T> {
 
     String getInsertQuery(List<T> list);
 
-    void getFromDB();
+
 }

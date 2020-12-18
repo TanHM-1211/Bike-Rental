@@ -37,8 +37,34 @@ CREATE TABLE `bai_xe` (
 
 LOCK TABLES `bai_xe` WRITE;
 /*!40000 ALTER TABLE `bai_xe` DISABLE KEYS */;
-INSERT INTO `bai_xe` VALUES (1,'Eco Bách Khoa','1 Hai Bà Trưng Hà Nội',300),(2,'Eco Meo','1 Hoàng Thái Hà Nội',300),(3,'Eco Thai','12 Thái Thịnh Hà Nội',300);
+INSERT INTO `bai_xe` VALUES (1,'Eco Bách Khoa','1 Hai Bà Trưng Hà Nội',300),(2,'Eco Meo','1 Hoàng Thái Hà Nội',300),(3,'Eco Thai','12 Thái Thịnh Hà Nội',300),(4,'bai A','dia chi 1',10);
 /*!40000 ALTER TABLE `bai_xe` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `giao_dich_thanh_toan`
+--
+
+DROP TABLE IF EXISTS `giao_dich_thanh_toan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `giao_dich_thanh_toan` (
+  `id_giao_dich_thanh_toan` int NOT NULL,
+  `id_the` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `thoi_gian_tao` datetime NOT NULL,
+  `so_tien` int NOT NULL,
+  `noi_dung` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_giao_dich_thanh_toan`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `giao_dich_thanh_toan`
+--
+
+LOCK TABLES `giao_dich_thanh_toan` WRITE;
+/*!40000 ALTER TABLE `giao_dich_thanh_toan` DISABLE KEYS */;
+/*!40000 ALTER TABLE `giao_dich_thanh_toan` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -52,19 +78,21 @@ CREATE TABLE `giao_dich_thue_xe` (
   `id_giao_dich_thue_xe` int NOT NULL,
   `id_xe` int NOT NULL,
   `id_nguoi_dung` int NOT NULL,
-  `so_tien` int NOT NULL,
   `id_bai_xe_thue` int NOT NULL,
   `id_bai_xe_tra` int NOT NULL,
-  `thoi_diem_thue` datetime NOT NULL,
-  `thoi_diem_tra` datetime NOT NULL,
-  `id_the_giao_dich` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `cach_thue` int NOT NULL,
+  `id_thanh_toan_thue` int NOT NULL,
+  `id_thanh_toan_tra` int NOT NULL,
+  `so_tien` int NOT NULL,
   PRIMARY KEY (`id_giao_dich_thue_xe`),
   KEY `id_bai_xe_idx` (`id_bai_xe_thue`,`id_bai_xe_tra`),
   KEY `id_xe_idx` (`id_xe`),
   KEY `id_bai_xe_tra_idx` (`id_bai_xe_tra`),
+  KEY `id_thanh_toan_thue_idx` (`id_thanh_toan_thue`),
+  KEY `id_thanh_toan_tra_idx` (`id_thanh_toan_tra`),
   CONSTRAINT `id_bai_xe_thue` FOREIGN KEY (`id_bai_xe_thue`) REFERENCES `bai_xe` (`id_bai_xe`),
   CONSTRAINT `id_bai_xe_tra` FOREIGN KEY (`id_bai_xe_tra`) REFERENCES `bai_xe` (`id_bai_xe`),
+  CONSTRAINT `id_thanh_toan_thue` FOREIGN KEY (`id_thanh_toan_thue`) REFERENCES `giao_dich_thanh_toan` (`id_giao_dich_thanh_toan`),
+  CONSTRAINT `id_thanh_toan_tra` FOREIGN KEY (`id_thanh_toan_tra`) REFERENCES `giao_dich_thanh_toan` (`id_giao_dich_thanh_toan`),
   CONSTRAINT `id_xe` FOREIGN KEY (`id_xe`) REFERENCES `xe` (`id_xe`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -79,6 +107,83 @@ LOCK TABLES `giao_dich_thue_xe` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `loai_xe`
+--
+
+DROP TABLE IF EXISTS `loai_xe`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `loai_xe` (
+  `id_loai_xe` int NOT NULL,
+  `ten_loai_xe` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `gia_tri` int NOT NULL,
+  `gia_30p_dau` int NOT NULL,
+  `gia_moi_15p` int NOT NULL,
+  PRIMARY KEY (`id_loai_xe`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `loai_xe`
+--
+
+LOCK TABLES `loai_xe` WRITE;
+/*!40000 ALTER TABLE `loai_xe` DISABLE KEYS */;
+INSERT INTO `loai_xe` VALUES (1,'Xe đạp thường',400000,10000,3000),(2,'Xe đạp đôi',550000,15000,4500),(3,'Xe đạp điện',700000,15000,4500);
+/*!40000 ALTER TABLE `loai_xe` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nguoi_dung`
+--
+
+DROP TABLE IF EXISTS `nguoi_dung`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `nguoi_dung` (
+  `id_nguoi_dung` int NOT NULL,
+  PRIMARY KEY (`id_nguoi_dung`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nguoi_dung`
+--
+
+LOCK TABLES `nguoi_dung` WRITE;
+/*!40000 ALTER TABLE `nguoi_dung` DISABLE KEYS */;
+/*!40000 ALTER TABLE `nguoi_dung` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nguoi_dung_giao_dich_thue_xe`
+--
+
+DROP TABLE IF EXISTS `nguoi_dung_giao_dich_thue_xe`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `nguoi_dung_giao_dich_thue_xe` (
+  `id_nguoi_dung_giao_dich_thue_xe` int NOT NULL,
+  `id_nguoi_dung` int NOT NULL,
+  `id_giao_dich_thue_xe` int DEFAULT NULL,
+  PRIMARY KEY (`id_nguoi_dung_giao_dich_thue_xe`),
+  KEY `id_nguoi_dung_idx` (`id_nguoi_dung`),
+  KEY `id_giao_dich_thue_xe_idx` (`id_giao_dich_thue_xe`),
+  CONSTRAINT `id_giao_dich_thue_xe` FOREIGN KEY (`id_giao_dich_thue_xe`) REFERENCES `giao_dich_thue_xe` (`id_giao_dich_thue_xe`),
+  CONSTRAINT `id_nguoi_dung` FOREIGN KEY (`id_nguoi_dung`) REFERENCES `nguoi_dung` (`id_nguoi_dung`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nguoi_dung_giao_dich_thue_xe`
+--
+
+LOCK TABLES `nguoi_dung_giao_dich_thue_xe` WRITE;
+/*!40000 ALTER TABLE `nguoi_dung_giao_dich_thue_xe` DISABLE KEYS */;
+/*!40000 ALTER TABLE `nguoi_dung_giao_dich_thue_xe` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `xe`
 --
 
@@ -87,15 +192,16 @@ DROP TABLE IF EXISTS `xe`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `xe` (
   `id_xe` int NOT NULL,
-  `loai_xe` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `id_loai_xe` int NOT NULL,
   `bien_so_xe` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
   `id_bai_xe` int NOT NULL,
-  `tien_coc` int NOT NULL,
   `trang_thai` bit(1) NOT NULL,
   `pin` int DEFAULT NULL,
   PRIMARY KEY (`id_xe`),
   KEY `id_bai_xe_idx` (`id_bai_xe`),
-  CONSTRAINT `id_bai_xe` FOREIGN KEY (`id_bai_xe`) REFERENCES `bai_xe` (`id_bai_xe`)
+  KEY `id_loai_xe_idx` (`id_loai_xe`),
+  CONSTRAINT `id_bai_xe` FOREIGN KEY (`id_bai_xe`) REFERENCES `bai_xe` (`id_bai_xe`),
+  CONSTRAINT `id_loai_xe` FOREIGN KEY (`id_loai_xe`) REFERENCES `loai_xe` (`id_loai_xe`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -105,7 +211,7 @@ CREATE TABLE `xe` (
 
 LOCK TABLES `xe` WRITE;
 /*!40000 ALTER TABLE `xe` DISABLE KEYS */;
-INSERT INTO `xe` VALUES (1,'Xe đạp thường','000001',1,500000,_binary '',NULL),(2,'Xe đạp điện','121001',2,450000,_binary '\0',50),(5,'Xe đạp điện','123346',1,600000,_binary '\0',90),(7,'Xe đạp điện','112456',1,630000,_binary '\0',75),(9,'Xe đạp thường','109856',2,430000,_binary '',NULL),(11,'Xe đạp điện','112246',3,450000,_binary '\0',86);
+INSERT INTO `xe` VALUES (1,1,'000001',1,_binary '',NULL),(2,3,'121001',2,_binary '\0',50),(5,3,'123346',1,_binary '\0',90),(7,3,'112456',1,_binary '\0',75),(9,1,'109856',2,_binary '',NULL),(11,3,'112246',3,_binary '\0',86);
 /*!40000 ALTER TABLE `xe` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -118,4 +224,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-17 16:09:11
+-- Dump completed on 2020-12-18 21:58:39

@@ -6,10 +6,14 @@ package entity;
  * Create at 8:42 AM , 12/18/2020
  */
 
+/*
+    Doc va ghi
+ */
 public class NguoiDungGiaoDichThueXe {
     private int id;
     private NguoiDung nguoiDung;
     private GiaoDichThueXe giaoDichThueXe;
+    public static NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe = null;
 
     public NguoiDungGiaoDichThueXe() {
     }
@@ -42,4 +46,12 @@ public class NguoiDungGiaoDichThueXe {
     public void setGiaoDichThueXe(GiaoDichThueXe giaoDichThueXe) {
         this.giaoDichThueXe = giaoDichThueXe;
     }
+
+    public static NguoiDungGiaoDichThueXe getInstance(){
+        if (nguoiDungGiaoDichThueXe == null){
+            nguoiDungGiaoDichThueXe = new NguoiDungGiaoDichThueXe();
+        }
+        return nguoiDungGiaoDichThueXe;
+    }
+
 }

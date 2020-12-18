@@ -1,13 +1,18 @@
 package entity;
 
-public class GiaoDichThanhToan {
+/*
+    Doc va ghi
+ */
+
+public class GiaoDichThanhToan{
     private String errorCode;
     private The the;
     private String transactionId;
     private String transactionContent;
     private int amount;
     private String createdAt;
-    public String paramsName = "id_giao_dich_thanh_toan, id_the, thoi_gian_tao, so_tien, noi_dung";
+    public static String paramsName = "id_giao_dich_thanh_toan, id_the, thoi_gian_tao, so_tien, noi_dung";
+    public static String name = "giao_dich_thanh_toan";
 
     public GiaoDichThanhToan(String errorCode, The the, String transactionId, String transactionContent, int amount, String createdAt) {
         this.errorCode = errorCode;

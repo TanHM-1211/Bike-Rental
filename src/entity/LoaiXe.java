@@ -6,6 +6,10 @@ package entity;
  * Create at 7:48 AM , 12/18/2020
  */
 
+
+/*
+    Chi doc
+ */
 public class LoaiXe {
     private int id;
     private String tenLoaiXe;

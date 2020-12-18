@@ -11,4 +11,12 @@ public class Utils {
     {
         return "INSERT INTO " + tableName + columns + " VALUES " + values + ";";
     }
+
+    public static String getGetQuery(String tableName, String columns, String conditions)
+    {
+        String query = "SELECT " + columns + " FROM " + tableName ;
+        if (conditions != null) query +=  " WHERE " + conditions ;
+
+        return query + ";";
+    }
 }

@@ -6,7 +6,9 @@ package entity;
  * Create at 9:49 AM , 12/16/2020
  */
 
-
+/*
+    Doc va ghi
+ */
 public class Xe {
     private int id;
     private LoaiXe loaiXe;

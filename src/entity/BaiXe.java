@@ -1,5 +1,6 @@
 package entity;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,10 @@ import java.util.List;
  * Create at 9:49 AM , 12/16/2020
  */
 
-public class BaiXe extends DoiTuongCoBan {
+/*
+    Chi doc
+ */
+public class BaiXe{
     private int id ;
     private String tenBaiXe;
     private String diaChi;
@@ -27,13 +31,22 @@ public class BaiXe extends DoiTuongCoBan {
         this.dienTich = dienTich;
     }
 
-    @Override
-    public String toString() {
+    public String toSQLSetString() {
         return  "(" + id +
                 ", '" + tenBaiXe + '\'' +
                 ", '" + diaChi + '\'' +
                 ", " + dienTich +
                 ")";
+    }
+
+    @Override
+    public String toString() {
+        return "BaiXe{" +
+                "id=" + id +
+                ", tenBaiXe='" + tenBaiXe + '\'' +
+                ", diaChi='" + diaChi + '\'' +
+                ", dienTich=" + dienTich +
+                '}';
     }
 
     public int getId() {

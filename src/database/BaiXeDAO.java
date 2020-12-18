@@ -2,9 +2,9 @@ package database;
 
 import entity.BaiXe;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Project Ecobike System
@@ -14,22 +14,28 @@ import java.util.Optional;
 
 public class BaiXeDAO implements DAO<BaiXe> {
     private List<BaiXe> listBaiXe = new ArrayList<>();
-    private DAOManager daoManager;
+    private DAOManager daoManager = DAOManager.getInstance();
 
     public BaiXeDAO() {
-    }
-
-    public DAOManager getDaoManager() {
-        return this.daoManager;
-    }
-
-    public void setDaoManager(DAOManager daoManager) {
-        this.daoManager = daoManager;
+        daoManager.open();
+        ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + BaiXe.name + ";");
+        try {
+            while (resultSet.next()){
+                listBaiXe.add(new BaiXe(resultSet.getInt(1), resultSet.getString(2),
+                        resultSet.getString(3), resultSet.getInt(4)));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public Optional<BaiXe> get(int id) {
-        return Optional.ofNullable(listBaiXe.get((int) id));
+    public BaiXe get(int id) {
+        for (BaiXe baiXe:
+             this.listBaiXe) {
+            if (baiXe.getId() == id) return baiXe;
+        }
+        return null;
     }
 
     @Override
@@ -39,37 +45,20 @@ public class BaiXeDAO implements DAO<BaiXe> {
 
     @Override
     public void save(BaiXe baiXe) {
-        listBaiXe.add(baiXe);
+//        listBaiXe.add(baiXe);
     }
 
     @Override
     public void update(BaiXe baiXe, String[] params) {
-//        BaiXe.setName(Objects.requireNonNull(
-//                params[0], "Name cannot be null"));
-//        BaiXe.setEmail(Objects.requireNonNull(
-//                params[1], "Email cannot be null"));
-
-        listBaiXe.add(baiXe);
     }
 
     @Override
     public void delete(BaiXe baiXe) {
-        listBaiXe.remove(baiXe);
     }
 
     @Override
     public String getInsertQuery(List<BaiXe> list) {
-        String values = "";
-        for (BaiXe baiXe:
-             list) {
-            values += baiXe.toString() + ",";
-        }
-        if(values.charAt(values.length()-1) == ',') values = values.substring(0, values.length()-1);
-        return Utils.getInsertQuery(BaiXe.name, BaiXe.paramsName, values);
+        return null;
     }
 
-    @Override
-    public void getFromDB() {
-
-    }
 }

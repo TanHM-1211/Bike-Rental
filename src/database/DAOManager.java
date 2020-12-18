@@ -7,6 +7,7 @@ package database;
  */
 import java.sql.*;
 
+import entity.The;
 import utils.Configs;
 
 public class DAOManager {
@@ -23,31 +24,37 @@ public class DAOManager {
     public Connection connection = null;
     public Statement statement = null;
 
-    public DAOManager() throws Exception
+    private static DAOManager daoManager = null;
+
+    public static DAOManager getInstance() {
+        if (daoManager == null) {
+            daoManager = new DAOManager();
+        }
+        return daoManager;
+    }
+
+    public DAOManager()
     {
         try {
             Class.forName(JDBC_DRIVER);
             System.out.println("Created DB Connection....");
-        } catch (ClassNotFoundException e) {
-            // Handle errors for Class.forName
-            throw e;
         } catch (Exception e) {
             // Handle errors for Exception
-            throw e;
+            e.printStackTrace();
         }
     }
 
-    public void open() throws SQLException {
+    public void open()  {
         try {
             if (this.connection == null && this.statement == null) {
 //                System.out.println(DB_URL);
                 this.connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-                this.statement = connection.createStatement();
+                this.statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+                        ResultSet.CONCUR_UPDATABLE);
             }
         } catch (SQLException e) {
             // Handle errors for JDBC
             e.printStackTrace();
-            throw e;
         }
     }
 
