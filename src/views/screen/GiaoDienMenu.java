@@ -60,8 +60,16 @@ public class GiaoDienMenu  implements Initializable{
         menu.setGraphic(imageView);
 
         home.setOnAction(e ->{
-
+            System.out.println("home");
         });
-
+        thueXe.setOnAction(e ->{
+            System.out.println("thue xe");
+        });
+        traXe.setOnAction(e ->{
+            System.out.println("tra xe");
+        });
+        xeDangThue.setOnAction(e ->{
+            System.out.println("xe dang thue");
+        });
     }
 }
