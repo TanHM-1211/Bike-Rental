@@ -1,9 +1,9 @@
 package subsystem.interbanksubsystem;
 
 
-import entity.PaymentTransaction;
+import entity.GiaoDichThanhToan;
 import subsystem.interbanksubsystem.interbank.InterbankSubsystemController;
-import entity.Card;
+import entity.The;
 
 /***
  * The {@code InterbankSubsystem} class is used to communicate with the
@@ -29,13 +29,13 @@ public class InterbankSubsystem implements InterbankInterface {
         this.ctrl = new InterbankSubsystemController();
     }
 
-    public PaymentTransaction pay(Card card, int amount, String contents) {
-        PaymentTransaction transaction = ctrl.pay(card, amount, contents);
+    public GiaoDichThanhToan pay(The the, int amount, String contents) {
+        GiaoDichThanhToan transaction = ctrl.pay(the, amount, contents);
         return transaction;
     }
 
-    public PaymentTransaction refund(Card card, int amount, String contents) {
-        PaymentTransaction transaction = ctrl.refund(card, amount, contents);
+    public GiaoDichThanhToan refund(The the, int amount, String contents) {
+        GiaoDichThanhToan transaction = ctrl.refund(the, amount, contents);
         return transaction;
     }
 }

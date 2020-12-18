@@ -1,19 +1,21 @@
 package entity;
 
-public class Card {
+import utils.Configs;
+
+public class The {
     private String id;
     private String owner;
-    private String ccv;
+    private String cvv;
     private String dateExpire;
 
     private int amount;
 
-    private static Card card = null;
+    private static The the = null;
 
-    public Card(String id, String owner, String ccv, String dateExpire) {
+    public The(String id, String owner, String cvv, String dateExpire) {
         this.id = id;
         this.owner = owner;
-        this.ccv = ccv;
+        this.cvv = cvv;
         this.dateExpire = dateExpire;
     }
 
@@ -42,11 +44,11 @@ public class Card {
     }
 
     public String getCvv() {
-        return ccv;
+        return cvv;
     }
 
-    public void setCvv(String ccv) {
-        this.ccv = ccv;
+    public void setCvv(String cvv) {
+        this.cvv = cvv;
     }
 
     public String getDateExpire() {
@@ -57,11 +59,11 @@ public class Card {
         this.dateExpire = dateExpire;
     }
 
-    public static Card getInstance() {
-        if (card == null) {
-            return new Card("118131_group11_2020", "Group 10", "312", "1125");
+    public static The getInstance() {
+        if (the == null) {
+            return new The(Configs.GROUP_NAME, Configs.OWNER, Configs.CVV_CODE, Configs.DATE_EXPIRED);
         } else {
-            return card;
+            return the;
         }
     }
 

@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public interface DAO<T> {
 
-    Optional<T> get(long id);
+    Optional<T> get(int id);
 
     List<T> getAll();
 
@@ -20,4 +20,8 @@ public interface DAO<T> {
     void update(T t, String[] params);
 
     void delete(T t);
+
+    String getInsertQuery(List<T> list);
+
+    void getFromDB();
 }

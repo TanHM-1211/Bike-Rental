@@ -1,20 +1,31 @@
 package entity;
 
-public class PaymentTransaction {
+public class GiaoDichThanhToan {
     private String errorCode;
-    private Card card;
+    private The the;
     private String transactionId;
     private String transactionContent;
     private int amount;
     private String createdAt;
+    public String paramsName = "id_giao_dich_thanh_toan, id_the, thoi_gian_tao, so_tien, noi_dung";
 
-    public PaymentTransaction(String errorCode, Card card, String transactionId, String transactionContent, int amount, String createdAt) {
+    public GiaoDichThanhToan(String errorCode, The the, String transactionId, String transactionContent, int amount, String createdAt) {
         this.errorCode = errorCode;
-        this.card = card;
+        this.the = the;
         this.transactionId = transactionId;
         this.transactionContent = transactionContent;
         this.amount = amount;
         this.createdAt = createdAt;
+    }
+
+    @Override
+    public String toString() {
+        return ", '" + transactionId + '\'' +
+                ", " + the.getOwner() +
+                ", '" + createdAt + '\'' +
+                ", " + amount +
+                ", '" + transactionContent + '\'' +
+                "";
     }
 
     public String getErrorCode() {
@@ -25,12 +36,12 @@ public class PaymentTransaction {
         this.errorCode = errorCode;
     }
 
-    public Card getCard() {
-        return card;
+    public The getCard() {
+        return the;
     }
 
-    public void setCard(Card card) {
-        this.card = card;
+    public void setCard(The the) {
+        this.the = the;
     }
 
     public String getTransactionId() {

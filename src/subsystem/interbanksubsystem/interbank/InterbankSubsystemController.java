@@ -14,12 +14,12 @@ public class InterbankSubsystemController {
 
     /**
      * query and get a Payment Transaction
-     * @param card
+     * @param the
      * @param amount
      * @param contents
      * @return
      */
-    public PaymentTransaction pay(Card card, int amount, String contents) throws PaymentException {
+    public GiaoDichThanhToan pay(The the, int amount, String contents) throws PaymentException {
         JsonObject jsonObject = JSonUtils.getTransaction(Config.payComment, contents, amount);
 
         String responseText = interbankBoundary.query(Config.baseUrl + Config.transactionUrl, jsonObject.toString());
@@ -29,20 +29,20 @@ public class InterbankSubsystemController {
 
     /**
      * query and refund transaction
-     * @param card
+     * @param the
      * @param amount
      * @param contents
      * @return
      */
-    public PaymentTransaction refund(Card card, int amount, String contents) throws PaymentException {
+    public GiaoDichThanhToan refund(The the, int amount, String contents) throws PaymentException {
         JsonObject jsonObject = JSonUtils.getTransaction(Config.refundComment, contents, amount);
 
         String respondText = interbankBoundary.query(Config.baseUrl + Config.transactionUrl, jsonObject.toString());
         return extractPaymentTransaction(respondText);
     }
 
-    private PaymentTransaction extractPaymentTransaction(String respond) throws PaymentException {
-        Card card = Card.getInstance();
+    private GiaoDichThanhToan extractPaymentTransaction(String respond) throws PaymentException {
+        The the = The.getInstance();
         JsonObject respondJson = new JsonParser().parse(respond).getAsJsonObject();
         String errCode = respondJson.get("errorCode").getAsString();
 
@@ -69,26 +69,26 @@ public class InterbankSubsystemController {
 
         JsonObject transactionJson = respondJson.getAsJsonObject("transaction");
 
-        if (card.equals(transactionJson.get("cardCode").getAsString())) {
+        if (the.equals(transactionJson.get("cardCode").getAsString())) {
             Utils.LOGGER.warning("ID Card not match with respond card");
         }
-        card.setAmount(1000);
+        the.setAmount(1000);
 
         String transactionId = transactionJson.get("transactionId").getAsString();
         String transactionContent = transactionJson.get("transactionContent").getAsString();
         int amount = transactionJson.get("amount").getAsInt();
         String createdAt = transactionJson.get("createdAt").getAsString();
-        return new PaymentTransaction(errCode, card, transactionId, transactionContent, amount, createdAt);
+        return new GiaoDichThanhToan(errCode, the, transactionId, transactionContent, amount, createdAt);
     }
 
     public String reset() {
         JsonObject jsonObject = new JsonObject();
-        Card card = Card.getInstance();
+        The the = The.getInstance();
 
-        jsonObject.addProperty("cardCode", card.getId());
-        jsonObject.addProperty("owner", card.getOwner());
-        jsonObject.addProperty("cvvCode", card.getCvv());
-        jsonObject.addProperty("dateExpired", card.getDateExpire());
+        jsonObject.addProperty("cardCode", the.getId());
+        jsonObject.addProperty("owner", the.getOwner());
+        jsonObject.addProperty("cvvCode", the.getCvv());
+        jsonObject.addProperty("dateExpired", the.getDateExpire());
 
         String respondText = interbankBoundary.query(Config.baseUrl + Config.resetUrl, jsonObject.toString());
         return respondText;
@@ -96,6 +96,6 @@ public class InterbankSubsystemController {
     public static void main(String[] args) {
         InterbankSubsystemController interbankSubsystemController = new InterbankSubsystemController();
 //        System.out.println(interbankSubsystemController.reset());
-        System.out.println(interbankSubsystemController.pay(Card.getInstance(), 15000, "San rut tien"));
+        System.out.println(interbankSubsystemController.pay(The.getInstance(), 15000, "San rut tien"));
     }
 }

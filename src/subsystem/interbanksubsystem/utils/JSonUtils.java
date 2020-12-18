@@ -1,11 +1,11 @@
 package subsystem.interbanksubsystem.utils;
 
 import com.google.gson.JsonObject;
-import entity.Card;
+import entity.The;
 
 public class JSonUtils {
-    private static Card getCard() {
-        return Card.getInstance();
+    private static The getCard() {
+        return The.getInstance();
     }
 
     /**
@@ -16,13 +16,13 @@ public class JSonUtils {
      * @return json object
      */
     private static JsonObject getJsonForTransaction(String command, String content, int amount) {
-        Card card = JSonUtils.getCard();
+        The the = JSonUtils.getCard();
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("command", command);
-        jsonObject.addProperty("cardCode", card.getId());
-        jsonObject.addProperty("owner", card.getOwner());
-        jsonObject.addProperty("cvvCode", card.getCvv());
-        jsonObject.addProperty("dateExpired", card.getDateExpire());
+        jsonObject.addProperty("cardCode", the.getId());
+        jsonObject.addProperty("owner", the.getOwner());
+        jsonObject.addProperty("cvvCode", the.getCvv());
+        jsonObject.addProperty("dateExpired", the.getDateExpire());
         jsonObject.addProperty("transactionContent", content);
         jsonObject.addProperty("amount", String.valueOf(amount));
 
@@ -58,12 +58,12 @@ public class JSonUtils {
     }
 
     public static JsonObject getReset() {
-        Card card = JSonUtils.getCard();
+        The the = JSonUtils.getCard();
         JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("cardCode", card.getId());
-        jsonObject.addProperty("owner", card.getOwner());
-        jsonObject.addProperty("cvvCode", card.getCvv());
-        jsonObject.addProperty("dateExpired", card.getDateExpire());
+        jsonObject.addProperty("cardCode", the.getId());
+        jsonObject.addProperty("owner", the.getOwner());
+        jsonObject.addProperty("cvvCode", the.getCvv());
+        jsonObject.addProperty("dateExpired", the.getDateExpire());
         return jsonObject;
     }
 }

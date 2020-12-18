@@ -9,24 +9,34 @@ package entity;
 
 public class Xe {
     private int id;
-    private String loaiXe;
+    private LoaiXe loaiXe;
     private String bienSoXe;
     private int idBaiXe;
-    private int tienCoc;
     private int trangThai;
     private Integer pin ;
+    public String paramsName = "id_xe, loai_xe, bien_so_xe, id_bai_xe, trang_thai, pin";
 
     public Xe(){
     }
 
-    public Xe(int id, String loaiXe, String bienSoXe, int idBaiXe, int tienCoc, int trangThai, Integer pin) {
+    public Xe(int id, LoaiXe loaiXe, String bienSoXe, int idBaiXe, int trangThai, Integer pin) {
         this.id = id;
         this.loaiXe = loaiXe;
         this.bienSoXe = bienSoXe;
         this.idBaiXe = idBaiXe;
-        this.tienCoc = tienCoc;
         this.trangThai = trangThai;
         this.pin = pin;
+    }
+
+    @Override
+    public String toString() {
+        return id +
+                "," + loaiXe.getId() +
+                ", '" + bienSoXe + '\'' +
+                ", " + idBaiXe +
+                ", " + trangThai +
+                ", " + pin +
+                "";
     }
 
     public int getId() {
@@ -37,11 +47,11 @@ public class Xe {
         this.id = id;
     }
 
-    public String getLoaiXe() {
+    public LoaiXe getLoaiXe() {
         return loaiXe;
     }
 
-    public void setLoaiXe(String loaiXe) {
+    public void setLoaiXe(LoaiXe loaiXe) {
         this.loaiXe = loaiXe;
     }
 
@@ -59,14 +69,6 @@ public class Xe {
 
     public void setIdBaiXe(int idBaiXe) {
         this.idBaiXe = idBaiXe;
-    }
-
-    public int getTienCoc() {
-        return tienCoc;
-    }
-
-    public void setTienCoc(int tienCoc) {
-        this.tienCoc = tienCoc;
     }
 
     public int getTrangThai() {

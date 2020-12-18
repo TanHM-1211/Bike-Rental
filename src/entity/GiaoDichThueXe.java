@@ -12,27 +12,20 @@ public class GiaoDichThueXe {
     private int idGiaoDichThueXe;
     private int idXe;
     private int idNguoiDung;
-    private int soTien;
     private int idBaiXeThue;
     private int idBaiXeTra;
-    private Date thoiDiemThue;
-    private Date thoiDiemTra;
-    private String idTheGiaoDich;
-    private int cachThue;
+    private GiaoDichThanhToan thanhToanThue;
+    private GiaoDichThanhToan thanhToanTra;
+    private int soTien;
 
     public GiaoDichThueXe(){}
 
-    public GiaoDichThueXe(int idGiaoDichThueXe, int idXe, int idNguoiDung, int soTien, int idBaiXeThue, int idBaiXeTra, Date thoiDiemThue, Date thoiDiemTra, String idTheGiaoDich, int cachThue) {
+    public GiaoDichThueXe(int idGiaoDichThueXe, int idXe, int idNguoiDung, int idBaiXeThue, GiaoDichThanhToan thanhToanThue) {
         this.idGiaoDichThueXe = idGiaoDichThueXe;
         this.idXe = idXe;
         this.idNguoiDung = idNguoiDung;
-        this.soTien = soTien;
         this.idBaiXeThue = idBaiXeThue;
-        this.idBaiXeTra = idBaiXeTra;
-        this.thoiDiemThue = thoiDiemThue;
-        this.thoiDiemTra = thoiDiemTra;
-        this.idTheGiaoDich = idTheGiaoDich;
-        this.cachThue = cachThue;
+        this.thanhToanThue = thanhToanThue;
     }
 
     public int getIdGiaoDichThueXe() {
@@ -59,14 +52,6 @@ public class GiaoDichThueXe {
         this.idNguoiDung = idNguoiDung;
     }
 
-    public int getSoTien() {
-        return soTien;
-    }
-
-    public void setSoTien(int soTien) {
-        this.soTien = soTien;
-    }
-
     public int getIdBaiXeThue() {
         return idBaiXeThue;
     }
@@ -76,43 +61,35 @@ public class GiaoDichThueXe {
     }
 
     public int getIdBaiXeTra() {
-        return this.idBaiXeTra;
+        return idBaiXeTra;
     }
 
     public void setIdBaiXeTra(int idBaiXeTra) {
         this.idBaiXeTra = idBaiXeTra;
     }
 
-    public Date getThoiDiemThue() {
-        return thoiDiemThue;
+    public GiaoDichThanhToan getThanhToanThue() {
+        return thanhToanThue;
     }
 
-    public void setThoiDiemThue(Date thoiDiemThue) {
-        this.thoiDiemThue = thoiDiemThue;
+    public void setThanhToanThue(GiaoDichThanhToan thanhToanThue) {
+        this.thanhToanThue = thanhToanThue;
     }
 
-    public Date getThoiDiemTra() {
-        return thoiDiemTra;
+    public GiaoDichThanhToan getThanhToanTra() {
+        return thanhToanTra;
     }
 
-    public void setThoiDiemTra(Date thoiDiemTra) {
-        this.thoiDiemTra = thoiDiemTra;
+    public void setThanhToanTra(GiaoDichThanhToan thanhToanTra) {
+        this.thanhToanTra = thanhToanTra;
     }
 
-    public String getIdTheGiaoDich() {
-        return idTheGiaoDich;
+    public int getSoTien() {
+        return soTien;
     }
 
-    public void setIdTheGiaoDich(String idTheGiaoDich) {
-        this.idTheGiaoDich = idTheGiaoDich;
-    }
-
-    public int getCachThue() {
-        return cachThue;
-    }
-
-    public void setCachThue(int cachThue) {
-        this.cachThue = cachThue;
+    public void setSoTien(int soTien) {
+        this.soTien = soTien;
     }
 }
 

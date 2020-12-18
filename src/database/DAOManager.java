@@ -5,10 +5,8 @@ package database;
  * User: Nhom 11
  * Create at 5:41 PM , 12/17/2020
  */
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+
 import utils.Configs;
 
 public class DAOManager {
@@ -22,8 +20,8 @@ public class DAOManager {
     public static String DB_PASS = Configs.DB_PASSWORD;
 
     // Database Connection
-    Connection conn = null;
-    Statement stmt = null;
+    public Connection connection = null;
+    public Statement statement = null;
 
     public DAOManager() throws Exception
     {
@@ -41,10 +39,10 @@ public class DAOManager {
 
     public void open() throws SQLException {
         try {
-            if (this.conn == null && this.stmt == null) {
+            if (this.connection == null && this.statement == null) {
 //                System.out.println(DB_URL);
-                this.conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-                this.stmt = conn.createStatement();
+                this.connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                this.statement = connection.createStatement();
             }
         } catch (SQLException e) {
             // Handle errors for JDBC
@@ -56,8 +54,8 @@ public class DAOManager {
     public void close() throws SQLException
     {
         try {
-            if (this.conn != null)
-                this.conn.close();
+            if (this.connection != null)
+                this.connection.close();
         } catch(SQLException e) {
             // Handle errors for JDBC
             e.printStackTrace();
@@ -65,13 +63,17 @@ public class DAOManager {
         }
     }
 
-    public static void main(String args[]){
-        try{
-        DAOManager daoMngr = new DAOManager();
-        daoMngr.open();
-        daoMngr.close();}
+    public ResultSet executeQuery(String query)
+    {
+        ResultSet resultSet = null;
+        try {
+            this.statement.execute(query);
+            resultSet = this.statement.getResultSet();
+        }
         catch (Exception e){
             e.printStackTrace();
         }
+
+        return resultSet;
     }
 }

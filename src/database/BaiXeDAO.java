@@ -14,12 +14,21 @@ import java.util.Optional;
 
 public class BaiXeDAO implements DAO<BaiXe> {
     private List<BaiXe> listBaiXe = new ArrayList<>();
+    private DAOManager daoManager;
 
     public BaiXeDAO() {
     }
 
+    public DAOManager getDaoManager() {
+        return this.daoManager;
+    }
+
+    public void setDaoManager(DAOManager daoManager) {
+        this.daoManager = daoManager;
+    }
+
     @Override
-    public Optional<BaiXe> get(long id) {
+    public Optional<BaiXe> get(int id) {
         return Optional.ofNullable(listBaiXe.get((int) id));
     }
 
@@ -46,5 +55,21 @@ public class BaiXeDAO implements DAO<BaiXe> {
     @Override
     public void delete(BaiXe baiXe) {
         listBaiXe.remove(baiXe);
+    }
+
+    @Override
+    public String getInsertQuery(List<BaiXe> list) {
+        String values = "";
+        for (BaiXe baiXe:
+             list) {
+            values += baiXe.toString() + ",";
+        }
+        if(values.charAt(values.length()-1) == ',') values = values.substring(0, values.length()-1);
+        return Utils.getInsertQuery(BaiXe.name, BaiXe.paramsName, values);
+    }
+
+    @Override
+    public void getFromDB() {
+
     }
 }

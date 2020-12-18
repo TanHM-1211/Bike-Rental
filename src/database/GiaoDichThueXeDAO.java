@@ -1,7 +1,6 @@
 package database;
 
 import entity.GiaoDichThueXe;
-import entity.Xe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +19,7 @@ public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
     }
 
     @Override
-    public Optional<GiaoDichThueXe> get(long id) {
+    public Optional<GiaoDichThueXe> get(int id) {
         return Optional.ofNullable(listGiaoDichThueXe.get((int) id));
     }
 
@@ -47,5 +46,19 @@ public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
     @Override
     public void delete(GiaoDichThueXe giaoDichThueXe) {
         listGiaoDichThueXe.remove(giaoDichThueXe);
+    }
+
+    @Override
+    public String getInsertQuery(List<GiaoDichThueXe> list) {
+        for (GiaoDichThueXe giaoDichThueXe:
+                listGiaoDichThueXe) {
+
+        }
+        return "";
+    }
+
+    @Override
+    public void getFromDB() {
+
     }
 }
