@@ -9,13 +9,11 @@ import java.util.List;
  * Create at 9:49 AM , 12/16/2020
  */
 
-public class BaiXe extends DoiTuongCoBan {
+public class BaiXe {
     private int id ;
     private String tenBaiXe;
     private String diaChi;
     private int dienTich;
-    public static String paramsName = "(id_bai_xe, ten_bai_xe, dia_chi, dien_tich)";
-    public static String name = "bai_xe";
 
     public BaiXe() {
     }
@@ -25,15 +23,6 @@ public class BaiXe extends DoiTuongCoBan {
         this.tenBaiXe = tenBaiXe;
         this.diaChi = diaChi;
         this.dienTich = dienTich;
-    }
-
-    @Override
-    public String toString() {
-        return  "(" + id +
-                ", '" + tenBaiXe + '\'' +
-                ", '" + diaChi + '\'' +
-                ", " + dienTich +
-                ")";
     }
 
     public int getId() {

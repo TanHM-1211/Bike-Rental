@@ -10,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class BaseScreenHandler extends FXMLScreenHandler {
-
 	private Scene scene;
 	private BaseScreenHandler prev;
 	protected final Stage stage;
@@ -59,5 +58,8 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 		this.messages = messages;
 	}
 
+	public Stage getStage() {
+		return stage;
+	}
 
 }

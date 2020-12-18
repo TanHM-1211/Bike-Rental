@@ -3,7 +3,9 @@ package utils;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
-
+/**
+ * @author nguyenlm Contains the configs for AIMS Project
+ */
 public class Configs {
 
 	// api constants
@@ -13,17 +15,13 @@ public class Configs {
 	public static final String RESET_URL = "https://ecopark-system-api.herokuapp.com/api/card/reset";
 
 	// demo data
-	public static final String GROUP_NAME = "118131_group11_2020";
-	public static final String OWNER = "Group 11";
-	public static final String CVV_CODE = "505";
-	public static final String DATE_EXPIRED = "1125";
 	public static final String POST_DATA = "{"
-			+ " \"secretKey\": \"BAVDCDK5Pew=\" ,"
+			+ " \"secretKey\": \"BUXj/7/gHHI=\" ,"
 			+ " \"transaction\": {"
 			+ " \"command\": \"pay\" ,"
-			+ " \"cardCode\": \"118131_group11_2020\" ,"
-			+ " \"owner\": \"Group 11\" ,"
-			+ " \"cvvCode\": \"505\" ,"
+			+ " \"cardCode\": \"118609_group1_2020\" ,"
+			+ " \"owner\": \"Group 1\" ,"
+			+ " \"cvvCode\": \"185\" ,"
 			+ " \"dateExpried\": \"1125\" ,"
 			+ " \"transactionContent\": \"Pei debt\" ,"
 			+ " \"amount\": 50000 "
@@ -32,9 +30,9 @@ public class Configs {
 	public static final String TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIxMTg2MDlfZ3JvdXAxXzIwMjAiLCJpYXQiOjE1OTkxMTk5NDl9.y81pBkM0pVn31YDPFwMGXXkQRKW5RaPIJ5WW5r9OW-Y";
 
 	// database Configs
-	public static final String DB_NAME = "capstone_project";
-	public static final String DB_USERNAME = "root";
-	public static final String DB_PASSWORD = "1234";
+	public static final String DB_NAME = "aims";
+	public static final String DB_USERNAME = System.getenv("DB_USERNAME");
+	public static final String DB_PASSWORD = System.getenv("DB_PASSWORD");
 
 	public static String CURRENCY = "VND";
 	public static float PERCENT_VAT = 10;
@@ -47,6 +45,7 @@ public class Configs {
 	public static final String MAVACH_PATH  = "/views/fxml/nhapMaVach.fxml";
 	public static final String THUEXE_THONGTINXE_PATH  = "/views/fxml/thueXeThongTinXe.fxml";
     public static final String TRAXE_THONGTINXE_PATH  = "/views/fxml/traxeThongTinXe.fxml";
+	public static final String BAIXE_Brief_PATH  = "/views/fxml/baiXeBrief.fxml";
     public static final String THONGTIN_BAIXE_PATH  = "/views/fxml/thongTinBaiXe.fxml";
 	public static final String THUEXE_CHONTHE_PATH  = "/views/fxml/chonTheThanhToan.fxml";
 	public static final String THUEXE_XACNHAN_PATH  = "/views/fxml/xacNhanThanhToan.fxml";

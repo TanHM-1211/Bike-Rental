@@ -57,15 +57,12 @@ public class App extends Application {
            // After fade out, load actual content
            fadeOut.setOnFinished((e) -> {
                 try {
-                      GiaoDienChinh giaoDienChinh = new GiaoDienChinh(primaryStage, Configs.HOME_PATH);
+                    GiaoDienChinh giaoDienChinh = new GiaoDienChinh(primaryStage, Configs.HOME_PATH);
                     giaoDienChinh.setScreenTitle("Start screen");
                     giaoDienChinh.show();
 
-//                    GiaoDienChinh giaoDienChinh = new GiaoDienChinh(primaryStage, Configs.HOME_PATH);
-//                    giaoDienChinh.setScreenTitle("Start screen");
-//                    giaoDienChinh.show();
 
-//                    GiaoDienNhapMaVach giaoDienNhapMaVach = new GiaoDienNhapMaVach(primaryStage, Configs.MAVACH_PATH);
+//                    GiaoDienBaiXe giaoDienNhapMaVach = new GiaoDienBaiXe(primaryStage, Configs.MAVACH_PATH);
 //                    giaoDienNhapMaVach.setScreenTitle("Nhap ma vach");
 //                    giaoDienNhapMaVach.show();
 
@@ -92,8 +89,8 @@ public class App extends Application {
 //                    giaoDienThongTinXe.setIcon();
 //                    giaoDienThongTinXe.show();
 
-                    GiaoDienXacNhanTraXe giaoDienXacNhanTraXe = new GiaoDienXacNhanTraXe(primaryStage, Configs.THUEXE_XACNHAN_PATH);
-                    giaoDienXacNhanTraXe.show();
+//                    GiaoDienXacNhanTraXe giaoDienXacNhanTraXe = new GiaoDienXacNhanTraXe(primaryStage, Configs.THUEXE_XACNHAN_PATH);
+//                    giaoDienXacNhanTraXe.show();
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }

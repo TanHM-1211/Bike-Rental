@@ -21,6 +21,8 @@ public class GiaoDienMenu  implements Initializable{
     @FXML
     ImageView logo;
     @FXML
+    ImageView back;
+    @FXML
     MenuButton menu;
 
     public void setImage(ImageView imv, String path){
@@ -33,11 +35,14 @@ public class GiaoDienMenu  implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         // set logo icon
         setImage(this.logo,"logo.png");
+        // set back icon
+        setImage(this.back, "back.png");
         //set menu icon
-//        ImageView imageMenu;
-//        File file = new File(Configs.IMAGE_PATH+"menu.png");
-//        Image image = new Image(file.toURI().toString());
-//        ImageView imageView = new ImageView(image);
-//        menu.setGraphic(imageView);
+        ImageView imageMenu;
+        File file = new File(Configs.IMAGE_PATH+"menu.png");
+        Image image = new Image(file.toURI().toString());
+        ImageView imageView = new ImageView(image);
+        menu.setGraphic(imageView);
+
     }
 }
