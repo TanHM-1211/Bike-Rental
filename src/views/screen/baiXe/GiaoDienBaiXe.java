@@ -1,5 +1,6 @@
-package views.screen.giaoDienChinh;
+package views.screen.baiXe;
 
+import entity.BaiXe;
 import javafx.fxml.FXML;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -20,6 +21,8 @@ public class GiaoDienBaiXe extends FXMLScreenHandler {
     Text view1;
     @FXML
     Text view2;
+
+    BaiXe baiXe;
     private BaseScreenHandler parentScene;
 
     public void setFill(String c){
@@ -28,7 +31,7 @@ public class GiaoDienBaiXe extends FXMLScreenHandler {
     public void xemThongTin(){
         GiaoDienThongTinBaiXe giaoDienThongTinBaiXe = null;
         try {
-            giaoDienThongTinBaiXe = new GiaoDienThongTinBaiXe(parentScene.getStage(), Configs.THONGTIN_BAIXE_PATH);
+            giaoDienThongTinBaiXe = new GiaoDienThongTinBaiXe(parentScene.getStage(),baiXe, Configs.THONGTIN_BAIXE_PATH);
             giaoDienThongTinBaiXe.setScreenTitle("Thong tin bai xe");
             giaoDienThongTinBaiXe.setIcon();
             giaoDienThongTinBaiXe.show();
@@ -49,8 +52,11 @@ public class GiaoDienBaiXe extends FXMLScreenHandler {
     public void setParentScene(BaseScreenHandler parentScene) {
         this.parentScene = parentScene;
     }
-    public GiaoDienBaiXe(String screenPath) throws IOException {
+    public GiaoDienBaiXe(String screenPath, BaiXe baixe) throws IOException {
         super(screenPath);
+        this.baiXe = baixe;
+        view1.setText(baiXe.getTenBaiXe());
+        view2.setText(baiXe.getDiaChi());
     }
 
 }

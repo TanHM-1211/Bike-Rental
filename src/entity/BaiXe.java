@@ -16,7 +16,7 @@ public class BaiXe extends DoiTuongCoBan {
     private int dienTich;
     public static String paramsName = "(id_bai_xe, ten_bai_xe, dia_chi, dien_tich)";
     public static String name = "bai_xe";
-
+    private Xe[] danhSachXeTrongBai ;
     public BaiXe() {
     }
 
@@ -72,7 +72,7 @@ public class BaiXe extends DoiTuongCoBan {
     public static List getAll(){
         ArrayList list = new ArrayList();
         for (int i = 1 ; i <= 4 ; i ++){
-            BaiXe baiXe = new BaiXe(i,"baixe"+i,"hanoi",i*1000);
+            BaiXe baiXe = new BaiXe(i,"baixe"+i,"hanoi" + i,i*1000);
             list.add(baiXe);
         }
         return list;

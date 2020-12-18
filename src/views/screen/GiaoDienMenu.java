@@ -1,11 +1,16 @@
 package views.screen;
 
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import utils.Configs;
+import views.screen.giaoDienChinh.GiaoDienChinh;
 
 import java.io.File;
 import java.net.URL;
@@ -24,6 +29,16 @@ public class GiaoDienMenu  implements Initializable{
     ImageView back;
     @FXML
     MenuButton menu;
+    @FXML
+    MenuItem home;
+    @FXML
+    MenuItem thueXe;
+    @FXML
+    MenuItem xeDangThue;
+    @FXML
+    MenuItem traXe;
+
+    private BaseScreenHandler parentScene;
 
     public void setImage(ImageView imv, String path){
         File file = new File(Configs.IMAGE_PATH+path);
@@ -43,6 +58,10 @@ public class GiaoDienMenu  implements Initializable{
         Image image = new Image(file.toURI().toString());
         ImageView imageView = new ImageView(image);
         menu.setGraphic(imageView);
+
+        home.setOnAction(e ->{
+
+        });
 
     }
 }

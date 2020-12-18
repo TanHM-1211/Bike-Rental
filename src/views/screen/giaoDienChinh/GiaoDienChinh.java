@@ -6,28 +6,38 @@ package views.screen.giaoDienChinh;
  * @since : 17/12/2020, Thu
  **/
 import java.io.IOException;
-import java.util.logging.Logger;
+import java.util.List;
 
+import controller.DieuKhienBaiXe;
+import entity.BaiXe;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import utils.Configs;
-import utils.Utils;
 import views.screen.BaseScreenHandler;
+import views.screen.baiXe.GiaoDienBaiXe;
 
 
 public class GiaoDienChinh extends BaseScreenHandler {
     @FXML
     VBox listBaiXe;
+    List baiXeAll;
     String [] listColor = new String[]{"#e1e8f2","#e5d5eb","#f1f5d6","#d8f8d1"};
     public void loadBaiXe()throws IOException {
-        for(int i=0; i<4; ++i) {
-            GiaoDienBaiXe giaoDienBaiXe = new GiaoDienBaiXe(Configs.BAIXE_Brief_PATH);
-            giaoDienBaiXe.setFill(listColor[i]);
+        baiXeAll = new DieuKhienBaiXe().getALLBaiXe();
+        for (Object object: baiXeAll){
+            BaiXe baiXe = (BaiXe) object;
+            GiaoDienBaiXe giaoDienBaiXe = new GiaoDienBaiXe(Configs.BAIXE_Brief_PATH, baiXe);
             giaoDienBaiXe.setClick(this);
             listBaiXe.getChildren().add(giaoDienBaiXe.getContent());
         }
+
+//        for(int i=0; i<4; ++i) {
+//            GiaoDienBaiXe giaoDienBaiXe = new GiaoDienBaiXe(Configs.BAIXE_Brief_PATH);
+//            giaoDienBaiXe.setFill(listColor[i]);
+//            giaoDienBaiXe.setClick(this);
+//            listBaiXe.getChildren().add(giaoDienBaiXe.getContent());
+//        }
     }
 
 
