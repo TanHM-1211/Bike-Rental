@@ -9,12 +9,14 @@ import java.util.List;
  * Create at 9:49 AM , 12/16/2020
  */
 
-public class BaiXe {
+public class BaiXe extends DoiTuongCoBan {
     private int id ;
     private String tenBaiXe;
     private String diaChi;
     private int dienTich;
-
+    public static String paramsName = "(id_bai_xe, ten_bai_xe, dia_chi, dien_tich)";
+    public static String name = "bai_xe";
+    private Xe[] danhSachXeTrongBai ;
     public BaiXe() {
     }
 
@@ -23,6 +25,15 @@ public class BaiXe {
         this.tenBaiXe = tenBaiXe;
         this.diaChi = diaChi;
         this.dienTich = dienTich;
+    }
+
+    @Override
+    public String toString() {
+        return  "(" + id +
+                ", '" + tenBaiXe + '\'' +
+                ", '" + diaChi + '\'' +
+                ", " + dienTich +
+                ")";
     }
 
     public int getId() {
@@ -61,7 +72,7 @@ public class BaiXe {
     public static List getAll(){
         ArrayList list = new ArrayList();
         for (int i = 1 ; i <= 4 ; i ++){
-            BaiXe baiXe = new BaiXe(i,"baixe"+i,"hanoi",i*1000);
+            BaiXe baiXe = new BaiXe(i,"baixe"+i,"hanoi" + i,i*1000);
             list.add(baiXe);
         }
         return list;

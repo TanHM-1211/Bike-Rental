@@ -1,11 +1,16 @@
 package views.screen;
 
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import utils.Configs;
+import views.screen.giaoDienChinh.GiaoDienChinh;
 
 import java.io.File;
 import java.net.URL;
@@ -21,7 +26,19 @@ public class GiaoDienMenu  implements Initializable{
     @FXML
     ImageView logo;
     @FXML
+    ImageView back;
+    @FXML
     MenuButton menu;
+    @FXML
+    MenuItem home;
+    @FXML
+    MenuItem thueXe;
+    @FXML
+    MenuItem xeDangThue;
+    @FXML
+    MenuItem traXe;
+
+    private BaseScreenHandler parentScene;
 
     public void setImage(ImageView imv, String path){
         File file = new File(Configs.IMAGE_PATH+path);
@@ -33,11 +50,26 @@ public class GiaoDienMenu  implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         // set logo icon
         setImage(this.logo,"logo.png");
+        // set back icon
+        setImage(this.back, "back.png");
         //set menu icon
-//        ImageView imageMenu;
-//        File file = new File(Configs.IMAGE_PATH+"menu.png");
-//        Image image = new Image(file.toURI().toString());
-//        ImageView imageView = new ImageView(image);
-//        menu.setGraphic(imageView);
+        ImageView imageMenu;
+        File file = new File(Configs.IMAGE_PATH+"menu.png");
+        Image image = new Image(file.toURI().toString());
+        ImageView imageView = new ImageView(image);
+        menu.setGraphic(imageView);
+
+        home.setOnAction(e ->{
+            System.out.println("home");
+        });
+        thueXe.setOnAction(e ->{
+            System.out.println("thue xe");
+        });
+        traXe.setOnAction(e ->{
+            System.out.println("tra xe");
+        });
+        xeDangThue.setOnAction(e ->{
+            System.out.println("xe dang thue");
+        });
     }
 }
