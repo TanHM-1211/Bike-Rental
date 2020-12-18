@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitMenuButton?>
@@ -12,6 +13,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
+=======
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+>>>>>>> main
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -22,12 +28,17 @@
             <fx:include source="menu.fxml" />
             <AnchorPane prefHeight="449.0" prefWidth="335.0">
                <children>
+<<<<<<< HEAD
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d8f8d1" height="313.0" layoutX="26.0" layoutY="68.0" stroke="#669900" strokeType="INSIDE" strokeWidth="2.0" width="285.0" />
                   <Text fill="#669900" layoutX="26.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bãi xe 01">
+=======
+                  <Text fx:id="baiXe" fill="#669900" layoutX="26.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bãi xe 01">
+>>>>>>> main
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Text>
+<<<<<<< HEAD
                   <GridPane layoutX="33.0" layoutY="74.0" prefHeight="301.0" prefWidth="263.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.0" minWidth="10.0" prefWidth="27.0" />
@@ -140,6 +151,14 @@
                       <MenuItem mnemonicParsing="false" text="Xe Đạp Điện" />
                     </items>
                   </SplitMenuButton>
+=======
+                  <Label fx:id="loaiXe" layoutX="26.0" layoutY="60.0" prefHeight="27.0" prefWidth="61.0" text="Xe Đạp" textFill="#194f1cc9">
+                     <font>
+                        <Font name="Bookshelf Symbol 7" size="18.0" />
+                     </font>
+                  </Label>
+                  <VBox fx:id="listXeTheoLoai" layoutX="17.0" layoutY="100.0" prefHeight="338.0" prefWidth="303.0" />
+>>>>>>> main
                </children>
             </AnchorPane>
          </children>

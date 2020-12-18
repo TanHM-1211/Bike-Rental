@@ -45,12 +45,18 @@ public class Configs {
 	public static final String SPLASH_SCREEN_PATH = "/views/fxml/splash.fxml";
 	public static final String MENU_PATH  = "/views/fxml/menu.fxml";
 	public static final String MAVACH_PATH  = "/views/fxml/nhapMaVach.fxml";
+<<<<<<< HEAD
 	public static final String THUEXE_THONGTINXE_PATH  = "/views/fxml/thueXeThongTinXe.fxml";
+=======
+	public static final String THONG_TIN_XE_PATH  = "/views/fxml/thongTinChiTietXe.fxml";
+>>>>>>> main
 	public static final String TRAXE_THONGTINXE_PATH  = "/views/fxml/traxeThongTinXe.fxml";
 	public static final String BAIXE_Brief_PATH  = "/views/fxml/baiXeBrief.fxml";
 	public static final String THONGTIN_BAIXE_PATH  = "/views/fxml/thongTinBaiXe.fxml";
 	public static final String THUEXE_CHONTHE_PATH  = "/views/fxml/chonTheThanhToan.fxml";
 	public static final String THUEXE_XACNHAN_PATH  = "/views/fxml/xacNhanThanhToan.fxml";
+	public static final String XE_THEO_LOAI_PATH = "/views/fxml/xeTheoLoai.fxml";
+	public static final String XE_BRIEF_PATH = "/views/fxml/xeBrief.fxml";
 
 	public static Font REGULAR_FONT = Font.font("Segoe UI", FontWeight.NORMAL, FontPosture.REGULAR, 24);
 

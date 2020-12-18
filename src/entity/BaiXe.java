@@ -76,7 +76,18 @@ public class BaiXe extends DoiTuongCoBan {
             list.add(baiXe);
         }
         return list;
-
+    }
+    public static List getXe(){
+        ArrayList list = new ArrayList();
+        for (int i=1 ; i <=8; i ++ ){
+            Xe xe;
+            if (i%2==0){
+               xe = new Xe(i,new LoaiXe(i,"xedap",1000*i,i*20,i*10), String.valueOf(i*1111),i, i, Integer.parseInt("90"));
+            }
+            else xe = new Xe(i,new LoaiXe(i,"xedapdien",1000*i,i*20,i*10), String.valueOf(i*1111),i, i, Integer.parseInt("90"));
+            list.add(xe);
+        }
+        return  list;
     }
 }
 
