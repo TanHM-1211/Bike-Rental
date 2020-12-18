@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane fx:id="thongTinXe" prefHeight="88.0" prefWidth="303.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="77.0" prefWidth="334.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="anhXe" fitHeight="88.0" fitWidth="93.0" layoutX="11.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bike" fitHeight="58.0" fitWidth="99.0" layoutX="23.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../assets/images/bike.PNG" />
          </image>
       </ImageView>
-      <Pane layoutX="132.0" layoutY="6.0" prefHeight="78.0" prefWidth="157.0" style="-fx-border-color: green;">
+      <Pane fx:id="view" layoutX="119.0" layoutY="22.0" prefHeight="58.0" prefWidth="184.0" style="-fx-border-color: green; -fx-background-color: #e1e8f2; -fx-border-width: 2;" AnchorPane.rightAnchor="30.0">
          <children>
-            <Label layoutX="13.0" layoutY="10.0" prefHeight="27.0" prefWidth="69.0" text="Mã số xe:">
+            <Label layoutX="13.0" layoutY="6.0" prefHeight="27.0" prefWidth="69.0" text="Mã số xe:">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="39.0" prefHeight="27.0" prefWidth="54.0" text="Pin:">
+            <Label layoutX="14.0" layoutY="31.0" prefHeight="27.0" prefWidth="69.0" text="Pin:">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Text fx:id="maSoXe" layoutX="82.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+            <Text fx:id="maSoXe" layoutX="82.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="69.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fx:id="pin" layoutX="82.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+            <Text fx:id="pin" layoutX="82.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="80" wrappingWidth="81.826171875">
                <font>
                   <Font size="14.0" />
                </font>
@@ -37,4 +40,4 @@
          </children>
       </Pane>
    </children>
-</Pane>
+</AnchorPane>

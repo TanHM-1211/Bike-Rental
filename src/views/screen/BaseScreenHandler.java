@@ -7,7 +7,10 @@ import java.util.List;
 import controller.BaseController;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import subsystem.interbanksubsystem.utils.Config;
+import utils.Configs;
 
 public class BaseScreenHandler extends FXMLScreenHandler {
 	private Scene scene;
@@ -60,6 +63,15 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 
 	public Stage getStage() {
 		return stage;
+	}
+
+	public void setMenu(VBox mainVBox){
+		try {
+			GiaoDienMenu giaoDienMenu = new GiaoDienMenu(Configs.MENU_PATH,this);
+			mainVBox.getChildren().set(0,giaoDienMenu.getContent());
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 	}
 
 }

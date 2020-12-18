@@ -32,7 +32,6 @@ public class FXMLScreenHandler {
 	public void setImage(ImageView imv, String path){
 		File file = new File(Configs.IMAGE_PATH+path);
 		Image img = new Image(file.toURI().toString());
-		System.out.println(file.toURI().toString());
 		imv.setImage(img);
 	}
 }

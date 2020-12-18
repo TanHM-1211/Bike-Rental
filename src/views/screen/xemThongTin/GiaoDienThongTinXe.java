@@ -4,6 +4,7 @@ import entity.Xe;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import views.screen.BaseScreenHandler;
 import javafx.scene.image.Image;
@@ -17,12 +18,15 @@ import java.io.IOException;
 
 public class GiaoDienThongTinXe extends BaseScreenHandler{
     @FXML
+    VBox mainVBox;
+    @FXML
     ImageView bike;
     public void setIcon(){
         setImage(this.bike,"bike.png");
     }
-    public GiaoDienThongTinXe(Stage stage, String screenPath) throws IOException {
+    public GiaoDienThongTinXe(Stage stage, String screenPath, Xe xe) throws IOException {
         super(stage, screenPath);
-
+        setMenu(mainVBox);
+        setIcon();
     }
 }

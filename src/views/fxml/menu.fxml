@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ImageInput?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="148.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.screen.GiaoDienMenu">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="148.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField focusTraversable="false" layoutX="106.0" layoutY="111.0" prefHeight="32.0" prefWidth="208.0" promptText="nhap dia chi" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="78.0" stroke="#669900" strokeType="INSIDE" strokeWidth="2.0" width="335.0" />
@@ -31,9 +35,9 @@
             <MenuItem mnemonicParsing="false" text="Đãng xuất" />
         </items>
          <effect>
-            <ImageInput>
+            <ImageInput fx:id="menuImg">
                <source>
-                  <Image url="file:/F:/2020/20202/ThietKeXayDungPhanMem/Project/CapstoneProject/assets/images/menu.png" />
+                  <Image url="file:/D:/Java%20Project/CapstoneProject/assets/images/menu.png" />
                </source>
             </ImageInput>
          </effect>

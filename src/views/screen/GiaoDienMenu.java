@@ -7,12 +7,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.effect.ImageInput;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import utils.Configs;
 import views.screen.giaoDienChinh.GiaoDienChinh;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -22,13 +24,15 @@ import java.util.ResourceBundle;
  * Create at 9:51 AM , 12/16/2020
  */
 
-public class GiaoDienMenu  implements Initializable{
+public class GiaoDienMenu extends FXMLScreenHandler{
     @FXML
     ImageView logo;
     @FXML
     ImageView back;
     @FXML
     MenuButton menu;
+    @FXML
+    ImageInput menuImg;
     @FXML
     MenuItem home;
     @FXML
@@ -40,27 +44,23 @@ public class GiaoDienMenu  implements Initializable{
 
     private BaseScreenHandler parentScene;
 
-    public void setImage(ImageView imv, String path){
-        File file = new File(Configs.IMAGE_PATH+path);
-        Image img = new Image(file.toURI().toString());
-        imv.setImage(img);
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // set logo icon
+    public void setIcon(){
         setImage(this.logo,"logo.png");
-        // set back icon
         setImage(this.back, "back.png");
-        //set menu icon
-        ImageView imageMenu;
         File file = new File(Configs.IMAGE_PATH+"menu.png");
         Image image = new Image(file.toURI().toString());
-        ImageView imageView = new ImageView(image);
-        menu.setGraphic(imageView);
+        menuImg.setSource(image);
 
+    }
+
+    public void setClick(){
         home.setOnAction(e ->{
-            System.out.println("home");
+            try {
+                GiaoDienChinh giaoDienChinh = new GiaoDienChinh(parentScene.getStage(), Configs.HOME_PATH);
+                giaoDienChinh.show();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         });
         thueXe.setOnAction(e ->{
             System.out.println("thue xe");
@@ -71,5 +71,15 @@ public class GiaoDienMenu  implements Initializable{
         xeDangThue.setOnAction(e ->{
             System.out.println("xe dang thue");
         });
+        back.setOnMouseClicked(e ->{
+            if (parentScene.getPreviousScreen()!=null)
+                parentScene.getPreviousScreen().show();
+        });
+    }
+    public GiaoDienMenu(String screenPath, BaseScreenHandler parentScene) throws IOException{
+        super(screenPath);
+        this.parentScene = parentScene;
+        setIcon();
+        setClick();
     }
 }
