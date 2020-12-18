@@ -31,13 +31,6 @@ public class GiaoDienChinh extends BaseScreenHandler {
             giaoDienBaiXe.setClick(this);
             listBaiXe.getChildren().add(giaoDienBaiXe.getContent());
         }
-
-//        for(int i=0; i<4; ++i) {
-//            GiaoDienBaiXe giaoDienBaiXe = new GiaoDienBaiXe(Configs.BAIXE_Brief_PATH);
-//            giaoDienBaiXe.setFill(listColor[i]);
-//            giaoDienBaiXe.setClick(this);
-//            listBaiXe.getChildren().add(giaoDienBaiXe.getContent());
-//        }
     }
 
 
