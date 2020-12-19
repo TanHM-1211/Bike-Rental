@@ -41,7 +41,7 @@ public class BaiXeDAO implements DAO<BaiXe> {
     @Override
     public BaiXe get(int id) {
         for (BaiXe baiXe:
-             this.listBaiXe) {
+             listBaiXe) {
             if (baiXe.getId() == id) return baiXe;
         }
         return null;

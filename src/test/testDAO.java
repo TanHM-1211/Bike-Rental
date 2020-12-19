@@ -42,7 +42,7 @@ public class testDAO {
 //                System.out.println(loaiXe.toString());
 //            }
             for (Xe xe:
-                 xeDAO.getAll()) {
+                 BaiXe.getXeTrongBai(baiXeDAO.getAll().get(0))) {
                 System.out.println(xe.toString());
             }
 //            Thread.sleep(100000);
