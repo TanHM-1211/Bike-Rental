@@ -31,6 +31,17 @@ public class GiaoDichThanhToanDAO implements DAO<GiaoDichThanhToan> {
     }
 
     @Override
+    public GiaoDichThanhToan parse(ResultSet resultSet) {
+//        try {
+//            return new BaiXe(resultSet.getInt(1), resultSet.getString(2),
+//                    resultSet.getString(3), resultSet.getInt(4));
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+        return null;
+    }
+
+    @Override
     public GiaoDichThanhToan get(int id) {
         return null;
     }

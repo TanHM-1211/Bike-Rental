@@ -2,6 +2,7 @@ package database;
 
 import entity.Xe;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 /**
@@ -12,6 +13,7 @@ import java.util.List;
 
 public interface DAO<T> {
 
+    T parse(ResultSet resultSet);
     T get(int id);
 
     List<T> getAll();

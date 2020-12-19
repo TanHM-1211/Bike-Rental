@@ -1,7 +1,6 @@
 package database;
 
-import entity.NguoiDung;
-import entity.NguoiDungGiaoDichThueXe;
+import entity.*;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -30,14 +29,36 @@ public class NguoiDungGiaoDichThueXeDAO implements DAO<NguoiDungGiaoDichThueXe> 
     }
 
     @Override
+    public NguoiDungGiaoDichThueXe parse(ResultSet resultSet) {
+        NguoiDungDAO nguoiDungDAO = NguoiDungDAO.getInstance();
+        GiaoDichThueXeDAO giaoDichThueXeDAO = GiaoDichThueXeDAO.getInstance();
+        try {
+            return new NguoiDungGiaoDichThueXe(resultSet.getInt(1), nguoiDungDAO.get(resultSet.getInt(2)),
+                    resultSet.getObject(3) != null ? giaoDichThueXeDAO.get(resultSet.getInt(3)) : null  // nullable
+            );
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
     public NguoiDungGiaoDichThueXe get(int id) {
         return null;
     }
 
-//    public NguoiDungGiaoDichThueXe getNguoiDungGiaoDichThueXeHienTai(NguoiDung nguoiDung){
-//        ResultSet resultSet = this.daoManager.executeQuery("SELECT * FROM " + NguoiDungGiaoDichThueXe.name +
-//                " WHERE id_nguoi_dung");
-//    }
+    public NguoiDungGiaoDichThueXe getNguoiDungGiaoDichThueXeTuongUng(NguoiDung nguoiDung){
+        ResultSet resultSet = this.daoManager.executeQuery("SELECT * FROM " + NguoiDungGiaoDichThueXe.name +
+                " WHERE id_nguoi_dung=" + nguoiDung.getId() + ";");
+        try {
+            resultSet.next();
+            return parse(resultSet);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+
+    }
 
     @Override
     public List<NguoiDungGiaoDichThueXe> getAll() {

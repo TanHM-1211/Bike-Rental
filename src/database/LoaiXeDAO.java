@@ -24,11 +24,7 @@ public class LoaiXeDAO implements DAO<LoaiXe> {
         ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + LoaiXe.name + ";");
         try {
             while (resultSet.next()){
-                listLoaiXe.add(new LoaiXe(resultSet.getInt(1),
-                        resultSet.getString(2),
-                        resultSet.getInt(3),
-                        resultSet.getInt(4),
-                        resultSet.getInt(5)));
+                listLoaiXe.add(parse(resultSet));
             }
             resultSet.close();
         }catch (Exception e){
@@ -41,6 +37,20 @@ public class LoaiXeDAO implements DAO<LoaiXe> {
             loaiXeDAO = new LoaiXeDAO();
         }
         return loaiXeDAO;
+    }
+
+    @Override
+    public LoaiXe parse(ResultSet resultSet) {
+        try {
+            return new LoaiXe(resultSet.getInt(1),
+                    resultSet.getString(2),
+                    resultSet.getInt(3),
+                    resultSet.getInt(4),
+                    resultSet.getInt(5));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override

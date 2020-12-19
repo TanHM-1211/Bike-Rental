@@ -4,6 +4,7 @@ import controller.DieuKhienBaiXe;
 import database.*;
 import entity.BaiXe;
 import entity.LoaiXe;
+import entity.NguoiDung;
 import entity.Xe;
 
 import java.sql.ResultSet;
@@ -20,10 +21,12 @@ public class testDAO {
         try{
             DAOManager daoManager= DAOManager.getInstance();
             daoManager.open();
-
             BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
-     //       LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
+            LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
             XeDAO xeDAO = XeDAO.getInstance();
+//            BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
+//            LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
+//            XeDAO xeDAO = XeDAO.getInstance();
 //            listBaiXe.add(new BaiXe(1, "bai A", "dia chi 1", 10));
 //            baiXeDAO.save(new BaiXe(4, "bai A", "dia chi 1", 10));
 //            String query = Utils.getGetQuery(BaiXe.name, "*", null);
@@ -43,16 +46,26 @@ public class testDAO {
 //                 loaiXeDAO.getAll()) {
 //                System.out.println(loaiXe.toString());
 //            }
-            List baiXeAll = new DieuKhienBaiXe().getAllBaiXe();
-            for (Object baiXe: baiXeAll) {
-                 System.out.println(baiXe.toString());
-            }
+
+//            List baiXeAll = new DieuKhienBaiXe().getAllBaiXe();
+//            for (Object baiXe: baiXeAll) {
+//                System.out.println(baiXe.toString());
+//            }
+//
+
+//            for (Xe xe:
+//                 BaiXe.getXeTrongBai(baiXeDAO.getAll().get(2))) {
+//                System.out.println(xe.toString());
+//            }
             for (Xe xe:
                     (baiXeDAO.getAll().get(0).getXeTrongBai())) {
                 System.out.println(xe.toString());
             }
-//            Thread.sleep(100000);
-       //    daoManager.close();
+
+            System.out.println(NguoiDungGiaoDichThueXeDAO.getInstance().getNguoiDungGiaoDichThueXeTuongUng(
+                    NguoiDungDAO.getInstance().getNguoiDungHienTai()).toString());
+            Thread.sleep(100000);
+            daoManager.close();
         }
         catch (Exception e){
             e.printStackTrace();

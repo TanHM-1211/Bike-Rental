@@ -1,8 +1,10 @@
 package database;
 
+import entity.LoaiXe;
 import entity.NguoiDungGiaoDichThueXe;
 import entity.The;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,11 @@ public class TheDAO implements DAO<The> {
             theDAO = new TheDAO();
         }
         return theDAO;
+    }
+
+    @Override
+    public The parse(ResultSet resultSet) {
+        return null;
     }
 
     public The getTheHienTai(){

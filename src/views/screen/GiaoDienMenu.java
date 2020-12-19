@@ -71,8 +71,6 @@ public class GiaoDienMenu extends FXMLScreenHandler{
         xeDangThue.setOnAction(e ->{
             XeDAO xeDAO = XeDAO.getInstance();
             Xe xe = xeDAO.getAll().get(0);
-//            xe.setTrangThai(Xe.DANG_THUE);
-            System.out.println(xe.toString());
             try {
                 GiaoDienThongTinXe giaoDienThongTinXe= new GiaoDienThongTinXe(parentScene.getStage(),Configs.THONG_TIN_XE_PATH,xe);
                 giaoDienThongTinXe.setPreviousScreen(parentScene);
