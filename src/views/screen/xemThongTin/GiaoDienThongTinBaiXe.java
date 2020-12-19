@@ -53,9 +53,9 @@ public class GiaoDienThongTinBaiXe extends BaseScreenHandler{
         setImage(this.bike2,"bike2.png");
     }
     public void loadXeTrongBai(){
-        DieuKhienBaiXe dieuKhienBaiXe = new DieuKhienBaiXe();
-        this.listXeDapDienTrongBai = dieuKhienBaiXe.getLoaiXe("xedapdien");
-        this.listXeDapTrongBai = dieuKhienBaiXe.getLoaiXe("xedap");
+      //  DieuKhienBaiXe dieuKhienBaiXe = new DieuKhienBaiXe();
+        this.listXeDapDienTrongBai = BaiXe.getXeTrongBai(baiXe);
+        this.listXeDapTrongBai =BaiXe.getXeTrongBai(baiXe);
     }
     public void xemDanhSachLoaiXe(String listName, List listXe){
         try {

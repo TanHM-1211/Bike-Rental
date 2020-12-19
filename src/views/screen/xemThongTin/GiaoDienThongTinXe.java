@@ -43,7 +43,7 @@ public class GiaoDienThongTinXe extends BaseScreenHandler{
         super(stage, screenPath);
         setMenu(mainVBox);
         setIcon();
-        tenBaiXe.setText(xe.getIdBaiXe() + " bai xe");
+        tenBaiXe.setText(xe.getBaiXe().getTenBaiXe() + " bai xe");
         loaiXe.setText(xe.getLoaiXe().getTenLoaiXe());
         pin.setText(xe.getPin().toString());
         bienSo.setText(xe.getBienSoXe());
