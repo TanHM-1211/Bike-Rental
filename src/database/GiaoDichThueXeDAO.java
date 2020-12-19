@@ -77,16 +77,37 @@ public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
         return this.listGiaoDichThueXe;
     }
 
-    @Override
-    public void save(GiaoDichThueXe giaoDichThueXe) {
-        this.listGiaoDichThueXe.add(giaoDichThueXe);
-        daoManager.executeQuery("INSERT INTO " + GiaoDichThueXe.name + " " + GiaoDichThanhToan.paramsName +
-                " VALUES " + giaoDichThueXe.toSQLString() + ";");
+    public GiaoDichThueXe getGiaoDichThueXeTuongUng(NguoiDung nguoiDung){
+        NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe = NguoiDungGiaoDichThueXeDAO.getInstance().getNguoiDungGiaoDichThueXeTuongUng(nguoiDung);
+        if (nguoiDungGiaoDichThueXe != null)
+            return nguoiDungGiaoDichThueXe.getGiaoDichThueXe();
+        else return null;
     }
 
     @Override
+    public void save(GiaoDichThueXe giaoDichThueXe) {
+        this.listGiaoDichThueXe.add(giaoDichThueXe);
+        daoManager.executeQuery("INSERT INTO " + GiaoDichThueXe.name + " " + GiaoDichThueXe.paramsName +
+                " VALUES " + giaoDichThueXe.toSQLString() + ";");
+    }
+
+    /*
+    update giao dich hoan chinh
+     */
+    @Override
     public void update(GiaoDichThueXe giaoDichThueXe) {
-        ResultSet resultSet = daoManager.executeQuery("SELECT * ");
+        ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + GiaoDichThueXe.name +
+                " WHERE id_giao_dich_thue_xe=" + giaoDichThueXe.getId() + ";");
+        try{
+            resultSet.next();
+            resultSet.updateInt("id_bai_xe_tra", giaoDichThueXe.getBaiXeTra().getId());
+            resultSet.updateInt("id_thanh_toan_tra", giaoDichThueXe.getThanhToanTra().getId());
+            resultSet.updateInt("so_tien", giaoDichThueXe.getSoTien());
+            resultSet.updateRow();
+            resultSet.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -94,8 +115,4 @@ public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
 
     }
 
-    @Override
-    public String getInsertQuery(List<GiaoDichThueXe> list) {
-        return null;
-    }
 }

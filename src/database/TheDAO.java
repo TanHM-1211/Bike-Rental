@@ -63,8 +63,4 @@ public class TheDAO implements DAO<The> {
 
     }
 
-    @Override
-    public String getInsertQuery(List<The> list) {
-        return null;
-    }
 }

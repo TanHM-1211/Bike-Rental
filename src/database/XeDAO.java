@@ -1,5 +1,8 @@
 package database;
 
+import entity.GiaoDichThanhToan;
+import entity.NguoiDung;
+import entity.NguoiDungGiaoDichThueXe;
 import entity.Xe;
 
 import java.sql.ResultSet;
@@ -68,6 +71,12 @@ public class XeDAO implements DAO<Xe> {
         return null;
     }
 
+    public Xe getXeTuongUng(NguoiDung nguoiDung){
+        NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe = NguoiDungGiaoDichThueXeDAO.getInstance().getNguoiDungGiaoDichThueXeTuongUng(nguoiDung);
+        if (nguoiDungGiaoDichThueXe.getGiaoDichThueXe() != null) return nguoiDungGiaoDichThueXe.getGiaoDichThueXe().getXe();
+        return null;
+    }
+
     @Override
     public List<Xe> getAll() {
         return listXe;
@@ -80,12 +89,17 @@ public class XeDAO implements DAO<Xe> {
 
     @Override
     public void update(Xe xe) {
-//        Xe.setName(Objects.requireNonNull(
-//                params[0], "Name cannot be null"));
-//        Xe.setEmail(Objects.requireNonNull(
-//                params[1], "Email cannot be null"));
-
-        listXe.add(xe);
+        ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + Xe.name +
+                " WHERE id_xe=" + xe.getId() + ";");
+        try{
+            resultSet.next();
+            resultSet.updateInt("trang_thai", xe.getTrangThai());
+            resultSet.updateInt("id_bai_xe", xe.getBaiXe().getId());
+            resultSet.updateRow();
+            resultSet.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -93,13 +107,4 @@ public class XeDAO implements DAO<Xe> {
         listXe.remove(xe);
     }
 
-    @Override
-    public String getInsertQuery(List<Xe> list) {
-        for (Xe xe:
-             listXe) {
-
-        }
-        return "";
-    }
-    
 }

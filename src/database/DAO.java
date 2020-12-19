@@ -22,7 +22,5 @@ public interface DAO<T> {
 
     void delete(T t);
 
-    String getInsertQuery(List<T> list);
-
 
 }

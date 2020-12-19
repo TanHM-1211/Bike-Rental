@@ -84,11 +84,6 @@ public class GiaoDichThanhToanDAO implements DAO<GiaoDichThanhToan> {
 
     @Override
     public void delete(GiaoDichThanhToan giaoDichThanhToan) {
-
     }
 
-    @Override
-    public String getInsertQuery(List<GiaoDichThanhToan> list) {
-        return null;
-    }
 }

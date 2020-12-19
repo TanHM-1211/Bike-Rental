@@ -80,8 +80,4 @@ public class LoaiXeDAO implements DAO<LoaiXe> {
 
     }
 
-    @Override
-    public String getInsertQuery(List<LoaiXe> list) {
-        return null;
-    }
 }

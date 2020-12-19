@@ -1,6 +1,7 @@
 package database;
 
 import entity.NguoiDung;
+import entity.Xe;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -80,8 +81,4 @@ public class NguoiDungDAO implements DAO<NguoiDung> {
 
     }
 
-    @Override
-    public String getInsertQuery(List<NguoiDung> list) {
-        return null;
-    }
 }

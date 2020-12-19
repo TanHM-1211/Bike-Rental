@@ -75,9 +75,4 @@ public class BaiXeDAO implements DAO<BaiXe> {
     public void delete(BaiXe baiXe) {
     }
 
-    @Override
-    public String getInsertQuery(List<BaiXe> list) {
-        return null;
-    }
-
 }

@@ -13,6 +13,7 @@ public class NguoiDungGiaoDichThueXe {
     private int id;
     private NguoiDung nguoiDung;
     private GiaoDichThueXe giaoDichThueXe;
+    public static String paramsName = "(id_nguoi_dung_giao_dich_thue_xe, id_nguoi_dung, id_giao_dich_thue_xe)";
     public static String name = "nguoi_dung_giao_dich_thue_xe";
     public static NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe = null;
 
@@ -23,6 +24,30 @@ public class NguoiDungGiaoDichThueXe {
         this.id = id;
         this.nguoiDung = nguoiDung;
         this.giaoDichThueXe = giaoDichThueXe;
+    }
+
+    @Override
+    public String toString() {
+        return "NguoiDungGiaoDichThueXe{" +
+                "id=" + id +
+                ", nguoiDung=" + nguoiDung +
+                ", giaoDichThueXe=" + giaoDichThueXe +
+                '}';
+    }
+
+    public String toSQLString() {
+        if (this.giaoDichThueXe != null)
+            return "(" +
+                    "" + id +
+                    ", " + nguoiDung.getId() +
+                    ", " + giaoDichThueXe.getId() +
+                    ')';
+        else
+            return "(" +
+                    "" + id +
+                    ", " + nguoiDung.getId() +
+                    ", null"  +
+                    ')';
     }
 
     public int getId() {

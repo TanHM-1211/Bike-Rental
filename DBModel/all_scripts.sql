@@ -1,4 +1,4 @@
- -- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
 -- Host: localhost    Database: capstone_project
 -- ------------------------------------------------------
@@ -51,7 +51,7 @@ DROP TABLE IF EXISTS `giao_dich_thanh_toan`;
 CREATE TABLE `giao_dich_thanh_toan` (
   `id_giao_dich_thanh_toan` int NOT NULL,
   `id_the` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `thoi_gian_tao` datetime NOT NULL,
+  `thoi_gian_tao` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `so_tien` int NOT NULL,
   `noi_dung` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id_giao_dich_thanh_toan`)
@@ -64,6 +64,7 @@ CREATE TABLE `giao_dich_thanh_toan` (
 
 LOCK TABLES `giao_dich_thanh_toan` WRITE;
 /*!40000 ALTER TABLE `giao_dich_thanh_toan` DISABLE KEYS */;
+INSERT INTO `giao_dich_thanh_toan` VALUES (0,'118131_group11_2020','2020-12-19 21:11:42',10,'testing'),(1,'118131_group11_2020','2020-12-19 21:17:41',10,'testing'),(2,'118131_group11_2020','2020-12-19 21:17:51',-10,'testing');
 /*!40000 ALTER TABLE `giao_dich_thanh_toan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,10 +80,10 @@ CREATE TABLE `giao_dich_thue_xe` (
   `id_xe` int NOT NULL,
   `id_nguoi_dung` int NOT NULL,
   `id_bai_xe_thue` int NOT NULL,
-  `id_bai_xe_tra` int NOT NULL,
+  `id_bai_xe_tra` int DEFAULT NULL,
   `id_thanh_toan_thue` int NOT NULL,
-  `id_thanh_toan_tra` int NOT NULL,
-  `so_tien` int NOT NULL,
+  `id_thanh_toan_tra` int DEFAULT NULL,
+  `so_tien` int DEFAULT NULL,
   PRIMARY KEY (`id_giao_dich_thue_xe`),
   KEY `id_bai_xe_idx` (`id_bai_xe_thue`,`id_bai_xe_tra`),
   KEY `id_xe_idx` (`id_xe`),
@@ -181,6 +182,7 @@ CREATE TABLE `nguoi_dung_giao_dich_thue_xe` (
 
 LOCK TABLES `nguoi_dung_giao_dich_thue_xe` WRITE;
 /*!40000 ALTER TABLE `nguoi_dung_giao_dich_thue_xe` DISABLE KEYS */;
+INSERT INTO `nguoi_dung_giao_dich_thue_xe` VALUES (1,1,NULL);
 /*!40000 ALTER TABLE `nguoi_dung_giao_dich_thue_xe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,7 +198,7 @@ CREATE TABLE `xe` (
   `id_loai_xe` int NOT NULL,
   `bien_so_xe` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
   `id_bai_xe` int NOT NULL,
-  `trang_thai` bit(1) NOT NULL,
+  `trang_thai` int NOT NULL,
   `pin` int DEFAULT NULL,
   PRIMARY KEY (`id_xe`),
   KEY `id_bai_xe_idx` (`id_bai_xe`),
@@ -212,7 +214,7 @@ CREATE TABLE `xe` (
 
 LOCK TABLES `xe` WRITE;
 /*!40000 ALTER TABLE `xe` DISABLE KEYS */;
-INSERT INTO `xe` VALUES (1,1,'000001',1,_binary '',NULL),(2,3,'121001',2,_binary '\0',50),(5,3,'123346',1,_binary '\0',90),(7,3,'112456',1,_binary '\0',75),(9,1,'109856',2,_binary '',NULL),(11,3,'112246',3,_binary '\0',86);
+INSERT INTO `xe` VALUES (1,1,'000001',1,0,NULL),(2,3,'121001',2,0,50),(5,3,'123346',1,0,90),(7,3,'112456',1,0,75),(9,1,'109856',2,0,NULL),(11,3,'112246',3,0,86);
 /*!40000 ALTER TABLE `xe` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -225,4 +227,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-19 13:33:28
+-- Dump completed on 2020-12-19 23:19:15
