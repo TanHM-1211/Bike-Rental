@@ -64,7 +64,7 @@ CREATE TABLE `giao_dich_thanh_toan` (
 
 LOCK TABLES `giao_dich_thanh_toan` WRITE;
 /*!40000 ALTER TABLE `giao_dich_thanh_toan` DISABLE KEYS */;
-INSERT INTO `giao_dich_thanh_toan` VALUES (0,'118131_group11_2020','2020-12-19 21:11:42',10,'testing'),(1,'118131_group11_2020','2020-12-19 21:17:41',10,'testing'),(2,'118131_group11_2020','2020-12-19 21:17:51',-10,'testing'),(3,'118131_group11_2020','2020-12-19 23:24:34',-280000,'thue'),(4,'118131_group11_2020','2020-12-19 23:24:36',279999,'thue'),(5,'118131_group11_2020','2020-12-19 23:25:36',-280000,'thue'),(6,'118131_group11_2020','2020-12-19 23:25:38',279999,'thue'),(7,'118131_group11_2020','2020-12-19 23:29:19',-280000,'thue'),(8,'118131_group11_2020','2020-12-19 23:29:21',279999,'thue'),(9,'118131_group11_2020','2020-12-19 23:31:56',-280000,'thue'),(10,'118131_group11_2020','2020-12-19 23:31:57',279999,'tra'),(11,'118131_group11_2020','2020-12-19 23:32:55',-280000,'thue'),(12,'118131_group11_2020','2020-12-19 23:32:56',279999,'tra'),(13,'118131_group11_2020','2020-12-19 23:40:51',-280000,'thue'),(14,'118131_group11_2020','2020-12-19 23:40:52',279999,'tra'),(15,'118131_group11_2020','2020-12-19 23:44:36',-280000,'thue'),(16,'118131_group11_2020','2020-12-19 23:44:38',279999,'tra');
+INSERT INTO `giao_dich_thanh_toan` VALUES (0,'118131_group11_2020','2020-12-20 00:08:00',-280000,'thue'),(1,'118131_group11_2020','2020-12-20 00:11:52',279999,'tra');
 /*!40000 ALTER TABLE `giao_dich_thanh_toan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -104,6 +104,7 @@ CREATE TABLE `giao_dich_thue_xe` (
 
 LOCK TABLES `giao_dich_thue_xe` WRITE;
 /*!40000 ALTER TABLE `giao_dich_thue_xe` DISABLE KEYS */;
+INSERT INTO `giao_dich_thue_xe` VALUES (0,5,1,1,3,0,1,1);
 /*!40000 ALTER TABLE `giao_dich_thue_xe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,6 +183,7 @@ CREATE TABLE `nguoi_dung_giao_dich_thue_xe` (
 
 LOCK TABLES `nguoi_dung_giao_dich_thue_xe` WRITE;
 /*!40000 ALTER TABLE `nguoi_dung_giao_dich_thue_xe` DISABLE KEYS */;
+INSERT INTO `nguoi_dung_giao_dich_thue_xe` VALUES (0,1,NULL);
 /*!40000 ALTER TABLE `nguoi_dung_giao_dich_thue_xe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,7 +215,7 @@ CREATE TABLE `xe` (
 
 LOCK TABLES `xe` WRITE;
 /*!40000 ALTER TABLE `xe` DISABLE KEYS */;
-INSERT INTO `xe` VALUES (1,1,'000001',1,0,NULL),(2,3,'121001',2,0,50),(5,3,'123346',1,0,90),(7,3,'112456',1,0,75),(9,1,'109856',2,0,NULL),(11,3,'112246',3,0,86);
+INSERT INTO `xe` VALUES (1,1,'000001',1,0,NULL),(2,3,'121001',2,0,50),(5,3,'123346',3,0,90),(7,3,'112456',1,0,75),(9,1,'109856',2,0,NULL),(11,3,'112246',3,0,86);
 /*!40000 ALTER TABLE `xe` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -226,4 +228,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-19 23:46:35
+-- Dump completed on 2020-12-20  0:12:39

@@ -66,7 +66,10 @@ public class NguoiDungGiaoDichThueXeDAO implements DAO<NguoiDungGiaoDichThueXe> 
     }
 
     public NguoiDungGiaoDichThueXe getNguoiDungGiaoDichThueXeTuongUng(NguoiDung nguoiDung){
-        return get(nguoiDung.getId());
+        for(NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe: this.listNguoiDungGiaoDichThueXe){
+            if(nguoiDungGiaoDichThueXe.getNguoiDung().getId() == nguoiDung.getId()) return nguoiDungGiaoDichThueXe;
+        }
+        return null;
     }
 
     @Override
@@ -84,7 +87,7 @@ public class NguoiDungGiaoDichThueXeDAO implements DAO<NguoiDungGiaoDichThueXe> 
     @Override
     public void update(NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe) {
         ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + NguoiDungGiaoDichThueXe.name +
-                " WHERE id_giao_dich_thue_xe=" + nguoiDungGiaoDichThueXe.getId() + ";");
+                " WHERE id_nguoi_dung_giao_dich_thue_xe=" + nguoiDungGiaoDichThueXe.getId() + ";");
         try{
             if (resultSet.next()) {
 

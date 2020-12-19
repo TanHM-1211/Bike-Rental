@@ -48,6 +48,10 @@ public class NguoiDungDAO implements DAO<NguoiDung> {
 
     @Override
     public NguoiDung get(int id) {
+        for (NguoiDung nguoiDung:
+             this.listNguoiDung) {
+            if (nguoiDung.getId() == id) return nguoiDung;
+        }
         return null;
     }
 
