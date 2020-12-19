@@ -35,7 +35,7 @@ public class XeDAO implements DAO<Xe> {
                         baiXeDAO.get(resultSet.getInt(4)),
                         resultSet.getInt(5),
                         resultSet.getObject(6) != null ? resultSet.getInt(6) : null));  //  pin: null neu la xe dap, Integer neu la xe dap dien
-                System.out.println(listXe.get(listXe.size()-1).toString());
+//                System.out.println(listXe.get(listXe.size()-1).toString());
             }
             resultSet.close();
         }catch (Exception e){
@@ -63,7 +63,7 @@ public class XeDAO implements DAO<Xe> {
 
     @Override
     public void save(Xe xe) {
-        listXe.add(xe);
+        this.listXe.add(xe);
     }
 
     @Override

@@ -86,7 +86,7 @@ public class BaiXe{
 
     //test
 
-    public static List getXeTrongBai(BaiXe baiXe){
+    public static ArrayList<Xe> getXeTrongBai(BaiXe baiXe){
         ArrayList list = new ArrayList();
         XeDAO xeDAO = XeDAO.getInstance();
         for (Xe xe:

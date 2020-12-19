@@ -3,6 +3,7 @@ package database;
 import entity.NguoiDung;
 import entity.NguoiDungGiaoDichThueXe;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +33,11 @@ public class NguoiDungGiaoDichThueXeDAO implements DAO<NguoiDungGiaoDichThueXe> 
     public NguoiDungGiaoDichThueXe get(int id) {
         return null;
     }
+
+//    public NguoiDungGiaoDichThueXe getNguoiDungGiaoDichThueXeHienTai(NguoiDung nguoiDung){
+//        ResultSet resultSet = this.daoManager.executeQuery("SELECT * FROM " + NguoiDungGiaoDichThueXe.name +
+//                " WHERE id_nguoi_dung");
+//    }
 
     @Override
     public List<NguoiDungGiaoDichThueXe> getAll() {
