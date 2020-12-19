@@ -74,6 +74,11 @@ public class testDAO {
 
 
 
+            for (Xe xe:
+                    (baiXeDAO.getAll().get(0).getXeTrongBai())) {
+                System.out.println(xe.toString());
+            }
+            System.out.println(NguoiDungDAO.getInstance().getNguoiDungHienTai().toString());
 //            for (Xe xe:
 //                    (baiXeDAO.getAll().get(0).getXeTrongBai())) {
 //                System.out.println(xe.toString());
