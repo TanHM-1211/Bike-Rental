@@ -64,7 +64,7 @@ CREATE TABLE `giao_dich_thanh_toan` (
 
 LOCK TABLES `giao_dich_thanh_toan` WRITE;
 /*!40000 ALTER TABLE `giao_dich_thanh_toan` DISABLE KEYS */;
-INSERT INTO `giao_dich_thanh_toan` VALUES (0,'118131_group11_2020','2020-12-19 21:11:42',10,'testing'),(1,'118131_group11_2020','2020-12-19 21:17:41',10,'testing'),(2,'118131_group11_2020','2020-12-19 21:17:51',-10,'testing');
+INSERT INTO `giao_dich_thanh_toan` VALUES (0,'118131_group11_2020','2020-12-19 21:11:42',10,'testing'),(1,'118131_group11_2020','2020-12-19 21:17:41',10,'testing'),(2,'118131_group11_2020','2020-12-19 21:17:51',-10,'testing'),(3,'118131_group11_2020','2020-12-19 23:24:34',-280000,'thue'),(4,'118131_group11_2020','2020-12-19 23:24:36',279999,'thue'),(5,'118131_group11_2020','2020-12-19 23:25:36',-280000,'thue'),(6,'118131_group11_2020','2020-12-19 23:25:38',279999,'thue'),(7,'118131_group11_2020','2020-12-19 23:29:19',-280000,'thue'),(8,'118131_group11_2020','2020-12-19 23:29:21',279999,'thue'),(9,'118131_group11_2020','2020-12-19 23:31:56',-280000,'thue'),(10,'118131_group11_2020','2020-12-19 23:31:57',279999,'tra'),(11,'118131_group11_2020','2020-12-19 23:32:55',-280000,'thue'),(12,'118131_group11_2020','2020-12-19 23:32:56',279999,'tra'),(13,'118131_group11_2020','2020-12-19 23:40:51',-280000,'thue'),(14,'118131_group11_2020','2020-12-19 23:40:52',279999,'tra'),(15,'118131_group11_2020','2020-12-19 23:44:36',-280000,'thue'),(16,'118131_group11_2020','2020-12-19 23:44:38',279999,'tra');
 /*!40000 ALTER TABLE `giao_dich_thanh_toan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,7 +182,6 @@ CREATE TABLE `nguoi_dung_giao_dich_thue_xe` (
 
 LOCK TABLES `nguoi_dung_giao_dich_thue_xe` WRITE;
 /*!40000 ALTER TABLE `nguoi_dung_giao_dich_thue_xe` DISABLE KEYS */;
-INSERT INTO `nguoi_dung_giao_dich_thue_xe` VALUES (1,1,NULL);
 /*!40000 ALTER TABLE `nguoi_dung_giao_dich_thue_xe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,4 +226,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-19 23:19:15
+-- Dump completed on 2020-12-19 23:46:35
