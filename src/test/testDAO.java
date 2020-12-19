@@ -20,7 +20,6 @@ public class testDAO {
     public static void main(String args[]){
         try{
             DAOManager daoManager= DAOManager.getInstance();
-            daoManager.open();
 
             BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
             LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
@@ -80,11 +79,7 @@ public class testDAO {
 //                System.out.println(xe.toString());
 //            }
 
-            NguoiDung nguoiDung =  NguoiDungDAO.getInstance().getNguoiDungHienTai();
-            System.out.println(nguoiDung.toString());
-            System.out.println(NguoiDungGiaoDichThueXeDAO.getInstance().getNguoiDungGiaoDichThueXeTuongUng(
-                   nguoiDung).toString());
-            Thread.sleep(100000);
+
 
             daoManager.close();
         }

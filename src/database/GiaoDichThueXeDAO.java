@@ -22,7 +22,6 @@ public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
     public static GiaoDichThueXeDAO giaoDichThueXeDAO = null;
 
     public GiaoDichThueXeDAO(){
-        daoManager.open();
         ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + GiaoDichThueXe.name + ";");
         try {
             while (resultSet.next()){

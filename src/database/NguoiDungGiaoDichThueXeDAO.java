@@ -15,14 +15,17 @@ import java.util.List;
 public class NguoiDungGiaoDichThueXeDAO implements DAO<NguoiDungGiaoDichThueXe> {
     private List<NguoiDungGiaoDichThueXe> listNguoiDungGiaoDichThueXe = new ArrayList<>();
     private DAOManager daoManager = DAOManager.getInstance();
+    NguoiDungDAO nguoiDungDAO = NguoiDungDAO.getInstance();
+    GiaoDichThueXeDAO giaoDichThueXeDAO = GiaoDichThueXeDAO.getInstance();
+
     public static NguoiDungGiaoDichThueXeDAO nguoiDungGiaoDichThueXeDAO = null;
 
     public NguoiDungGiaoDichThueXeDAO() {
-        daoManager.open();
         ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + NguoiDungGiaoDichThueXe.name + ";");
         try {
+
             while (resultSet.next()){
-                listNguoiDungGiaoDichThueXe.add(this.parse(resultSet));
+                listNguoiDungGiaoDichThueXe.add(parse(resultSet));
             }
             resultSet.close();
         }catch (Exception e){
@@ -39,12 +42,15 @@ public class NguoiDungGiaoDichThueXeDAO implements DAO<NguoiDungGiaoDichThueXe> 
 
     @Override
     public NguoiDungGiaoDichThueXe parse(ResultSet resultSet) {
-        NguoiDungDAO nguoiDungDAO = NguoiDungDAO.getInstance();
-        GiaoDichThueXeDAO giaoDichThueXeDAO = GiaoDichThueXeDAO.getInstance();
+
         try {
-            return new NguoiDungGiaoDichThueXe(resultSet.getInt(1), nguoiDungDAO.get(resultSet.getInt(2)),
+
+            NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe = new NguoiDungGiaoDichThueXe(resultSet.getInt(1),
+                    nguoiDungDAO.get(resultSet.getInt(2)),
                     resultSet.getObject(3) != null ? giaoDichThueXeDAO.get(resultSet.getInt(3)) : null  // nullable
             );
+            System.out.println(1);
+            return nguoiDungGiaoDichThueXe;
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -67,6 +73,7 @@ public class NguoiDungGiaoDichThueXeDAO implements DAO<NguoiDungGiaoDichThueXe> 
 
     public NguoiDungGiaoDichThueXe getNguoiDungGiaoDichThueXeTuongUng(NguoiDung nguoiDung){
         for(NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe: this.listNguoiDungGiaoDichThueXe){
+//            System.out.println(nguoiDungGiaoDichThueXe.toString());
             if(nguoiDungGiaoDichThueXe.getNguoiDung().getId() == nguoiDung.getId()) return nguoiDungGiaoDichThueXe;
         }
         return null;
