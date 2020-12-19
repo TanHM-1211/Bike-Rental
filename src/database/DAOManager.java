@@ -74,6 +74,7 @@ public class DAOManager {
     {
         ResultSet resultSet = null;
         try {
+            System.out.println(query);
             this.statement.execute(query);
             resultSet = this.statement.getResultSet();
         }

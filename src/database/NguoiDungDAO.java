@@ -1,9 +1,6 @@
 package database;
 
-import entity.LoaiXe;
 import entity.NguoiDung;
-import entity.NguoiDungGiaoDichThueXe;
-import entity.Xe;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -74,7 +71,7 @@ public class NguoiDungDAO implements DAO<NguoiDung> {
     }
 
     @Override
-    public void update(NguoiDung nguoiDung, String[] params) {
+    public void update(NguoiDung nguoiDung) {
 
     }
 

@@ -12,12 +12,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.logging.Logger;
 
-/**
- * Class: provide medthod to sending request to server and get responds
- * Date: 16/12/2020
- * @author san.dl170111
- * @version 1.0
- */
+
 public class HttpConnector {
     public static DateFormat DATE_FORMATER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     private static Logger LOGGER = Utils.getLogger(Utils.class.getName());

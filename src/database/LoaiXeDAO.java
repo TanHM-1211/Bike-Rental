@@ -1,7 +1,5 @@
 package database;
 
-import entity.BaiXe;
-import entity.GiaoDichThueXe;
 import entity.LoaiXe;
 
 import java.sql.ResultSet;
@@ -73,7 +71,7 @@ public class LoaiXeDAO implements DAO<LoaiXe> {
     }
 
     @Override
-    public void update(LoaiXe loaiXe, String[] params) {
+    public void update(LoaiXe loaiXe) {
 
     }
 

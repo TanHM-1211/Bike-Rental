@@ -5,13 +5,6 @@ import entity.GiaoDichThanhToan;
 import subsystem.interbanksubsystem.interbank.InterbankSubsystemController;
 import entity.The;
 
-/***
- * The {@code InterbankSubsystem} class is used to communicate with the
- * Interbank to make transaction.
- *
- * @author sandl
- *
- */
 
 public class InterbankSubsystem implements InterbankInterface {
 
@@ -30,12 +23,12 @@ public class InterbankSubsystem implements InterbankInterface {
     }
 
     public GiaoDichThanhToan pay(The the, int amount, String contents) {
-        GiaoDichThanhToan transaction = ctrl.pay(the, amount, contents);
-        return transaction;
+        GiaoDichThanhToan giaoDichThanhToan = ctrl.pay(the, amount, contents);
+        return giaoDichThanhToan;
     }
 
     public GiaoDichThanhToan refund(The the, int amount, String contents) {
-        GiaoDichThanhToan transaction = ctrl.refund(the, amount, contents);
-        return transaction;
+        GiaoDichThanhToan giaoDichThanhToan = ctrl.refund(the, amount, contents);
+        return giaoDichThanhToan;
     }
 }

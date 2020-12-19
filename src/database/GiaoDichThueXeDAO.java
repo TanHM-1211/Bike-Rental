@@ -1,12 +1,10 @@
 package database;
 
-import entity.BaiXe;
-import entity.GiaoDichThueXe;
+import entity.*;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Project Ecobike System
@@ -17,9 +15,24 @@ import java.util.Optional;
 public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
     private List<GiaoDichThueXe> listGiaoDichThueXe = new ArrayList<>();
     private DAOManager daoManager = DAOManager.getInstance();
+    private NguoiDungDAO nguoiDungDAO = NguoiDungDAO.getInstance();
+    private XeDAO xeDAO = XeDAO.getInstance();
+    private BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
+    private GiaoDichThanhToanDAO giaoDichThanhToanDAO = GiaoDichThanhToanDAO.getInstance();
     public static GiaoDichThueXeDAO giaoDichThueXeDAO = null;
 
-    public GiaoDichThueXeDAO(){}
+    public GiaoDichThueXeDAO(){
+        daoManager.open();
+        ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + GiaoDichThueXe.name + ";");
+        try {
+            while (resultSet.next()){
+                listGiaoDichThueXe.add(this.parse(resultSet));
+            }
+            resultSet.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     public static GiaoDichThueXeDAO getInstance(){
         if (giaoDichThueXeDAO == null){
@@ -30,33 +43,50 @@ public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
 
     @Override
     public GiaoDichThueXe parse(ResultSet resultSet) {
-//        try {
-//            return new BaiXe(resultSet.getInt(1), resultSet.getString(2),
-//                    resultSet.getString(3), resultSet.getInt(4));
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
+        try {
+            return new GiaoDichThueXe(resultSet.getInt(1),
+                    xeDAO.get(resultSet.getInt(2)),
+                    nguoiDungDAO.get(resultSet.getInt(3)),
+                    baiXeDAO.get(resultSet.getInt(4)),
+                    resultSet.getObject(5) != null ? baiXeDAO.get(resultSet.getInt(5)): null,
+                    giaoDichThanhToanDAO.get(resultSet.getInt(6)),
+                    resultSet.getObject(7) != null ? giaoDichThanhToanDAO.get(resultSet.getInt(7)): null,
+                    resultSet.getObject(8) != null ? resultSet.getInt(8): null);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return null;
+    }
+
+    public GiaoDichThueXe makeGiaoDichThueXeCoBan(Xe xe, NguoiDung nguoiDung, BaiXe baiXeThue, GiaoDichThanhToan giaoDichThanhToanThue){
+        return new GiaoDichThueXe(this.listGiaoDichThueXe.size(), xe, nguoiDung, baiXeThue, null, giaoDichThanhToanThue,
+                null, null);
     }
 
     @Override
     public GiaoDichThueXe get(int id) {
+        for (GiaoDichThueXe giaoDichThueXe:
+                this.listGiaoDichThueXe) {
+            if (giaoDichThueXe.getId() == id) return giaoDichThueXe;
+        }
         return null;
     }
 
     @Override
     public List<GiaoDichThueXe> getAll() {
-        return null;
+        return this.listGiaoDichThueXe;
     }
 
     @Override
     public void save(GiaoDichThueXe giaoDichThueXe) {
-
+        this.listGiaoDichThueXe.add(giaoDichThueXe);
+        daoManager.executeQuery("INSERT INTO " + GiaoDichThueXe.name + " " + GiaoDichThanhToan.paramsName +
+                " VALUES " + giaoDichThueXe.toSQLString() + ";");
     }
 
     @Override
-    public void update(GiaoDichThueXe giaoDichThueXe, String[] params) {
-
+    public void update(GiaoDichThueXe giaoDichThueXe) {
+        ResultSet resultSet = daoManager.executeQuery("SELECT * ");
     }
 
     @Override
