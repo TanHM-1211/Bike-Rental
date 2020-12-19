@@ -1,17 +1,13 @@
 package views.screen.thongTinBrief;
 
-import entity.BaiXe;
 import entity.Xe;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import utils.Configs;
 import views.screen.BaseScreenHandler;
 import views.screen.FXMLScreenHandler;
-import views.screen.xemThongTin.GiaoDienThongTinBaiXe;
 import views.screen.xemThongTin.GiaoDienThongTinXe;
 
 import java.io.IOException;
@@ -48,7 +44,11 @@ public class GiaoDienXe extends FXMLScreenHandler {
         this.parentScene = parentScene;
         setIcon();
         this.maSoXe.setText(String.valueOf(xe.getId()));
-        this.pin.setText(String.valueOf(xe.getPin()));
+        if (xe.getPin()!=null){
+            this.pin.setText(xe.getPin().toString());
+        }else {
+            this.pin.setText("Không");
+        }
         view.setOnMouseClicked(e -> {
             xemThongTin();
         });

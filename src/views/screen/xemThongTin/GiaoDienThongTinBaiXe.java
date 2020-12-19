@@ -1,7 +1,9 @@
 package views.screen.xemThongTin;
 
 import controller.DieuKhienBaiXe;
+import database.BaiXeDAO;
 import entity.BaiXe;
+import entity.Xe;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
@@ -36,6 +38,8 @@ public class GiaoDienThongTinBaiXe extends BaseScreenHandler{
     @FXML
     MenuItem listXeDap;
     @FXML
+    Text idBaiXe;
+    @FXML
     MenuItem listXeDapDien;
     @FXML
     Text soXeDap;
@@ -53,9 +57,8 @@ public class GiaoDienThongTinBaiXe extends BaseScreenHandler{
         setImage(this.bike2,"bike2.png");
     }
     public void loadXeTrongBai(){
-        DieuKhienBaiXe dieuKhienBaiXe = new DieuKhienBaiXe();
-        this.listXeDapDienTrongBai = dieuKhienBaiXe.getLoaiXe("xedapdien");
-        this.listXeDapTrongBai = dieuKhienBaiXe.getLoaiXe("xedap");
+        this.listXeDapTrongBai = baiXe.getXeTheoLoai(Xe.XE_DAP_THUONG);
+        this.listXeDapDienTrongBai = baiXe.getXeTheoLoai(Xe.XE_DAP_DIEN);
     }
     public void xemDanhSachLoaiXe(String listName, List listXe){
         try {
@@ -74,7 +77,7 @@ public class GiaoDienThongTinBaiXe extends BaseScreenHandler{
         setMenu(mainVBox);
         setIcon();
         loadXeTrongBai();
-
+        idBaiXe.setText("Bãi xe " + String.valueOf(baiXe.getId()));
         tenBaiXe.setText(baiXe.getTenBaiXe());
         diaChiBaiXe.setText(baiXe.getDiaChi());
         soXeDap.setText(String.valueOf(listXeDapTrongBai.size()));

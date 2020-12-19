@@ -13,14 +13,16 @@ public class NguoiDungGiaoDichThueXe {
     private int id;
     private NguoiDung nguoiDung;
     private GiaoDichThueXe giaoDichThueXe;
+    public static String name = "nguoi_dung_giao_dich_thue_xe";
     public static NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe = null;
 
     public NguoiDungGiaoDichThueXe() {
     }
 
-    public NguoiDungGiaoDichThueXe(int id, NguoiDung nguoiDung) {
+    public NguoiDungGiaoDichThueXe(int id, NguoiDung nguoiDung, GiaoDichThueXe giaoDichThueXe) {
         this.id = id;
         this.nguoiDung = nguoiDung;
+        this.giaoDichThueXe = giaoDichThueXe;
     }
 
     public int getId() {

@@ -11,6 +11,7 @@ package entity;
  */
 public class NguoiDung {
     private int id;
+    public static String name = "nguoi_dung";
     private static NguoiDung nguoiDung = null;
 
     public NguoiDung() {
@@ -25,6 +26,13 @@ public class NguoiDung {
 
     public NguoiDung(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "NguoiDung{" +
+                "id=" + id +
+                '}';
     }
 
     public int getId() {

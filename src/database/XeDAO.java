@@ -23,19 +23,14 @@ public class XeDAO implements DAO<Xe> {
     public static XeDAO xeDAO = null;
 
     public XeDAO() {
-        daoManager.open();
-        ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + Xe.name + ";");
         LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
         BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
+        daoManager.open();
+        ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + Xe.name + ";");
         try {
             while (resultSet.next()){
-                listXe.add(new Xe(resultSet.getInt(1),
-                        loaiXeDAO.get(resultSet.getInt(2)),
-                        resultSet.getString(3),
-                        baiXeDAO.get(resultSet.getInt(4)),
-                        resultSet.getInt(5),
-                        resultSet.getObject(6) != null ? resultSet.getInt(6) : null));  //  pin: null neu la xe dap, Integer neu la xe dap dien
-                System.out.println(listXe.get(listXe.size()-1).toString());
+                listXe.add(parse(resultSet));
+//                System.out.println(listXe.get(listXe.size()-1).toString());
             }
             resultSet.close();
         }catch (Exception e){
@@ -52,6 +47,23 @@ public class XeDAO implements DAO<Xe> {
     }
 
     @Override
+    public Xe parse(ResultSet resultSet) {
+        LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
+        BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
+        try {
+            return new Xe(resultSet.getInt(1),
+                    loaiXeDAO.get(resultSet.getInt(2)),
+                    resultSet.getString(3),
+                    baiXeDAO.get(resultSet.getInt(4)),
+                    resultSet.getInt(5),
+                    resultSet.getObject(6) != null ? resultSet.getInt(6) : null);  //  pin: null neu la xe dap, Integer neu la xe dap dien
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
     public Xe get(int id) {
         return new Xe();
     }
@@ -63,7 +75,7 @@ public class XeDAO implements DAO<Xe> {
 
     @Override
     public void save(Xe xe) {
-        listXe.add(xe);
+        this.listXe.add(xe);
     }
 
     @Override

@@ -2,7 +2,10 @@ package database;
 
 import entity.LoaiXe;
 import entity.NguoiDung;
+import entity.NguoiDungGiaoDichThueXe;
+import entity.Xe;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +23,18 @@ public class NguoiDungDAO implements DAO<NguoiDung> {
 
     public NguoiDungDAO() {
         this.nguoiDungHienTai = NguoiDung.getInstance();
+        daoManager.open();
+        ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + NguoiDung.name + ";");
+        try {
+            while (resultSet.next()){
+                this.listNguoiDung.add(parse(resultSet));
+//                System.out.println(listXe.get(listXe.size()-1).toString());
+            }
+            resultSet.close();
+        }catch (Exception e){
+
+            e.printStackTrace();
+        }
     }
 
     public static NguoiDungDAO getInstance(){
@@ -29,8 +44,22 @@ public class NguoiDungDAO implements DAO<NguoiDung> {
         return nguoiDungDAO;
     }
 
+    public NguoiDung getNguoiDungHienTai(){
+        return this.nguoiDungHienTai;
+    }
+
     @Override
     public NguoiDung get(int id) {
+        return null;
+    }
+
+    @Override
+    public NguoiDung parse(ResultSet resultSet) {
+        try {
+            return new NguoiDung(resultSet.getInt(1));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return null;
     }
 
