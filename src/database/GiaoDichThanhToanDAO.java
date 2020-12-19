@@ -1,8 +1,7 @@
 package database;
 
-import entity.BaiXe;
 import entity.GiaoDichThanhToan;
-import entity.Xe;
+import entity.The;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -15,11 +14,21 @@ import java.util.List;
  */
 
 public class GiaoDichThanhToanDAO implements DAO<GiaoDichThanhToan> {
-    private List<GiaoDichThanhToan> listGiaoDichThanhToan = new ArrayList<GiaoDichThanhToan>();
+    private List<GiaoDichThanhToan> listGiaoDichThanhToan = new ArrayList<>();
     private DAOManager daoManager = DAOManager.getInstance();
     public static GiaoDichThanhToanDAO giaoDichThanhToanDAO = null;
 
     public GiaoDichThanhToanDAO() {
+        daoManager.open();
+        ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + GiaoDichThanhToan.name + ";");
+        try {
+            while (resultSet.next()){
+                listGiaoDichThanhToan.add(this.parse(resultSet));
+            }
+            resultSet.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static GiaoDichThanhToanDAO getInstance()
@@ -32,32 +41,44 @@ public class GiaoDichThanhToanDAO implements DAO<GiaoDichThanhToan> {
 
     @Override
     public GiaoDichThanhToan parse(ResultSet resultSet) {
-//        try {
-//            return new BaiXe(resultSet.getInt(1), resultSet.getString(2),
-//                    resultSet.getString(3), resultSet.getInt(4));
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
+        The the = TheDAO.getInstance().getTheHienTai();
+        try {
+            return new GiaoDichThanhToan(resultSet.getInt(1),
+                    the,
+                    resultSet.getString(3),
+                    resultSet.getInt(4),
+                    resultSet.getString(5));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public GiaoDichThanhToan get(int id) {
+        for(GiaoDichThanhToan giaoDichThanhToan: this.listGiaoDichThanhToan){
+            if(giaoDichThanhToan.getId() == id) return giaoDichThanhToan;
+        }
         return null;
     }
 
     @Override
     public List<GiaoDichThanhToan> getAll() {
-        return null;
+        return this.listGiaoDichThanhToan;
     }
 
     @Override
     public void save(GiaoDichThanhToan giaoDichThanhToan) {
-
+        if (giaoDichThanhToan.getId() == -1){
+            giaoDichThanhToan.setId(this.listGiaoDichThanhToan.size());
+        }
+        this.listGiaoDichThanhToan.add(giaoDichThanhToan);
+        daoManager.executeQuery("INSERT INTO " + GiaoDichThanhToan.name + " " + GiaoDichThanhToan.paramsName +
+                " VALUES " + giaoDichThanhToan.toSQLString() + ";");
     }
 
     @Override
-    public void update(GiaoDichThanhToan giaoDichThanhToan, String[] params) {
+    public void update(GiaoDichThanhToan giaoDichThanhToan) {
 
     }
 

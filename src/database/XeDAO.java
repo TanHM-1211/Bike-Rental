@@ -1,14 +1,10 @@
 package database;
 
-import entity.BaiXe;
-import entity.LoaiXe;
-import entity.The;
 import entity.Xe;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Project Ecobike System
@@ -65,7 +61,11 @@ public class XeDAO implements DAO<Xe> {
 
     @Override
     public Xe get(int id) {
-        return new Xe();
+        for (Xe xe:
+                this.listXe) {
+            if (xe.getId() == id) return xe;
+        }
+        return null;
     }
 
     @Override
@@ -79,7 +79,7 @@ public class XeDAO implements DAO<Xe> {
     }
 
     @Override
-    public void update(Xe xe, String[] params) {
+    public void update(Xe xe) {
 //        Xe.setName(Objects.requireNonNull(
 //                params[0], "Name cannot be null"));
 //        Xe.setEmail(Objects.requireNonNull(

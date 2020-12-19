@@ -29,6 +29,17 @@ public class The {
         }
     }
 
+    @Override
+    public String toString() {
+        return "The{" +
+                "id='" + id + '\'' +
+                ", owner='" + owner + '\'' +
+                ", cvv='" + cvv + '\'' +
+                ", dateExpire='" + dateExpire + '\'' +
+                ", amount=" + amount +
+                '}';
+    }
+
     public String getId() {
         return id;
     }

@@ -21,10 +21,12 @@ public class testDAO {
         try{
             DAOManager daoManager= DAOManager.getInstance();
             daoManager.open();
+
             BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
             LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
             XeDAO xeDAO = XeDAO.getInstance();
 //            BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
+
 //            LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
 //            XeDAO xeDAO = XeDAO.getInstance();
 //            listBaiXe.add(new BaiXe(1, "bai A", "dia chi 1", 10));
@@ -57,6 +59,22 @@ public class testDAO {
 //                 BaiXe.getXeTrongBai(baiXeDAO.getAll().get(2))) {
 //                System.out.println(xe.toString());
 //            }
+
+
+//            for (Xe xe:
+//                    (baiXeDAO.getAll().get(0).getXeTrongBai())) {
+//                System.out.println(xe.toString());
+//            }
+
+//            Thread.sleep(100000);
+            
+//            System.out.println(NguoiDungGiaoDichThueXeDAO.getInstance().getNguoiDungGiaoDichThueXeTuongUng(
+//                    NguoiDungDAO.getInstance().getNguoiDungHienTai()).toString());
+
+
+
+
+
             for (Xe xe:
                     (baiXeDAO.getAll().get(0).getXeTrongBai())) {
                 System.out.println(xe.toString());
@@ -65,6 +83,7 @@ public class testDAO {
             System.out.println(NguoiDungGiaoDichThueXeDAO.getInstance().getNguoiDungGiaoDichThueXeTuongUng(
                     NguoiDungDAO.getInstance().getNguoiDungHienTai()).toString());
             Thread.sleep(100000);
+
             daoManager.close();
         }
         catch (Exception e){

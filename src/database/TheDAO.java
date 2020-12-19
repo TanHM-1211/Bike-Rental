@@ -1,7 +1,5 @@
 package database;
 
-import entity.LoaiXe;
-import entity.NguoiDungGiaoDichThueXe;
 import entity.The;
 
 import java.sql.ResultSet;
@@ -56,7 +54,7 @@ public class TheDAO implements DAO<The> {
     }
 
     @Override
-    public void update(The the, String[] params) {
+    public void update(The the) {
 
     }
 

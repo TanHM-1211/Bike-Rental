@@ -1,7 +1,5 @@
 package entity;
 
-import java.util.Date;
-
 /**
  * Project Ecobike System
  * User: Nhom 11
@@ -13,92 +11,108 @@ import java.util.Date;
  */
 
 public class GiaoDichThueXe{
-    private int idGiaoDichThueXe;
-    private int idXe;
-    private int idNguoiDung;
-    private int idBaiXeThue;
-    private int idBaiXeTra;
+    private int id;
+    private Xe xe;
+    private NguoiDung nguoiDung;
+    private BaiXe baiXeThue;
+    private BaiXe baiXeTra;
     private GiaoDichThanhToan thanhToanThue;
     private GiaoDichThanhToan thanhToanTra;
-    private int soTien;
+    private Integer soTien;
 
-    public static String paramsName = "";
+    public static String paramsName = "(id_giao_dich_thue_xe, id_xe, id_nguoi_dung, id_bai_xe_thue, id_bai_xe_tra, id_thanh_toan_thue, id_thanh_toan_tra, so_tien)";
     public static String name = "giao_dich_thue_xe";
 
     public GiaoDichThueXe(){}
 
-    public GiaoDichThueXe(int idGiaoDichThueXe, int idXe, int idNguoiDung, int idBaiXeThue, GiaoDichThanhToan thanhToanThue) {
-        this.idGiaoDichThueXe = idGiaoDichThueXe;
-        this.idXe = idXe;
-        this.idNguoiDung = idNguoiDung;
-        this.idBaiXeThue = idBaiXeThue;
+    public GiaoDichThueXe(int id, Xe xe, entity.NguoiDung nguoiDung, BaiXe baiXeThue, BaiXe baiXeTra, GiaoDichThanhToan thanhToanThue, GiaoDichThanhToan thanhToanTra, Integer soTien) {
+        this.id = id;
+        this.xe = xe;
+        this.nguoiDung = nguoiDung;
+        this.baiXeThue = baiXeThue;
+        this.baiXeTra = baiXeTra;
         this.thanhToanThue = thanhToanThue;
+        this.thanhToanTra = thanhToanTra;
+        this.soTien = soTien;
     }
 
     @Override
     public String toString() {
-        if (this.thanhToanTra != null)
-            return "(" +
-                    "idGiaoDichThueXe=" + idGiaoDichThueXe +
-                    ", idXe=" + idXe +
-                    ", idNguoiDung=" + idNguoiDung +
-                    ", idBaiXeThue=" + idBaiXeThue +
-                    ", idBaiXeTra=" + idBaiXeTra +
-                    ", thanhToanThue=" + thanhToanThue +
-                    ", thanhToanTra=" + thanhToanTra +
-                    ", soTien=" + soTien +
-                    '}';
-        else
-            return "(" +
-                "idGiaoDichThueXe=" + idGiaoDichThueXe +
-                ", idXe=" + idXe +
-                ", idNguoiDung=" + idNguoiDung +
-                ", idBaiXeThue=" + idBaiXeThue +
-                ", idBaiXeTra=" + idBaiXeTra +
+        return "GiaoDichThueXe{" +
+                "idGiaoDichThueXe=" + id +
+                ", xe=" + xe +
+                ", nguoiDung=" + nguoiDung +
+                ", baiXeThue=" + baiXeThue +
+                ", baiXeTra=" + baiXeTra +
                 ", thanhToanThue=" + thanhToanThue +
                 ", thanhToanTra=" + thanhToanTra +
                 ", soTien=" + soTien +
                 '}';
     }
 
-    public int getIdGiaoDichThueXe() {
-        return idGiaoDichThueXe;
+    public String toSQLString() {
+        if (this.soTien != null)
+        return "(" +
+                "" + id +
+                ", " + xe.getId() +
+                ", " + nguoiDung.getId() +
+                ", " + baiXeThue.getId() +
+                ", " + baiXeTra.getId() +
+                ", " + thanhToanThue.getId() +
+                ", " + thanhToanTra.getThe() +
+                ", " + soTien +
+                ')';
+        else
+            return "(" +
+                    "" + id +
+                    ", " + xe.getId() +
+                    ", " + nguoiDung.getId() +
+                    ", " + baiXeThue.getId() +
+                    ", null" +
+                    ", " + thanhToanThue.getId() +
+                    ", null" +
+                    ", null" +
+                    ')';
     }
 
-    public void setIdGiaoDichThueXe(int idGiaoDichThueXe) {
-        this.idGiaoDichThueXe = idGiaoDichThueXe;
+    public int getId() {
+        return id;
     }
 
-    public int getIdXe() {
-        return idXe;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setIdXe(int idXe) {
-        this.idXe = idXe;
+    public Xe getXe() {
+        return xe;
     }
 
-    public int getIdNguoiDung() {
-        return idNguoiDung;
+    public void setXe(Xe xe) {
+        this.xe = xe;
     }
 
-    public void setIdNguoiDung(int idNguoiDung) {
-        this.idNguoiDung = idNguoiDung;
+    public NguoiDung getNguoiDung() {
+        return this.nguoiDung;
     }
 
-    public int getIdBaiXeThue() {
-        return idBaiXeThue;
+    public void setNguoiDung(NguoiDung nguoiDung) {
+        this.nguoiDung = nguoiDung;
     }
 
-    public void setIdBaiXeThue(int idBaiXeThue) {
-        this.idBaiXeThue = idBaiXeThue;
+    public BaiXe getBaiXeThue() {
+        return baiXeThue;
     }
 
-    public int getIdBaiXeTra() {
-        return idBaiXeTra;
+    public void setBaiXeThue(BaiXe baiXeThue) {
+        this.baiXeThue = baiXeThue;
     }
 
-    public void setIdBaiXeTra(int idBaiXeTra) {
-        this.idBaiXeTra = idBaiXeTra;
+    public BaiXe getBaiXeTra() {
+        return baiXeTra;
+    }
+
+    public void setBaiXeTra(BaiXe baiXeTra) {
+        this.baiXeTra = baiXeTra;
     }
 
     public GiaoDichThanhToan getThanhToanThue() {
@@ -117,13 +131,15 @@ public class GiaoDichThueXe{
         this.thanhToanTra = thanhToanTra;
     }
 
-    public int getSoTien() {
+    public Integer getSoTien() {
         return soTien;
     }
 
-    public void setSoTien(int soTien) {
+    public void setSoTien(Integer soTien) {
         this.soTien = soTien;
     }
+
+
 }
 
 /*

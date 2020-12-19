@@ -1,7 +1,5 @@
 package database;
 
-import entity.Xe;
-
 import java.sql.ResultSet;
 import java.util.List;
 
@@ -20,7 +18,7 @@ public interface DAO<T> {
 
     void save(T t);
 
-    void update(T t, String[] params);
+    void update(T t) ;
 
     void delete(T t);
 

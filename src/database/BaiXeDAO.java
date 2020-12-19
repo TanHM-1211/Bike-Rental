@@ -68,7 +68,7 @@ public class BaiXeDAO implements DAO<BaiXe> {
     }
 
     @Override
-    public void update(BaiXe baiXe, String[] params) {
+    public void update(BaiXe baiXe) {
     }
 
     @Override

@@ -77,6 +77,7 @@ public class InterbankSubsystemController {
         String transactionId = transactionJson.get("transactionId").getAsString();
         String transactionContent = transactionJson.get("transactionContent").getAsString();
         int amount = transactionJson.get("amount").getAsInt();
+        if (transactionJson.get("command").getAsString().equals("pay")) amount = -amount;
         String createdAt = transactionJson.get("createdAt").getAsString();
         return new GiaoDichThanhToan(errCode, the, transactionId, transactionContent, amount, createdAt);
     }

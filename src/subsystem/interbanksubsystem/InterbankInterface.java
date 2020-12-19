@@ -3,13 +3,7 @@ package subsystem.interbanksubsystem;
 import entity.GiaoDichThanhToan;
 import entity.The;
 
-/**
- * The {@code InterbankInterface} class is used to communicate with the
- *
- *
- * @author san.dl
- *
- */
+
 public interface InterbankInterface {
     /**
      * Pay order, and then return the payment transaction

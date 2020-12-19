@@ -71,7 +71,7 @@ public class NguoiDungGiaoDichThueXeDAO implements DAO<NguoiDungGiaoDichThueXe> 
     }
 
     @Override
-    public void update(NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe, String[] params) {
+    public void update(NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe) {
 
     }
 
