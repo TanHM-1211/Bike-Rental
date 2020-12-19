@@ -1,5 +1,6 @@
 package controller;
 
+import database.BaiXeDAO;
 import entity.BaiXe;
 import entity.Xe;
 
@@ -16,20 +17,9 @@ public class DieuKhienBaiXe {
 
     public DieuKhienBaiXe() {
     }
-    public List getALLBaiXe(){
-        return BaiXe.getAll();
+    public List getAllBaiXe(){
+        return BaiXeDAO.getInstance().getAll();
     }
-    public List getLoaiXe(String loaiXe){
-        List listAllXe = BaiXe.getXe();
-        ArrayList xeTheoLoai = new ArrayList();
-        for(Object object: listAllXe){
-            Xe xe = (Xe) object;
-            if (xe.getLoaiXe().getTenLoaiXe().equals(loaiXe)){
-                xeTheoLoai.add(xe);
-            }
-        }
-        return xeTheoLoai;
 
-    }
 
 }

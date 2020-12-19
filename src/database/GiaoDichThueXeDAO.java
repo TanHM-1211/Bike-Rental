@@ -15,8 +15,16 @@ import java.util.Optional;
 public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
     private List<GiaoDichThueXe> listGiaoDichThueXe = new ArrayList<>();
     private DAOManager daoManager = DAOManager.getInstance();
+    public static GiaoDichThueXeDAO giaoDichThueXeDAO = null;
 
     public GiaoDichThueXeDAO(){}
+
+    public static GiaoDichThueXeDAO getInstance(){
+        if (giaoDichThueXeDAO == null){
+            giaoDichThueXeDAO = new GiaoDichThueXeDAO();
+        }
+        return giaoDichThueXeDAO;
+    }
 
     @Override
     public GiaoDichThueXe get(int id) {

@@ -1,9 +1,9 @@
 package test;
 
-import database.BaiXeDAO;
-import database.DAOManager;
-import database.Utils;
+import database.*;
 import entity.BaiXe;
+import entity.LoaiXe;
+import entity.Xe;
 
 import java.sql.ResultSet;
 
@@ -19,7 +19,9 @@ public class testDAO {
             DAOManager daoManager= DAOManager.getInstance();
             daoManager.open();
 
-            BaiXeDAO baiXeDAO = new BaiXeDAO();
+            BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
+            LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
+            XeDAO xeDAO = XeDAO.getInstance();
 //            listBaiXe.add(new BaiXe(1, "bai A", "dia chi 1", 10));
 //            baiXeDAO.save(new BaiXe(4, "bai A", "dia chi 1", 10));
 //            String query = Utils.getGetQuery(BaiXe.name, "*", null);
@@ -31,9 +33,17 @@ public class testDAO {
 //            rs.updateString(2, "bai B");
 //            rs.updateRow();
 
-            for (BaiXe baiXe:
-                 baiXeDAO.getAll()) {
-                System.out.println(baiXe.toString());
+//            for (BaiXe baiXe:
+//                 baiXeDAO.getAll()) {
+//                System.out.println(baiXe.toString());
+//            }
+//            for (LoaiXe loaiXe:
+//                 loaiXeDAO.getAll()) {
+//                System.out.println(loaiXe.toString());
+//            }
+            for (Xe xe:
+                 xeDAO.getAll()) {
+                System.out.println(xe.toString());
             }
 //            Thread.sleep(100000);
             daoManager.close();

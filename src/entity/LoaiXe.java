@@ -16,6 +16,7 @@ public class LoaiXe {
     private int giaTri;
     private int gia30pDau;
     private int giaMoi15p;
+    public static String name = "loai_xe";
 
     public LoaiXe(){}
 
@@ -25,6 +26,17 @@ public class LoaiXe {
         this.giaTri = giaTri;
         this.gia30pDau = gia30pDau;
         this.giaMoi15p = giaMoi15p;
+    }
+
+    @Override
+    public String toString() {
+        return "LoaiXe{" +
+                "id=" + id +
+                ", tenLoaiXe='" + tenLoaiXe + '\'' +
+                ", giaTri=" + giaTri +
+                ", gia30pDau=" + gia30pDau +
+                ", giaMoi15p=" + giaMoi15p +
+                '}';
     }
 
     public int getId() {

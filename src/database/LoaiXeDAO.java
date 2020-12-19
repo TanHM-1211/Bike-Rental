@@ -1,8 +1,10 @@
 package database;
 
+import entity.BaiXe;
 import entity.GiaoDichThueXe;
 import entity.LoaiXe;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,19 +17,44 @@ import java.util.List;
 public class LoaiXeDAO implements DAO<LoaiXe> {
     private List<LoaiXe> listLoaiXe = new ArrayList<>();
     private DAOManager daoManager = DAOManager.getInstance();
+    public static LoaiXeDAO loaiXeDAO = null;
 
     public LoaiXeDAO() {
-        super();
+        daoManager.open();
+        ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + LoaiXe.name + ";");
+        try {
+            while (resultSet.next()){
+                listLoaiXe.add(new LoaiXe(resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getInt(3),
+                        resultSet.getInt(4),
+                        resultSet.getInt(5)));
+            }
+            resultSet.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static LoaiXeDAO getInstance(){
+        if(loaiXeDAO == null){
+            loaiXeDAO = new LoaiXeDAO();
+        }
+        return loaiXeDAO;
     }
 
     @Override
     public LoaiXe get(int id) {
+        for (LoaiXe loaiXe:
+                this.listLoaiXe) {
+            if (loaiXe.getId() == id) return loaiXe;
+        }
         return null;
     }
 
     @Override
     public List<LoaiXe> getAll() {
-        return null;
+        return this.listLoaiXe;
     }
 
     @Override

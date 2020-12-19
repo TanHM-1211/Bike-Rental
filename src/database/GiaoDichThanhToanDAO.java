@@ -17,8 +17,17 @@ import java.util.List;
 public class GiaoDichThanhToanDAO implements DAO<GiaoDichThanhToan> {
     private List<GiaoDichThanhToan> listGiaoDichThanhToan = new ArrayList<GiaoDichThanhToan>();
     private DAOManager daoManager = DAOManager.getInstance();
+    public static GiaoDichThanhToanDAO giaoDichThanhToanDAO = null;
 
     public GiaoDichThanhToanDAO() {
+    }
+
+    public static GiaoDichThanhToanDAO getInstance()
+    {
+        if(giaoDichThanhToanDAO == null){
+            giaoDichThanhToanDAO = new GiaoDichThanhToanDAO();
+        }
+        return giaoDichThanhToanDAO;
     }
 
     @Override

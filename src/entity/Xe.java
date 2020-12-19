@@ -13,32 +13,51 @@ public class Xe {
     private int id;
     private LoaiXe loaiXe;
     private String bienSoXe;
-    private int idBaiXe;
+    private BaiXe baiXe;
     private int trangThai;
     private Integer pin ;
-    public String paramsName = "id_xe, loai_xe, bien_so_xe, id_bai_xe, trang_thai, pin";
+
+    public static String paramsName = "id_xe, loai_xe, bien_so_xe, id_bai_xe, trang_thai, pin";
+    public static String name = "xe";
+
+    public static final int DANG_THUE = 1;
+    public static final int CHUA_THUE = 0;
+    public static final int XE_DAP_THUONG = 1;
+    public static final int XE_DAP_DOI = 2;
+    public static final int XE_DAP_DIEN = 3;
 
     public Xe(){
     }
 
-    public Xe(int id, LoaiXe loaiXe, String bienSoXe, int idBaiXe, int trangThai, Integer pin) {
+    public Xe(int id, LoaiXe loaiXe, String bienSoXe, BaiXe baiXe, int trangThai, Integer pin) {
         this.id = id;
         this.loaiXe = loaiXe;
         this.bienSoXe = bienSoXe;
-        this.idBaiXe = idBaiXe;
+        this.baiXe = baiXe;
         this.trangThai = trangThai;
         this.pin = pin;
     }
 
-    @Override
-    public String toString() {
+    public String toSQLString() {
         return id +
                 "," + loaiXe.getId() +
                 ", '" + bienSoXe + '\'' +
-                ", " + idBaiXe +
+                ", " + baiXe.getId() +
                 ", " + trangThai +
                 ", " + pin +
                 "";
+    }
+
+    @Override
+    public String toString() {
+        return "Xe{" +
+                "id=" + id +
+                ", loaiXe=" + loaiXe.getTenLoaiXe() +
+                ", bienSoXe='" + bienSoXe + '\'' +
+                ", baiXe=" + baiXe +
+                ", trangThai=" + trangThai +
+                ", pin=" + pin +
+                '}';
     }
 
     public int getId() {
@@ -65,12 +84,12 @@ public class Xe {
         this.bienSoXe = bienSoXe;
     }
 
-    public int getIdBaiXe() {
-        return idBaiXe;
+    public BaiXe getBaiXe() {
+        return baiXe;
     }
 
-    public void setIdBaiXe(int idBaiXe) {
-        this.idBaiXe = idBaiXe;
+    public void setBaiXe(BaiXe baiXe) {
+        this.baiXe = baiXe;
     }
 
     public int getTrangThai() {

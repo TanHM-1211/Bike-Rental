@@ -15,9 +15,17 @@ import java.util.List;
 public class TheDAO implements DAO<The> {
     private List<The> listThe = new ArrayList<>();
     private DAOManager daoManager = DAOManager.getInstance();
+    public static TheDAO theDAO = null;
 
     public TheDAO() {
         super();
+    }
+
+    public static TheDAO getInstance(){
+        if (theDAO == null){
+            theDAO = new TheDAO();
+        }
+        return theDAO;
     }
 
     @Override

@@ -44,7 +44,7 @@ public class GiaoDienThongTinBaiXe extends BaseScreenHandler{
     }
     public void xemDanhSachLoaiXe(String listName){
         try {
-            List listXe = null;
+            List listXe = BaiXe.getXeTrongBai(baiXe);
             GiaoDienDanhSachXe giaoDienDanhSachXe = new GiaoDienDanhSachXe(stage, Configs.DANH_SACH_XE_PATH, listName, listXe);
             giaoDienDanhSachXe.setPreviousScreen(this);
             giaoDienDanhSachXe.show();

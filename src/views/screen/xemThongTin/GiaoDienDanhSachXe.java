@@ -1,5 +1,6 @@
 package views.screen.xemThongTin;
 
+import entity.BaiXe;
 import entity.Xe;
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
@@ -27,11 +28,9 @@ public class GiaoDienDanhSachXe extends BaseScreenHandler{
     VBox listXe;
 
     public void loadXe(List listXe){
-        for(int i=1; i<7; ++i){
+        for(Object object : listXe){
             try {
-                Xe xe = new Xe();
-                xe.setId(i);
-                xe.setPin(i*100);
+                Xe xe = (Xe) object;
                 GiaoDienXe giaoDienXe = new GiaoDienXe(Configs.XE_BRIEF_PATH, xe,this);
                 this.listXe.getChildren().add(giaoDienXe.getContent());
             } catch (IOException e1) {
