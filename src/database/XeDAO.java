@@ -1,8 +1,11 @@
 package database;
 
+import entity.BaiXe;
+import entity.LoaiXe;
 import entity.The;
 import entity.Xe;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -17,11 +20,36 @@ import java.util.Optional;
 public class XeDAO implements DAO<Xe> {
     private List<Xe> listXe = new ArrayList<>();
     private DAOManager daoManager = DAOManager.getInstance();
+    public static XeDAO xeDAO = null;
 
     public XeDAO() {
-        this.listXe = this.getAll();
+        daoManager.open();
+        ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + Xe.name + ";");
+        LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
+        BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
+        try {
+            while (resultSet.next()){
+                listXe.add(new Xe(resultSet.getInt(1),
+                        loaiXeDAO.get(resultSet.getInt(2)),
+                        resultSet.getString(3),
+                        baiXeDAO.get(resultSet.getInt(4)),
+                        resultSet.getInt(5),
+                        resultSet.getObject(6) != null ? resultSet.getInt(6) : null));  //  pin: null neu la xe dap, Integer neu la xe dap dien
+                System.out.println(listXe.get(listXe.size()-1).toString());
+            }
+            resultSet.close();
+        }catch (Exception e){
+
+            e.printStackTrace();
+        }
     }
 
+    public static XeDAO getInstance(){
+        if (xeDAO == null){
+            xeDAO = new XeDAO();
+        }
+        return xeDAO;
+    }
 
     @Override
     public Xe get(int id) {

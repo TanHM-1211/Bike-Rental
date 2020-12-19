@@ -15,9 +15,17 @@ import java.util.List;
 public class NguoiDungGiaoDichThueXeDAO implements DAO<NguoiDungGiaoDichThueXe> {
     private List<NguoiDungGiaoDichThueXe> listNguoiDungGiaoDichThueXe = new ArrayList<>();
     private DAOManager daoManager = DAOManager.getInstance();
+    public static NguoiDungGiaoDichThueXeDAO nguoiDungGiaoDichThueXeDAO = null;
 
     public NguoiDungGiaoDichThueXeDAO() {
         super();
+    }
+
+    public static NguoiDungGiaoDichThueXeDAO getInstance(){
+        if(nguoiDungGiaoDichThueXeDAO == null){
+            nguoiDungGiaoDichThueXeDAO = new NguoiDungGiaoDichThueXeDAO();
+        }
+        return nguoiDungGiaoDichThueXeDAO;
     }
 
     @Override

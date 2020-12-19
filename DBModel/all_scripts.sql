@@ -37,7 +37,7 @@ CREATE TABLE `bai_xe` (
 
 LOCK TABLES `bai_xe` WRITE;
 /*!40000 ALTER TABLE `bai_xe` DISABLE KEYS */;
-INSERT INTO `bai_xe` VALUES (1,'Eco Bách Khoa','1 Hai Bà Trưng Hà Nội',300),(2,'Eco Meo','1 Hoàng Thái Hà Nội',300),(3,'Eco Thai','12 Thái Thịnh Hà Nội',300),(4,'bai A','dia chi 1',10);
+INSERT INTO `bai_xe` VALUES (1,'Eco Bách Khoa','1 Hai Bà Trưng Hà Nội',300),(2,'Eco Meo','1 Hoàng Thái Hà Nội',300),(3,'bai B','12 Thái Thịnh Hà Nội',300),(5,'bai A','dia chi 1',10);
 /*!40000 ALTER TABLE `bai_xe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -152,6 +152,7 @@ CREATE TABLE `nguoi_dung` (
 
 LOCK TABLES `nguoi_dung` WRITE;
 /*!40000 ALTER TABLE `nguoi_dung` DISABLE KEYS */;
+INSERT INTO `nguoi_dung` VALUES (1);
 /*!40000 ALTER TABLE `nguoi_dung` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -224,4 +225,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-18 21:58:39
+-- Dump completed on 2020-12-19 13:33:28

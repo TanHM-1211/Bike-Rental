@@ -1,5 +1,6 @@
 package views.screen.xemThongTin;
 
+import entity.BaiXe;
 import entity.Xe;
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;

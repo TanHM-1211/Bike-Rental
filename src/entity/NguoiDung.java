@@ -16,6 +16,13 @@ public class NguoiDung {
     public NguoiDung() {
     }
 
+    public static NguoiDung getInstance(){
+        if (nguoiDung == null){
+            nguoiDung = new NguoiDung(1);
+        }
+        return nguoiDung;
+    }
+
     public NguoiDung(int id) {
         this.id = id;
     }
@@ -28,10 +35,4 @@ public class NguoiDung {
         this.id = id;
     }
 
-    public static NguoiDung getInstance(){
-        if (nguoiDung == null){
-            nguoiDung = new NguoiDung();
-        }
-        return nguoiDung;
-    }
 }

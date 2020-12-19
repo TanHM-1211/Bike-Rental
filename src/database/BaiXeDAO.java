@@ -15,6 +15,7 @@ import java.util.List;
 public class BaiXeDAO implements DAO<BaiXe> {
     private List<BaiXe> listBaiXe = new ArrayList<>();
     private DAOManager daoManager = DAOManager.getInstance();
+    public static BaiXeDAO baiXeDAO = null;
 
     public BaiXeDAO() {
         daoManager.open();
@@ -24,9 +25,17 @@ public class BaiXeDAO implements DAO<BaiXe> {
                 listBaiXe.add(new BaiXe(resultSet.getInt(1), resultSet.getString(2),
                         resultSet.getString(3), resultSet.getInt(4)));
             }
+            resultSet.close();
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public static BaiXeDAO getInstance(){
+        if (baiXeDAO == null){
+            baiXeDAO = new BaiXeDAO();
+        }
+        return baiXeDAO;
     }
 
     @Override

@@ -11,7 +11,6 @@ import java.util.List;
 import controller.DieuKhienBaiXe;
 import entity.BaiXe;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import utils.Configs;
@@ -27,7 +26,7 @@ public class GiaoDienChinh extends BaseScreenHandler {
     List baiXeAll;
 
     public void loadBaiXe()throws IOException {
-        baiXeAll = new DieuKhienBaiXe().getALLBaiXe();
+        baiXeAll = new DieuKhienBaiXe().getAllBaiXe();
         for (Object object: baiXeAll){
             BaiXe baiXe = (BaiXe) object;
             GiaoDienBaiXe giaoDienBaiXe = new GiaoDienBaiXe(Configs.BAIXE_Brief_PATH, baiXe,this);
