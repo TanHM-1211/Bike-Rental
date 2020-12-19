@@ -19,9 +19,10 @@ public class NguoiDungGiaoDichThueXe {
     public NguoiDungGiaoDichThueXe() {
     }
 
-    public NguoiDungGiaoDichThueXe(int id, NguoiDung nguoiDung) {
+    public NguoiDungGiaoDichThueXe(int id, NguoiDung nguoiDung, GiaoDichThueXe giaoDichThueXe) {
         this.id = id;
         this.nguoiDung = nguoiDung;
+        this.giaoDichThueXe = giaoDichThueXe;
     }
 
     public int getId() {

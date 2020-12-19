@@ -25,16 +25,9 @@ public class XeDAO implements DAO<Xe> {
     public XeDAO() {
         daoManager.open();
         ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + Xe.name + ";");
-        LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
-        BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
         try {
             while (resultSet.next()){
-                listXe.add(new Xe(resultSet.getInt(1),
-                        loaiXeDAO.get(resultSet.getInt(2)),
-                        resultSet.getString(3),
-                        baiXeDAO.get(resultSet.getInt(4)),
-                        resultSet.getInt(5),
-                        resultSet.getObject(6) != null ? resultSet.getInt(6) : null));  //  pin: null neu la xe dap, Integer neu la xe dap dien
+                listXe.add(parse(resultSet));
 //                System.out.println(listXe.get(listXe.size()-1).toString());
             }
             resultSet.close();
@@ -49,6 +42,23 @@ public class XeDAO implements DAO<Xe> {
             xeDAO = new XeDAO();
         }
         return xeDAO;
+    }
+
+    @Override
+    public Xe parse(ResultSet resultSet) {
+        LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
+        BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
+        try {
+            return new Xe(resultSet.getInt(1),
+                    loaiXeDAO.get(resultSet.getInt(2)),
+                    resultSet.getString(3),
+                    baiXeDAO.get(resultSet.getInt(4)),
+                    resultSet.getInt(5),
+                    resultSet.getObject(6) != null ? resultSet.getInt(6) : null);  //  pin: null neu la xe dap, Integer neu la xe dap dien
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override

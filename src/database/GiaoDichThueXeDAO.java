@@ -1,7 +1,9 @@
 package database;
 
+import entity.BaiXe;
 import entity.GiaoDichThueXe;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -24,6 +26,17 @@ public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
             giaoDichThueXeDAO = new GiaoDichThueXeDAO();
         }
         return giaoDichThueXeDAO;
+    }
+
+    @Override
+    public GiaoDichThueXe parse(ResultSet resultSet) {
+//        try {
+//            return new BaiXe(resultSet.getInt(1), resultSet.getString(2),
+//                    resultSet.getString(3), resultSet.getInt(4));
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+        return null;
     }
 
     @Override

@@ -22,8 +22,7 @@ public class BaiXeDAO implements DAO<BaiXe> {
         ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + BaiXe.name + ";");
         try {
             while (resultSet.next()){
-                listBaiXe.add(new BaiXe(resultSet.getInt(1), resultSet.getString(2),
-                        resultSet.getString(3), resultSet.getInt(4)));
+                listBaiXe.add(parse(resultSet));
             }
             resultSet.close();
         }catch (Exception e){
@@ -36,6 +35,17 @@ public class BaiXeDAO implements DAO<BaiXe> {
             baiXeDAO = new BaiXeDAO();
         }
         return baiXeDAO;
+    }
+
+    @Override
+    public BaiXe parse(ResultSet resultSet) {
+        try {
+        return new BaiXe(resultSet.getInt(1), resultSet.getString(2),
+                resultSet.getString(3), resultSet.getInt(4));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
