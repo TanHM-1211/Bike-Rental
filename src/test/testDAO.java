@@ -1,5 +1,6 @@
 package test;
 
+import controller.DieuKhienBaiXe;
 import database.*;
 import entity.BaiXe;
 import entity.LoaiXe;
@@ -7,6 +8,7 @@ import entity.NguoiDung;
 import entity.Xe;
 
 import java.sql.ResultSet;
+import java.util.List;
 
 /**
  * Project Ecobike System
@@ -19,8 +21,15 @@ public class testDAO {
         try{
             DAOManager daoManager= DAOManager.getInstance();
             daoManager.open();
+<<<<<<< HEAD
 
             BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
+=======
+            BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
+            LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
+            XeDAO xeDAO = XeDAO.getInstance();
+//            BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
+>>>>>>> 3734b0f363b9b9dc35a8a1d2998fcffffcfeb7e9
 //            LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
 //            XeDAO xeDAO = XeDAO.getInstance();
 //            listBaiXe.add(new BaiXe(1, "bai A", "dia chi 1", 10));
@@ -43,10 +52,17 @@ public class testDAO {
 //                System.out.println(loaiXe.toString());
 //            }
 
+//            List baiXeAll = new DieuKhienBaiXe().getAllBaiXe();
+//            for (Object baiXe: baiXeAll) {
+//                System.out.println(baiXe.toString());
+//            }
+//
+
 //            for (Xe xe:
 //                 BaiXe.getXeTrongBai(baiXeDAO.getAll().get(2))) {
 //                System.out.println(xe.toString());
 //            }
+
 
 //            for (Xe xe:
 //                    (baiXeDAO.getAll().get(0).getXeTrongBai())) {
@@ -60,6 +76,16 @@ public class testDAO {
 
 
 
+
+
+            for (Xe xe:
+                    (baiXeDAO.getAll().get(0).getXeTrongBai())) {
+                System.out.println(xe.toString());
+            }
+
+            System.out.println(NguoiDungGiaoDichThueXeDAO.getInstance().getNguoiDungGiaoDichThueXeTuongUng(
+                    NguoiDungDAO.getInstance().getNguoiDungHienTai()).toString());
+            Thread.sleep(100000);
 
             daoManager.close();
         }

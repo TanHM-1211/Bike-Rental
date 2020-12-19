@@ -19,6 +19,8 @@ public class XeDAO implements DAO<Xe> {
     public static XeDAO xeDAO = null;
 
     public XeDAO() {
+        LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
+        BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
         daoManager.open();
         ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + Xe.name + ";");
         try {

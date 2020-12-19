@@ -11,9 +11,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="148.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="148.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField focusTraversable="false" layoutX="106.0" layoutY="111.0" prefHeight="32.0" prefWidth="208.0" promptText="nhap dia chi" />
+      <TextField focusTraversable="false" layoutX="15.0" layoutY="104.0" prefHeight="32.0" prefWidth="221.0" promptText="nhap dia chi" style="-fx-border-radius: 30; -fx-border-color: green;" AnchorPane.leftAnchor="15.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="78.0" stroke="#669900" strokeType="INSIDE" strokeWidth="2.0" width="335.0" />
       <ImageView fx:id="logo" fitHeight="60.0" fitWidth="66.0" layoutX="245.0" layoutY="7.0">
          <image>
@@ -25,12 +28,10 @@
             <Font name="Vivaldi Italic" size="30.0" />
          </font>
       </Text>
-      <MenuButton fx:id="menu" layoutX="27.0" layoutY="105.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Menu">
+      <MenuButton fx:id="menu" layoutX="280.0" layoutY="106.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="40.0" text="Menu" AnchorPane.rightAnchor="15.0">
         <items>
           <MenuItem fx:id="home" mnemonicParsing="false" text="Trang chủ" />
           <MenuItem mnemonicParsing="false" text="Xe đang thuê " fx:id="xeDangThue" />
-            <MenuItem fx:id="thueXe" mnemonicParsing="false" text="Thuê xe" />
-            <MenuItem fx:id="traXe" mnemonicParsing="false" text="Trả xe" />
             <MenuItem mnemonicParsing="false" text="Thông tin cá nhân" />
             <MenuItem mnemonicParsing="false" text="Đãng xuất" />
         </items>
@@ -45,6 +46,11 @@
       <ImageView fx:id="back" fitHeight="25.0" fitWidth="33.0" layoutY="2.0">
          <image>
             <Image url="@../../../assets/images/back.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="qr" fitHeight="40.0" fitWidth="40.0" layoutX="236.0" layoutY="101.0">
+         <image>
+            <Image url="@../../../assets/images/qr.png" />
          </image>
       </ImageView>
    </children>
