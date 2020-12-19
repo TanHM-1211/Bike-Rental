@@ -38,6 +38,7 @@ public class DAOManager {
         try {
             Class.forName(JDBC_DRIVER);
             System.out.println("Created DB Connection....");
+            this.open();
         } catch (Exception e) {
             // Handle errors for Exception
             e.printStackTrace();

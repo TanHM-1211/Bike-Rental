@@ -80,8 +80,15 @@ public class testDAO {
                 System.out.println(xe.toString());
             }
             System.out.println(NguoiDungDAO.getInstance().getNguoiDungHienTai().toString());
+//            for (Xe xe:
+//                    (baiXeDAO.getAll().get(0).getXeTrongBai())) {
+//                System.out.println(xe.toString());
+//            }
+
+            NguoiDung nguoiDung =  NguoiDungDAO.getInstance().getNguoiDungHienTai();
+            System.out.println(nguoiDung.toString());
             System.out.println(NguoiDungGiaoDichThueXeDAO.getInstance().getNguoiDungGiaoDichThueXeTuongUng(
-                    NguoiDungDAO.getInstance().getNguoiDungHienTai()).toString());
+                   nguoiDung).toString());
             Thread.sleep(100000);
 
             daoManager.close();
