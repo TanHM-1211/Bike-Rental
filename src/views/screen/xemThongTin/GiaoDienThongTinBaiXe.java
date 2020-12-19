@@ -1,7 +1,9 @@
 package views.screen.xemThongTin;
 
 import controller.DieuKhienBaiXe;
+import database.BaiXeDAO;
 import entity.BaiXe;
+import entity.Xe;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
@@ -53,9 +55,13 @@ public class GiaoDienThongTinBaiXe extends BaseScreenHandler{
         setImage(this.bike2,"bike2.png");
     }
     public void loadXeTrongBai(){
-      //  DieuKhienBaiXe dieuKhienBaiXe = new DieuKhienBaiXe();
-        this.listXeDapDienTrongBai = BaiXe.getXeTrongBai(baiXe);
-        this.listXeDapTrongBai =BaiXe.getXeTrongBai(baiXe);
+        System.out.println(baiXe.getTenBaiXe());
+        BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
+        this.listXeDapTrongBai = (baiXeDAO.getAll().get(0)).getXeTrongBai();
+//        System.out.println("ok");
+        this.listXeDapDienTrongBai = listXeDapTrongBai;//baiXe.getXeTrongBai(); //baiXe.getXeTheoLoai(Xe.XE_DAP_DIEN);
+        System.out.println("Done");
+
     }
     public void xemDanhSachLoaiXe(String listName, List listXe){
         try {

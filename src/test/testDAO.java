@@ -42,10 +42,17 @@ public class testDAO {
 //                 loaiXeDAO.getAll()) {
 //                System.out.println(loaiXe.toString());
 //            }
+
 //            for (Xe xe:
 //                 BaiXe.getXeTrongBai(baiXeDAO.getAll().get(2))) {
 //                System.out.println(xe.toString());
 //            }
+
+            for (Xe xe:
+                    (baiXeDAO.getAll().get(0).getXeTrongBai())) {
+                System.out.println(xe.toString());
+            }
+
 //            Thread.sleep(100000);
             
             System.out.println(NguoiDungGiaoDichThueXeDAO.getInstance().getNguoiDungGiaoDichThueXeTuongUng(

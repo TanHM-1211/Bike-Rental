@@ -86,41 +86,29 @@ public class BaiXe{
 
     //test
 
-    public static ArrayList<Xe> getXeTrongBai(BaiXe baiXe){
+    public ArrayList<Xe> getXeTrongBai(){
         ArrayList list = new ArrayList();
         XeDAO xeDAO = XeDAO.getInstance();
         for (Xe xe:
              xeDAO.getAll()) {
-            if (xe.getBaiXe().getId() == baiXe.getId() && xe.getTrangThai() == Xe.CHUA_THUE){
+            if (xe.getBaiXe().getId() == getId() && xe.getTrangThai() == Xe.CHUA_THUE){
                 list.add(xe);
             }
         }
         return  list;
     }
 
-    public static List getXeDapThuongTrongBai(BaiXe baiXe){
-        ArrayList list = new ArrayList();
-        XeDAO xeDAO = XeDAO.getInstance();
-        for (Xe xe:
-                xeDAO.getAll()) {
-            if (xe.getBaiXe().getId() == baiXe.getId() && xe.getLoaiXe().getId() == Xe.XE_DAP_THUONG && xe.getTrangThai() == Xe.CHUA_THUE){
-                list.add(xe);
-            }
-        }
-        return  list;
-    }
-
-    public static List getXeDapDienTrongBai(BaiXe baiXe){
-        ArrayList list = new ArrayList();
-        XeDAO xeDAO = XeDAO.getInstance();
-        for (Xe xe:
-                xeDAO.getAll()) {
-            if (xe.getBaiXe().getId() == baiXe.getId() && xe.getLoaiXe().getId() == Xe.XE_DAP_DIEN && xe.getTrangThai() == Xe.CHUA_THUE){
-                list.add(xe);
-            }
-        }
-        return  list;
-    }
+//    public ArrayList<Xe> getXeTheoLoai(int loaiXeId){
+//        ArrayList list = new ArrayList();
+//        XeDAO xeDAO = XeDAO.getInstance();
+//        for (Xe xe:
+//                xeDAO.getAll()) {
+//            if (xe.getBaiXe().getId() == getId() && xe.getLoaiXe().getId()==loaiXeId && xe.getTrangThai() == Xe.CHUA_THUE){
+//                list.add(xe);
+//            }
+//        }
+//        return  list;
+//    }
 }
 
 /*
