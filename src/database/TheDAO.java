@@ -15,10 +15,11 @@ import java.util.List;
 public class TheDAO implements DAO<The> {
     private List<The> listThe = new ArrayList<>();
     private DAOManager daoManager = DAOManager.getInstance();
+    private The theHienTai;
     public static TheDAO theDAO = null;
 
     public TheDAO() {
-        super();
+        this.theHienTai = The.getInstance();
     }
 
     public static TheDAO getInstance(){
@@ -26,6 +27,10 @@ public class TheDAO implements DAO<The> {
             theDAO = new TheDAO();
         }
         return theDAO;
+    }
+
+    public The getTheHienTai(){
+        return this.theHienTai;
     }
 
     @Override

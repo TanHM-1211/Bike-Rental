@@ -15,10 +15,11 @@ import java.util.List;
 public class NguoiDungDAO implements DAO<NguoiDung> {
     private List<NguoiDung> listNguoiDung = new ArrayList<>();
     private DAOManager daoManager = DAOManager.getInstance();
+    private NguoiDung nguoiDungHienTai;
     public static NguoiDungDAO nguoiDungDAO = null;
 
     public NguoiDungDAO() {
-        super();
+        this.nguoiDungHienTai = NguoiDung.getInstance();
     }
 
     public static NguoiDungDAO getInstance(){

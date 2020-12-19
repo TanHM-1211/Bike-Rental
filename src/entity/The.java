@@ -14,12 +14,19 @@ public class The {
     private int amount;
 
     private static The the = null;
-
     public The(String id, String owner, String cvv, String dateExpire) {
         this.id = id;
         this.owner = owner;
         this.cvv = cvv;
         this.dateExpire = dateExpire;
+    }
+
+    public static The getInstance() {
+        if (the == null) {
+            return new The(Configs.GROUP_NAME, Configs.OWNER, Configs.CVV_CODE, Configs.DATE_EXPIRED);
+        } else {
+            return the;
+        }
     }
 
     public String getId() {
@@ -60,14 +67,6 @@ public class The {
 
     public void setDateExpire(String dateExpire) {
         this.dateExpire = dateExpire;
-    }
-
-    public static The getInstance() {
-        if (the == null) {
-            return new The(Configs.GROUP_NAME, Configs.OWNER, Configs.CVV_CODE, Configs.DATE_EXPIRED);
-        } else {
-            return the;
-        }
     }
 
     public boolean equals(String id) {
