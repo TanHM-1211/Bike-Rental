@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import views.screen.BaseScreenHandler;
 import javafx.scene.image.Image;
@@ -21,6 +22,20 @@ public class GiaoDienThongTinXe extends BaseScreenHandler{
     VBox mainVBox;
     @FXML
     ImageView bike;
+    @FXML
+    Text tenBaiXe;
+    @FXML
+    Text loaiXe;
+    @FXML
+    Text pin;
+    @FXML
+    Text bienSo;
+    @FXML
+    Text tienCoc;
+    @FXML
+    Text phi30;
+    @FXML
+    Text phi15;
     public void setIcon(){
         setImage(this.bike,"bike.png");
     }
@@ -28,5 +43,13 @@ public class GiaoDienThongTinXe extends BaseScreenHandler{
         super(stage, screenPath);
         setMenu(mainVBox);
         setIcon();
+        tenBaiXe.setText(xe.getIdBaiXe() + " bai xe");
+        loaiXe.setText(xe.getLoaiXe().getTenLoaiXe());
+        pin.setText(xe.getPin().toString());
+        bienSo.setText(xe.getBienSoXe());
+        tienCoc.setText(xe.getLoaiXe().getGiaTri() + "");
+        phi30.setText(xe.getLoaiXe().getGia30pDau()+"");
+        phi15.setText(xe.getLoaiXe().getGiaMoi15p()+"");
+
     }
 }

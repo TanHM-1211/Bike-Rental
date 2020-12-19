@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox fx:id="mainVBox" prefHeight="600.0" prefWidth="335.0">
          <children>
@@ -22,11 +14,6 @@
             <AnchorPane prefHeight="449.0" prefWidth="335.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d8f8d1" height="313.0" layoutX="26.0" layoutY="68.0" stroke="#669900" strokeType="INSIDE" strokeWidth="2.0" width="285.0" AnchorPane.rightAnchor="24.0" />
-                  <Text fill="#669900" layoutX="26.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bãi xe 01">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Text>
                   <GridPane layoutX="33.0" layoutY="74.0" prefHeight="301.0" prefWidth="263.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.0" minWidth="10.0" prefWidth="27.0" />
@@ -95,7 +82,7 @@
                         </Text>
                         <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                            <children>
-                              <Text fill="#669900" layoutX="57.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
+                              <Text fx:id="soXeDap" fill="#669900" layoutX="57.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
@@ -114,7 +101,7 @@
                         </Text>
                         <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
                            <children>
-                              <Text fill="#669900" layoutX="57.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
+                              <Text fx:id="soXeDapDien" fill="#669900" layoutX="57.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>

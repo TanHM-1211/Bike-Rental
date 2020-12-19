@@ -1,5 +1,6 @@
 package views.screen.xemThongTin;
 
+import controller.DieuKhienBaiXe;
 import entity.BaiXe;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
@@ -36,15 +37,28 @@ public class GiaoDienThongTinBaiXe extends BaseScreenHandler{
     MenuItem listXeDap;
     @FXML
     MenuItem listXeDapDien;
+    @FXML
+    Text soXeDap;
+    @FXML
+    Text soXeDapDien;
+
+    List listXeDapTrongBai;
+    List listXeDapDienTrongBai;
+
+
     private BaiXe baiXe;
 
     public void setIcon(){
         setImage(this.bike1,"bike2.png");
         setImage(this.bike2,"bike2.png");
     }
-    public void xemDanhSachLoaiXe(String listName){
+    public void loadXeTrongBai(){
+        DieuKhienBaiXe dieuKhienBaiXe = new DieuKhienBaiXe();
+        this.listXeDapDienTrongBai = dieuKhienBaiXe.getLoaiXe("xedapdien");
+        this.listXeDapTrongBai = dieuKhienBaiXe.getLoaiXe("xedap");
+    }
+    public void xemDanhSachLoaiXe(String listName, List listXe){
         try {
-            List listXe = null;
             GiaoDienDanhSachXe giaoDienDanhSachXe = new GiaoDienDanhSachXe(stage, Configs.DANH_SACH_XE_PATH, listName, listXe);
             giaoDienDanhSachXe.setPreviousScreen(this);
             giaoDienDanhSachXe.show();
@@ -58,14 +72,21 @@ public class GiaoDienThongTinBaiXe extends BaseScreenHandler{
         super(stage, screenPath);
         this.baiXe = baiXe;
         setMenu(mainVBox);
+        setIcon();
+        loadXeTrongBai();
+
         tenBaiXe.setText(baiXe.getTenBaiXe());
         diaChiBaiXe.setText(baiXe.getDiaChi());
+        soXeDap.setText(String.valueOf(listXeDapTrongBai.size()));
+        soXeDapDien.setText(String.valueOf(listXeDapDienTrongBai.size()));
         dienTich.setText(String.valueOf(baiXe.getDienTich()));
+
+
         listXeDap.setOnAction(e->{
-            xemDanhSachLoaiXe("Bãi 01: Xe đạp");
+            xemDanhSachLoaiXe(baiXe.getTenBaiXe()+": Xe đạp", listXeDapTrongBai);
         });
         listXeDapDien.setOnAction(e->{
-            xemDanhSachLoaiXe("Bãi 01: Xe đạp điện");
+            xemDanhSachLoaiXe(baiXe.getTenBaiXe()+": Xe đạp điện", listXeDapDienTrongBai);
         });
     }
 }

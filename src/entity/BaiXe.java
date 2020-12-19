@@ -81,6 +81,8 @@ public class BaiXe{
         this.dienTich = dienTich;
     }
 
+
+
     //test
     public static List getAll(){
         ArrayList list = new ArrayList();
