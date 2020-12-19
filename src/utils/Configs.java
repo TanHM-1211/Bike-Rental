@@ -53,6 +53,7 @@ public class Configs {
 	public static final String XE_BRIEF_PATH = "/views/fxml/xeBrief.fxml";
 	public static final String THONG_TIN_XE_PATH  = "/views/fxml/thongTinChiTietXe.fxml";
 	public static final String THONG_TIN_XE_DANG_THUE_PATH  = "/views/fxml/thongTinXeDangThue.fxml";
+	public static final String RESULT_PATH  = "/views/fxml/result.fxml";
 
 
 

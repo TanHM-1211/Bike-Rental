@@ -1,10 +1,4 @@
 package views.screen.giaoDienChinh;
-/**
- * Project Ecobike System
- * User: Nhom 11
- *
- * @since : 17/12/2020, Thu
- **/
 import java.io.IOException;
 import java.util.List;
 
@@ -16,7 +10,12 @@ import javafx.stage.Stage;
 import utils.Configs;
 import views.screen.BaseScreenHandler;
 import views.screen.thongTinBrief.GiaoDienBaiXe;
-
+/**
+ * Project Ecobike System
+ * User: Nhom 11
+ *
+ * @since : 17/12/2020, Thu
+ **/
 
 public class GiaoDienChinh extends BaseScreenHandler {
     @FXML

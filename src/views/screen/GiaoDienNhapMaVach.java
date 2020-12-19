@@ -25,11 +25,27 @@ public class GiaoDienNhapMaVach extends BaseScreenHandler {
     @FXML
     Button xacNhan;
 
-
     public void xacNhan(String maVach){
-        System.out.println(maVach);
+        try{
+            Integer.parseInt(maVach);
+        } catch (NumberFormatException e){
+            try {
+                GiaoDienKetQua.error("Mã vạch không hợp lệ");
+                return;
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
         XeDAO xeDao = XeDAO.getInstance();
-        Xe  xe = xeDao.getAll().get(0);
+        Xe  xe = xeDao.get(Integer.parseInt(maVach));
+        if (xe==null){
+            try {
+                GiaoDienKetQua.error("Không tìm thấy xe ứng với mã");
+                return;
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
         try {
             GiaoDienThongTinXe giaoDienThongTinXe= new GiaoDienThongTinXe(this.getStage(),Configs.THONG_TIN_XE_PATH,xe);
             giaoDienThongTinXe.setPreviousScreen(this);
@@ -37,6 +53,7 @@ public class GiaoDienNhapMaVach extends BaseScreenHandler {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+
     }
     public GiaoDienNhapMaVach(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
