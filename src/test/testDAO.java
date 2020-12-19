@@ -1,11 +1,13 @@
 package test;
 
+import controller.DieuKhienBaiXe;
 import database.*;
 import entity.BaiXe;
 import entity.LoaiXe;
 import entity.Xe;
 
 import java.sql.ResultSet;
+import java.util.List;
 
 /**
  * Project Ecobike System
@@ -20,7 +22,7 @@ public class testDAO {
             daoManager.open();
 
             BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
-            LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
+     //       LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
             XeDAO xeDAO = XeDAO.getInstance();
 //            listBaiXe.add(new BaiXe(1, "bai A", "dia chi 1", 10));
 //            baiXeDAO.save(new BaiXe(4, "bai A", "dia chi 1", 10));
@@ -41,12 +43,16 @@ public class testDAO {
 //                 loaiXeDAO.getAll()) {
 //                System.out.println(loaiXe.toString());
 //            }
+            List baiXeAll = new DieuKhienBaiXe().getAllBaiXe();
+            for (Object baiXe: baiXeAll) {
+                 System.out.println(baiXe.toString());
+            }
             for (Xe xe:
                     (baiXeDAO.getAll().get(0).getXeTrongBai())) {
                 System.out.println(xe.toString());
             }
 //            Thread.sleep(100000);
-            daoManager.close();
+       //    daoManager.close();
         }
         catch (Exception e){
             e.printStackTrace();

@@ -98,17 +98,17 @@ public class BaiXe{
         return  list;
     }
 
-//    public ArrayList<Xe> getXeTheoLoai(int loaiXeId){
-//        ArrayList list = new ArrayList();
-//        XeDAO xeDAO = XeDAO.getInstance();
-//        for (Xe xe:
-//                xeDAO.getAll()) {
-//            if (xe.getBaiXe().getId() == getId() && xe.getLoaiXe().getId()==loaiXeId && xe.getTrangThai() == Xe.CHUA_THUE){
-//                list.add(xe);
-//            }
-//        }
-//        return  list;
-//    }
+    public ArrayList<Xe> getXeTheoLoai(int loaiXeId){
+        ArrayList list = new ArrayList();
+        XeDAO xeDAO = XeDAO.getInstance();
+        for (Xe xe:
+                xeDAO.getAll()) {
+            if (xe.getBaiXe().getId() == getId() && xe.getLoaiXe().getId()==loaiXeId && xe.getTrangThai() == Xe.CHUA_THUE){
+                list.add(xe);
+            }
+        }
+        return  list;
+    }
 }
 
 /*

@@ -23,10 +23,11 @@ public class XeDAO implements DAO<Xe> {
     public static XeDAO xeDAO = null;
 
     public XeDAO() {
-        daoManager.open();
-        ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + Xe.name + ";");
         LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
         BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
+        daoManager.open();
+        ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + Xe.name + ";");
+
         try {
             while (resultSet.next()){
                 listXe.add(new Xe(resultSet.getInt(1),

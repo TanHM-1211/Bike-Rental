@@ -1,3 +1,8 @@
+import controller.DieuKhienBaiXe;
+import database.BaiXeDAO;
+import database.DAOManager;
+import database.XeDAO;
+import entity.Xe;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,9 +13,11 @@ import javafx.util.Duration;
 import utils.Configs;
 
 import views.screen.giaoDienChinh.GiaoDienChinh;
+import views.screen.xemThongTin.GiaoDienThongTinXe;
 
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Project Ecobike System
