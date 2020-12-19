@@ -18,7 +18,16 @@ public class NguoiDungGiaoDichThueXeDAO implements DAO<NguoiDungGiaoDichThueXe> 
     public static NguoiDungGiaoDichThueXeDAO nguoiDungGiaoDichThueXeDAO = null;
 
     public NguoiDungGiaoDichThueXeDAO() {
-        super();
+        daoManager.open();
+        ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + NguoiDungGiaoDichThueXe.name + ";");
+        try {
+            while (resultSet.next()){
+                listNguoiDungGiaoDichThueXe.add(this.parse(resultSet));
+            }
+            resultSet.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static NguoiDungGiaoDichThueXeDAO getInstance(){
@@ -42,22 +51,22 @@ public class NguoiDungGiaoDichThueXeDAO implements DAO<NguoiDungGiaoDichThueXe> 
         return null;
     }
 
+    public NguoiDungGiaoDichThueXe makeNguoiDungGiaoDichThueXe(NguoiDung nguoiDung,
+                                                               GiaoDichThueXe giaoDichThueXe){
+        return new NguoiDungGiaoDichThueXe(this.listNguoiDungGiaoDichThueXe.size(), nguoiDung, giaoDichThueXe);
+    }
+
     @Override
     public NguoiDungGiaoDichThueXe get(int id) {
+        for (NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe:
+             this.listNguoiDungGiaoDichThueXe) {
+            if (nguoiDungGiaoDichThueXe.getId() == id) return nguoiDungGiaoDichThueXe;
+        }
         return null;
     }
 
     public NguoiDungGiaoDichThueXe getNguoiDungGiaoDichThueXeTuongUng(NguoiDung nguoiDung){
-        ResultSet resultSet = this.daoManager.executeQuery("SELECT * FROM " + NguoiDungGiaoDichThueXe.name +
-                " WHERE id_nguoi_dung=" + nguoiDung.getId() + ";");
-        try {
-            resultSet.next();
-            return parse(resultSet);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return null;
-
+        return get(nguoiDung.getId());
     }
 
     @Override
@@ -67,12 +76,27 @@ public class NguoiDungGiaoDichThueXeDAO implements DAO<NguoiDungGiaoDichThueXe> 
 
     @Override
     public void save(NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe) {
-
+        this.listNguoiDungGiaoDichThueXe.add(nguoiDungGiaoDichThueXe);
+        daoManager.executeQuery("INSERT INTO " + NguoiDungGiaoDichThueXe.name + " " + NguoiDungGiaoDichThueXe.paramsName +
+                " VALUES " + nguoiDungGiaoDichThueXe.toSQLString() + ";");
     }
 
     @Override
     public void update(NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe) {
+        ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + NguoiDungGiaoDichThueXe.name +
+                " WHERE id_giao_dich_thue_xe=" + nguoiDungGiaoDichThueXe.getId() + ";");
+        try{
+            if (resultSet.next()) {
 
+                if (nguoiDungGiaoDichThueXe.getGiaoDichThueXe() != null)
+                    resultSet.updateInt("id_giao_dich_thue_xe", nguoiDungGiaoDichThueXe.getGiaoDichThueXe().getId());
+                else resultSet.updateObject("id_giao_dich_thue_xe", null);
+                resultSet.updateRow();
+                resultSet.close();
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -80,8 +104,4 @@ public class NguoiDungGiaoDichThueXeDAO implements DAO<NguoiDungGiaoDichThueXe> 
 
     }
 
-    @Override
-    public String getInsertQuery(List<NguoiDungGiaoDichThueXe> list) {
-        return null;
-    }
 }
