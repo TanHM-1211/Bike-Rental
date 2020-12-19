@@ -83,12 +83,8 @@ public class GiaoDienThongTinXe extends BaseScreenHandler{
         super(stage, screenPath);
         this.xe = xe;
         setBasicScene();
-        if (xe.getTrangThai()==Xe.CHUA_THUE) {
-            tenBaiXe.setText("Bai xe: " + xe.getBaiXe().getTenBaiXe());
-            buton1.setVisible(false);
-            buton2.setText("Thuê Xe");
-        }else {
-
-        }
+        tenBaiXe.setText("Bai xe: " + xe.getBaiXe().getTenBaiXe());
+        buton1.setVisible(false);
+        buton2.setText("Thuê Xe");
     }
 }

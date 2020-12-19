@@ -79,7 +79,7 @@ public class testDAO {
                     (baiXeDAO.getAll().get(0).getXeTrongBai())) {
                 System.out.println(xe.toString());
             }
-
+            System.out.println(NguoiDungDAO.getInstance().getNguoiDungHienTai().toString());
             System.out.println(NguoiDungGiaoDichThueXeDAO.getInstance().getNguoiDungGiaoDichThueXeTuongUng(
                     NguoiDungDAO.getInstance().getNguoiDungHienTai()).toString());
             Thread.sleep(100000);

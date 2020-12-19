@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import utils.Configs;
 import views.screen.xemThongTin.GiaoDienThongTinXe;
 import java.io.IOException;
-
+import common.exception.maVachException;
 /**
  * Project Ecobike System
  * User: Nhom 11
@@ -26,32 +26,21 @@ public class GiaoDienNhapMaVach extends BaseScreenHandler {
     Button xacNhan;
 
     public void xacNhan(String maVach){
-        try{
-            Integer.parseInt(maVach);
-        } catch (NumberFormatException e){
+        try {
+            XeDAO xeDao = XeDAO.getInstance();
+            Xe  xe = xeDao.get(Integer.parseInt(maVach));
+            GiaoDienThongTinXe giaoDienThongTinXe;
+//            if (xe.getTrangThai()==Xe.CHUA_THUE){
+//              //  giaoDienThongTinXenew GiaoDienThongTinXe(this.getStage(),Configs.THONG_TIN_XE_PATH,xe);
+//            }
+//            giaoDienThongTinXe.setPreviousScreen(this);
+//            giaoDienThongTinXe.show();
+        }catch (maVachException ex){
             try {
                 GiaoDienKetQua.error("Mã vạch không hợp lệ");
-                return;
-            } catch (IOException ex) {
+            } catch (IOException ex2) {
                 ex.printStackTrace();
             }
-        }
-        XeDAO xeDao = XeDAO.getInstance();
-        Xe  xe = xeDao.get(Integer.parseInt(maVach));
-        if (xe==null){
-            try {
-                GiaoDienKetQua.error("Không tìm thấy xe ứng với mã");
-                return;
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-        try {
-            GiaoDienThongTinXe giaoDienThongTinXe= new GiaoDienThongTinXe(this.getStage(),Configs.THONG_TIN_XE_PATH,xe);
-            giaoDienThongTinXe.setPreviousScreen(this);
-            giaoDienThongTinXe.show();
-        } catch (IOException ex) {
-            ex.printStackTrace();
         }
 
     }
