@@ -1,8 +1,10 @@
 package views.screen;
 
 import database.BaiXeDAO;
+import database.GiaoDichThueXeDAO;
 import database.XeDAO;
 import entity.BaiXe;
+import entity.GiaoDichThueXe;
 import entity.Xe;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -16,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import utils.Configs;
 import views.screen.giaoDienChinh.GiaoDienChinh;
+import views.screen.thongTinBrief.GiaoDienXeDangThue;
 import views.screen.xemThongTin.GiaoDienThongTinXe;
 
 import java.io.File;
@@ -69,10 +72,10 @@ public class GiaoDienMenu extends FXMLScreenHandler{
             }
         });
         xeDangThue.setOnAction(e ->{
-            XeDAO xeDAO = XeDAO.getInstance();
-            Xe xe = xeDAO.getAll().get(0);
             try {
-                GiaoDienThongTinXe giaoDienThongTinXe= new GiaoDienThongTinXe(parentScene.getStage(),Configs.THONG_TIN_XE_PATH,xe);
+                XeDAO xeDAO = XeDAO.getInstance();
+                Xe xe = xeDAO.getAll().get(0);
+                GiaoDienThongTinXe giaoDienThongTinXe= new GiaoDienThongTinXe(parentScene.getStage(),Configs.THONG_TIN_XE_PATH,xe, null);
                 giaoDienThongTinXe.setPreviousScreen(parentScene);
                 giaoDienThongTinXe.show();
             } catch (IOException ex) {

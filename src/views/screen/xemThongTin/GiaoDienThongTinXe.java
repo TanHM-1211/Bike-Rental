@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -45,14 +46,14 @@ public class GiaoDienThongTinXe extends BaseScreenHandler{
     @FXML
     Button buton2;
 
+    private  Xe xe;
+
     public void setIcon(){
         setImage(this.bike,"bike.png");
     }
-    public GiaoDienThongTinXe(Stage stage, String screenPath, Xe xe) throws IOException {
-        super(stage, screenPath);
+    public void setBasicScene(){
         setMenu(mainVBox);
         setIcon();
-
         tenBaiXe.setText(xe.getBaiXe().getTenBaiXe() + " bai xe");
 
         loaiXe.setText(xe.getLoaiXe().getTenLoaiXe());
@@ -65,17 +66,29 @@ public class GiaoDienThongTinXe extends BaseScreenHandler{
         tienCoc.setText(xe.getLoaiXe().getGiaTri() + "");
         phi30.setText(xe.getLoaiXe().getGia30pDau()+"");
         phi15.setText(xe.getLoaiXe().getGiaMoi15p()+"");
+    }
 
+    public GiaoDienThongTinXe(Stage stage, String screenPath, Xe xe, AnchorPane content) throws IOException {
+        super(stage, screenPath);
+        this.xe = xe;
+        setBasicScene();
+        tenBaiXe.setText("Xe đang được thuê:");
+        buton1.setText("Tạm dừng");
+        buton2.setText("Trả xe");
+        GiaoDienXeDangThue giaoDienXeDangThue = new GiaoDienXeDangThue(Configs.THONG_TIN_XE_DANG_THUE_PATH, null);
+        mainVBox.getChildren().add(giaoDienXeDangThue.getContent());
+    }
+
+    public GiaoDienThongTinXe(Stage stage, String screenPath, Xe xe) throws IOException {
+        super(stage, screenPath);
+        this.xe = xe;
+        setBasicScene();
         if (xe.getTrangThai()==Xe.CHUA_THUE) {
             tenBaiXe.setText("Bai xe: " + xe.getBaiXe().getTenBaiXe());
             buton1.setVisible(false);
             buton2.setText("Thuê Xe");
         }else {
-            tenBaiXe.setText("Xe đang được thuê:");
-            buton1.setText("Tạm dừng");
-            buton2.setText("Trả xe");
-            GiaoDienXeDangThue giaoDienXeDangThue = new GiaoDienXeDangThue(Configs.THONG_TIN_XE_DANG_THUE_PATH,xe);
-            mainVBox.getChildren().add(giaoDienXeDangThue.getContent());
+
         }
     }
 }

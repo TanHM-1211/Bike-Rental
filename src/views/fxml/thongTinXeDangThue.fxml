@@ -16,17 +16,17 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <Text fill="#669900" layoutX="117.33984375" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xxxxxx" textAlignment="RIGHT" wrappingWidth="188.595703125" AnchorPane.rightAnchor="70.0">
+      <Text fx:id="tienThue" fill="#669900" layoutX="117.33984375" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xxxxxx" textAlignment="RIGHT" wrappingWidth="188.595703125" AnchorPane.rightAnchor="70.0">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <Text fill="#669900" layoutX="157.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xxxxxx" textAlignment="RIGHT" wrappingWidth="155.595703125" AnchorPane.rightAnchor="70.0">
+      <Text fx:id="thoiGian" fill="#669900" layoutX="157.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xxxxxx" textAlignment="RIGHT" wrappingWidth="155.595703125" AnchorPane.rightAnchor="70.0">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <Text fill="#669900" layoutX="313.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VND" textAlignment="RIGHT" wrappingWidth="45.595703125" AnchorPane.rightAnchor="20.0">
+      <Text fill="#669900" layoutX="317.978515625" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VND" textAlignment="RIGHT" wrappingWidth="45.595703125" AnchorPane.rightAnchor="20.42578125">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

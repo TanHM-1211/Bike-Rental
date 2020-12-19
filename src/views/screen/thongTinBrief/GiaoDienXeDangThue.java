@@ -1,6 +1,8 @@
 package views.screen.thongTinBrief;
 
 import entity.BaiXe;
+import entity.GiaoDichThueXe;
+import entity.NguoiDungGiaoDichThueXe;
 import entity.Xe;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
@@ -13,13 +15,11 @@ import views.screen.xemThongTin.GiaoDienThongTinBaiXe;
 import java.io.IOException;
 
 public class GiaoDienXeDangThue extends FXMLScreenHandler {
-    Xe xe;
     private BaseScreenHandler parentScene;
 
 
-    public GiaoDienXeDangThue(String screenPath, Xe xe) throws IOException {
+    public GiaoDienXeDangThue(String screenPath, GiaoDichThueXe giaoDichThueXe) throws IOException {
         super(screenPath);
-        this.xe = xe;
     }
 
 }

@@ -25,6 +25,7 @@ public class GiaoDienNhapMaVach extends BaseScreenHandler {
     @FXML
     Button xacNhan;
 
+
     public void xacNhan(String maVach){
         System.out.println(maVach);
         XeDAO xeDao = XeDAO.getInstance();
