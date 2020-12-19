@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -23,13 +30,13 @@
                         <Image url="@../../../assets/images/bike.PNG" />
                      </image>
                   </ImageView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d8f8d1" height="271.0" layoutX="20.0" layoutY="111.0" stroke="#669900" strokeType="INSIDE" strokeWidth="2.0" width="293.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d8f8d1" height="233.0" layoutX="20.0" layoutY="111.0" stroke="#669900" strokeType="INSIDE" strokeWidth="2.0" width="294.0" />
                   <Button blendMode="SRC_ATOP" layoutX="187.0" layoutY="45.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="105.0" style="-fx-background-color: #008000; -fx-background-radius: 15;" text="Thuê xe" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
-                  <GridPane layoutX="30.0" layoutY="115.0" prefHeight="271.0" prefWidth="282.0">
+                  <GridPane layoutX="30.0" layoutY="115.0" prefHeight="226.0" prefWidth="277.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -43,64 +50,64 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label prefHeight="29.0" prefWidth="116.0" text="Loại Xe: ">
+                        <Label prefHeight="29.0" prefWidth="116.0" text="Loại Xe: " textFill="#669900">
                            <font>
-                              <Font name="System Bold" size="18.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="29.0" prefWidth="116.0" text="Biển số:" GridPane.rowIndex="1">
+                        <Label prefHeight="29.0" prefWidth="116.0" text="Biển số:" textFill="#669900" GridPane.rowIndex="1">
                            <font>
-                              <Font name="System Bold" size="18.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="29.0" prefWidth="116.0" text="Pin(%):" GridPane.rowIndex="2">
+                        <Label prefHeight="29.0" prefWidth="116.0" text="Pin(%):" textFill="#669900" GridPane.rowIndex="2">
                            <font>
-                              <Font name="System Bold" size="18.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="29.0" prefWidth="116.0" text="Tiền cọc:" GridPane.rowIndex="3">
+                        <Label prefHeight="29.0" prefWidth="116.0" text="Tiền cọc:" textFill="#669900" GridPane.rowIndex="3">
                            <font>
-                              <Font name="System Bold" size="18.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="29.0" prefWidth="138.0" text="Phí 30 phút đầu:" GridPane.rowIndex="4">
+                        <Label prefHeight="29.0" prefWidth="138.0" text="Phí 30 phút đầu:" textFill="#669900" GridPane.rowIndex="4">
                            <font>
-                              <Font name="System Bold" size="14.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="29.0" prefWidth="146.0" text="Phí mỗi 15 phút sau:" GridPane.rowIndex="5">
+                        <Label prefHeight="29.0" prefWidth="146.0" text="Phí mỗi 15 phút sau:" textFill="#669900" GridPane.rowIndex="5">
                            <font>
-                              <Font name="System Bold" size="14.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Text fx:id="loaiXe" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1">
+                        <Text fx:id="loaiXe" fill="#669900" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Text>
-                        <Text fx:id="bienSo" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Text fx:id="bienSo" fill="#669900" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Text>
-                        <Text fx:id="pin" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Text fx:id="pin" fill="#669900" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Text>
-                        <Text fx:id="tienCoc" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Text fx:id="tienCoc" fill="#669900" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Text>
-                        <Text fx:id="phi30" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <Text fx:id="phi30" fill="#669900" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Text>
-                        <Text fx:id="phi15" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                        <Text fx:id="phi15" fill="#669900" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="5">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Text>
                      </children>

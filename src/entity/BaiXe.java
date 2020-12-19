@@ -110,7 +110,7 @@ public class BaiXe{
         return  list;
     }
 
-    public static List getXeDapDienTrongBai(BaiXe baiXe){
+    public List getXeDapDienTrongBai(BaiXe baiXe){
         ArrayList list = new ArrayList();
         XeDAO xeDAO = XeDAO.getInstance();
         for (Xe xe:
