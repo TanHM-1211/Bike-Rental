@@ -41,10 +41,19 @@ public class NguoiDungDAO implements DAO<NguoiDung> {
         return nguoiDungDAO;
     }
 
+    /**
+     * Trả về NguoiDung trong phiên hiện tại, mặc định có id = 1
+     * @return NguoiDung
+     */
     public NguoiDung getNguoiDungHienTai(){
         return this.nguoiDungHienTai;
     }
 
+    /**
+     * Nhận vào id và trả về NguoiDung có id tương ứng
+     * @param id int
+     * @return NguoiDung
+     */
     @Override
     public NguoiDung get(int id) {
         for (NguoiDung nguoiDung:
@@ -54,6 +63,11 @@ public class NguoiDungDAO implements DAO<NguoiDung> {
         return null;
     }
 
+    /**
+     * Xử lý 1 hàng trong CSDL và trả về NguoiDung tương ứng
+     * @param resultSet ResultSet
+     * @return  NguoiDung
+     */
     @Override
     public NguoiDung parse(ResultSet resultSet) {
         try {
@@ -64,9 +78,13 @@ public class NguoiDungDAO implements DAO<NguoiDung> {
         return null;
     }
 
+    /**
+     * Danh sách tất cả NguoiDung
+     * @return List
+     */
     @Override
     public List<NguoiDung> getAll() {
-        return null;
+        return this.listNguoiDung;
     }
 
     @Override

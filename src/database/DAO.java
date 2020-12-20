@@ -9,6 +9,10 @@ import java.util.List;
  * Create at 4:25 PM , 12/17/2020
  */
 
+/**
+ * Interface giao tiếp với cơ sở dữ liệu
+ * @param <T>
+ */
 public interface DAO<T> {
 
     T parse(ResultSet resultSet);

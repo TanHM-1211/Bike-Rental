@@ -12,6 +12,9 @@ import java.util.List;
  * Create at 11:26 PM , 12/17/2020
  */
 
+/**
+ * Thực hiện giao tiếp giữa controller và bảng giao_dich_thue_xe trong CSDL
+ */
 public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
     private List<GiaoDichThueXe> listGiaoDichThueXe = new ArrayList<>();
     private DAOManager daoManager = DAOManager.getInstance();
@@ -21,6 +24,9 @@ public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
     private GiaoDichThanhToanDAO giaoDichThanhToanDAO = GiaoDichThanhToanDAO.getInstance();
     public static GiaoDichThueXeDAO giaoDichThueXeDAO = null;
 
+    /**
+     * Khởi tạo GiaoDichThueXeDAO mới, đọc tất cả hàng trong bảng giao_dich_thue_xe
+     */
     public GiaoDichThueXeDAO(){
         ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + GiaoDichThueXe.name + ";");
         try {
@@ -33,6 +39,10 @@ public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
         }
     }
 
+    /**
+     * Singleton
+     * @return 1 đối tượng GiaoDichThueXeDAO duy nhất của mỗi phiên
+     */
     public static GiaoDichThueXeDAO getInstance(){
         if (giaoDichThueXeDAO == null){
             giaoDichThueXeDAO = new GiaoDichThueXeDAO();
@@ -40,6 +50,11 @@ public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
         return giaoDichThueXeDAO;
     }
 
+    /**
+     * Xử lý 1 hàng trong CSDL và trả về GiaoDichThueXe tương ứng
+     * @param resultSet ResultSet
+     * @return  GiaoDichThueXe
+     */
     @Override
     public GiaoDichThueXe parse(ResultSet resultSet) {
         try {
@@ -57,11 +72,24 @@ public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
         return null;
     }
 
+    /**
+     * Tạo 1 giao dịch thuê xe chưa bao gồm trả (ngay khi vừa thanh toán đặt cọc và lấy xe)
+     * @param xe Xe
+     * @param nguoiDung NguoiDung
+     * @param baiXeThue BaiXe
+     * @param giaoDichThanhToanThue GiaoDichThanhToan
+     * @return GiaoDichThueXe
+     */
     public GiaoDichThueXe makeGiaoDichThueXeCoBan(Xe xe, NguoiDung nguoiDung, BaiXe baiXeThue, GiaoDichThanhToan giaoDichThanhToanThue){
         return new GiaoDichThueXe(this.listGiaoDichThueXe.size(), xe, nguoiDung, baiXeThue, null, giaoDichThanhToanThue,
                 null, null);
     }
 
+    /**
+     * Nhận vào id và trả về GiaoDichThueXe có id tương ứng
+     * @param id int
+     * @return GiaoDichThueXe
+     */
     @Override
     public GiaoDichThueXe get(int id) {
         for (GiaoDichThueXe giaoDichThueXe:
@@ -71,11 +99,20 @@ public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
         return null;
     }
 
+    /**
+     * Danh sách tất cả GiaoDichThueXe
+     * @return List
+     */
     @Override
     public List<GiaoDichThueXe> getAll() {
         return this.listGiaoDichThueXe;
     }
 
+    /**
+     * Đưa ra GiaoDichThueXe tương ứng của nguoiDung trong phiên hiện tại
+     * @param nguoiDung
+     * @return GiaoDichThueXe nếu nguoiDung đang thuê 1 xe nào đó, null nếu nguoiDung không thuê xe
+     */
     public GiaoDichThueXe getGiaoDichThueXeTuongUng(NguoiDung nguoiDung){
         NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe = NguoiDungGiaoDichThueXeDAO.getInstance().getNguoiDungGiaoDichThueXeTuongUng(nguoiDung);
         if (nguoiDungGiaoDichThueXe != null)
@@ -83,6 +120,10 @@ public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
         else return null;
     }
 
+    /**
+     * Lưu 1 GiaoDichThueXe vào CSDL
+     * @param giaoDichThueXe GiaoDichThueXe
+     */
     @Override
     public void save(GiaoDichThueXe giaoDichThueXe) {
         this.listGiaoDichThueXe.add(giaoDichThueXe);
@@ -90,8 +131,9 @@ public class GiaoDichThueXeDAO implements DAO<GiaoDichThueXe> {
                 " VALUES " + giaoDichThueXe.toSQLString() + ";");
     }
 
-    /*
-    update giao dich hoan chinh
+    /**
+     * Cập nhật và lưu vào CSDL 1 GiaoDichThueXe từ trạng thái đang thuê sang đã thuê
+     * @param giaoDichThueXe GiaoDichThueXe
      */
     @Override
     public void update(GiaoDichThueXe giaoDichThueXe) {
