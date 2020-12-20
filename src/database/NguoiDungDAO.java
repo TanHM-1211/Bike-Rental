@@ -1,6 +1,7 @@
 package database;
 
 import entity.NguoiDung;
+import entity.Xe;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -20,7 +21,6 @@ public class NguoiDungDAO implements DAO<NguoiDung> {
 
     public NguoiDungDAO() {
         this.nguoiDungHienTai = NguoiDung.getInstance();
-        daoManager.open();
         ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + NguoiDung.name + ";");
         try {
             while (resultSet.next()){
@@ -41,15 +41,33 @@ public class NguoiDungDAO implements DAO<NguoiDung> {
         return nguoiDungDAO;
     }
 
+    /**
+     * Trả về NguoiDung trong phiên hiện tại, mặc định có id = 1
+     * @return NguoiDung
+     */
     public NguoiDung getNguoiDungHienTai(){
         return this.nguoiDungHienTai;
     }
 
+    /**
+     * Nhận vào id và trả về NguoiDung có id tương ứng
+     * @param id int
+     * @return NguoiDung
+     */
     @Override
     public NguoiDung get(int id) {
+        for (NguoiDung nguoiDung:
+             this.listNguoiDung) {
+            if (nguoiDung.getId() == id) return nguoiDung;
+        }
         return null;
     }
 
+    /**
+     * Xử lý 1 hàng trong CSDL và trả về NguoiDung tương ứng
+     * @param resultSet ResultSet
+     * @return  NguoiDung
+     */
     @Override
     public NguoiDung parse(ResultSet resultSet) {
         try {
@@ -60,9 +78,13 @@ public class NguoiDungDAO implements DAO<NguoiDung> {
         return null;
     }
 
+    /**
+     * Danh sách tất cả NguoiDung
+     * @return List
+     */
     @Override
     public List<NguoiDung> getAll() {
-        return null;
+        return this.listNguoiDung;
     }
 
     @Override
@@ -80,8 +102,4 @@ public class NguoiDungDAO implements DAO<NguoiDung> {
 
     }
 
-    @Override
-    public String getInsertQuery(List<NguoiDung> list) {
-        return null;
-    }
 }

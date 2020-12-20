@@ -1,9 +1,13 @@
 package controller;
 
-import entity.Xe;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import entity.Xe;
+import common.exception.BaiXeException;
+import common.exception.MaVachException;
+import database.*;
+import entity.*;
+import subsystem.interbanksubsystem.InterbankSubsystem;
+
 
 /**
  * Project Ecobike System
@@ -11,39 +15,57 @@ import java.text.SimpleDateFormat;
  * Create at 9:48 AM , 12/16/2020
  */
 
-public class DieuKhienTraXe {
+public class DieuKhienTraXe extends BaseController {
     public DieuKhienTraXe() {
     }
 
-    /**
-     * Ham tinh tien thue xe
-     * @param thoiDiemBatDau theo khuon "yyyy/MM/dd HH:mm:ss"
-     * @param thoiDiemKetThuc theo khuon "yyyy/MM/dd HH:mm:ss"
-     * @return so tien thue xe
-     */
-    public int  tinhTienThue(String thoiDiemBatDau, String thoiDiemKetThuc, Xe xe){
-        java.util.Date temp1;
-        java.util.Date temp2;
-        int thueTheoPhut ;
+    public BaiXe getBaiXe(String  IdBaiXe){
         try {
-            temp1 = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss")
-                    .parse(thoiDiemBatDau);
-            temp2 = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss")
-                    .parse(thoiDiemKetThuc);
-            thueTheoPhut = (int) Math.ceil((temp2.getTime() - temp1.getTime())/60000);
-        } catch (ParseException e){
-            return 0;
+            BaiXeDAO xeDao = BaiXeDAO.getInstance();
+            BaiXe baiXe = xeDao.get(Integer.parseInt(IdBaiXe));
+            return baiXe;
+        } catch (RuntimeException ex) {
+            throw new BaiXeException();
         }
-        if (thueTheoPhut <= 30){
-            return xe.getLoaiXe().getGia30pDau();
-        }
+    }
+    public void TraXe(GiaoDichThueXe giaoDichThueXe, BaiXe baiXeTra){
+        NguoiDungDAO nguoiDungDAO = NguoiDungDAO.getInstance();
+        XeDAO xeDAO = XeDAO.getInstance();
+        BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
+        GiaoDichThanhToanDAO giaoDichThanhToanDAO = GiaoDichThanhToanDAO.getInstance();
+        GiaoDichThueXeDAO giaoDichThueXeDAO = GiaoDichThueXeDAO.getInstance();
+        NguoiDungGiaoDichThueXeDAO nguoiDungGiaoDichThueXeDAO = NguoiDungGiaoDichThueXeDAO.getInstance();
 
-        int sau30 = 1;
-        sau30+=(int) Math.ceil((thueTheoPhut -30)/15);
-        return xe.getLoaiXe().getGia30pDau() + sau30*xe.getLoaiXe().getGiaMoi15p();
+        InterbankSubsystem interbankSubsystem = new InterbankSubsystem();
+        Xe xe = giaoDichThueXe.getXe();
+        The the = giaoDichThueXe.getThanhToanThue().getThe();
+        GiaoDichThanhToan thanhToanTra;
+        int tienThua = tienThua(giaoDichThueXe);
+        if (tienThua>0) {
+            thanhToanTra = interbankSubsystem.refund(the, tienThua(giaoDichThueXe), "tra");
+        }else{
+            thanhToanTra = interbankSubsystem.pay(the, - tienThua(giaoDichThueXe), "tra");
+        }
+        System.out.println(thanhToanTra.toString());
+
+        xe.setBaiXe(baiXeTra);
+        xe.setTrangThai(Xe.CHUA_THUE);
+        xeDAO.update(xe);
+
+        giaoDichThueXe.setBaiXeTra(baiXeTra);
+        giaoDichThueXe.setThanhToanTra(thanhToanTra);
+        giaoDichThueXe.setSoTien(1);
+        giaoDichThueXeDAO.update(giaoDichThueXe);
+
+        NguoiDung nguoiDung = giaoDichThueXe.getNguoiDung();
+        NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe = nguoiDungGiaoDichThueXeDAO.getNguoiDungGiaoDichThueXeTuongUng(nguoiDung);
+        nguoiDungGiaoDichThueXe.setGiaoDichThueXe(null);
+        nguoiDungGiaoDichThueXeDAO.update(nguoiDungGiaoDichThueXe);
     }
 
-    public int tienThua(int tienCoc, int tienThue){
-        return tienCoc - tienThue;
+    public int tienThua(GiaoDichThueXe giaoDichThueXe){
+        int tienCoc = giaoDichThueXe.getThanhToanThue().getAmount();
+        int tienThue = tinhTienThue(giaoDichThueXe);
+        return -tienCoc-tienThue;
     }
 }

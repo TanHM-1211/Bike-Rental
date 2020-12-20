@@ -2,7 +2,10 @@ package controller;
 
 import database.BaiXeDAO;
 import entity.BaiXe;
+import entity.GiaoDichThueXe;
 import entity.Xe;
+import utils.Configs;
+import views.screen.xemThongTin.GiaoDienThongTinXe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +16,7 @@ import java.util.List;
  * Create at 9:46 AM , 12/16/2020
  */
 
-public class DieuKhienBaiXe {
+public class DieuKhienBaiXe extends BaseController{
 
     public DieuKhienBaiXe() {
     }
@@ -21,8 +24,5 @@ public class DieuKhienBaiXe {
         return BaiXeDAO.getInstance().getAll();
     }
 
-    public List getLoaiXe(String loaiXe){
-        return BaiXeDAO.getInstance().getAll();
-    }
 
 }

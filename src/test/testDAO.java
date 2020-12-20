@@ -20,16 +20,12 @@ public class testDAO {
     public static void main(String args[]){
         try{
             DAOManager daoManager= DAOManager.getInstance();
-            daoManager.open();
-<<<<<<< HEAD
 
-            BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
-=======
             BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
             LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
             XeDAO xeDAO = XeDAO.getInstance();
 //            BaiXeDAO baiXeDAO = BaiXeDAO.getInstance();
->>>>>>> 3734b0f363b9b9dc35a8a1d2998fcffffcfeb7e9
+
 //            LoaiXeDAO loaiXeDAO = LoaiXeDAO.getInstance();
 //            XeDAO xeDAO = XeDAO.getInstance();
 //            listBaiXe.add(new BaiXe(1, "bai A", "dia chi 1", 10));
@@ -82,10 +78,13 @@ public class testDAO {
                     (baiXeDAO.getAll().get(0).getXeTrongBai())) {
                 System.out.println(xe.toString());
             }
+            System.out.println(NguoiDungDAO.getInstance().getNguoiDungHienTai().toString());
+//            for (Xe xe:
+//                    (baiXeDAO.getAll().get(0).getXeTrongBai())) {
+//                System.out.println(xe.toString());
+//            }
 
-            System.out.println(NguoiDungGiaoDichThueXeDAO.getInstance().getNguoiDungGiaoDichThueXeTuongUng(
-                    NguoiDungDAO.getInstance().getNguoiDungHienTai()).toString());
-            Thread.sleep(100000);
+
 
             daoManager.close();
         }

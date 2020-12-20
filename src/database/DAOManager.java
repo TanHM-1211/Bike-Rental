@@ -10,6 +10,9 @@ import java.sql.*;
 import entity.The;
 import utils.Configs;
 
+/**
+ * Quả lý truy cập và sửa đổi CSDL
+ */
 public class DAOManager {
     // JDBC Driver Name And Database URL
     public static String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -26,6 +29,10 @@ public class DAOManager {
 
     private static DAOManager daoManager = null;
 
+    /**
+     * Singleton
+     * @return 1 đối tượng DAOManager duy nhất trong mỗi phiên
+     */
     public static DAOManager getInstance() {
         if (daoManager == null) {
             daoManager = new DAOManager();
@@ -38,12 +45,16 @@ public class DAOManager {
         try {
             Class.forName(JDBC_DRIVER);
             System.out.println("Created DB Connection....");
+            this.open();
         } catch (Exception e) {
             // Handle errors for Exception
             e.printStackTrace();
         }
     }
 
+    /**
+     * Mở kết nối nếu chưa được mở
+     */
     public void open()  {
         try {
             if (this.connection == null && this.statement == null) {
@@ -58,6 +69,10 @@ public class DAOManager {
         }
     }
 
+    /**
+     * Đóng kết nối
+     * @throws SQLException nếu lỗi không đóng được
+     */
     public void close() throws SQLException
     {
         try {
@@ -70,6 +85,11 @@ public class DAOManager {
         }
     }
 
+    /**
+     * Thực hiện 1 truy vấn và trả về kết quả
+     * @param query truy vấn
+     * @return ResultSet kết quả thực thi truy vấn
+     */
     public ResultSet executeQuery(String query)
     {
         ResultSet resultSet = null;

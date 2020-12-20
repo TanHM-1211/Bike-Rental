@@ -1,5 +1,6 @@
 package views.screen;
-import database.XeDAO;
+import controller.BaseController;
+import entity.GiaoDichThueXe;
 import entity.Xe;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,7 +11,6 @@ import javafx.stage.Stage;
 import utils.Configs;
 import views.screen.xemThongTin.GiaoDienThongTinXe;
 import java.io.IOException;
-
 /**
  * Project Ecobike System
  * User: Nhom 11
@@ -25,16 +25,19 @@ public class GiaoDienNhapMaVach extends BaseScreenHandler {
     @FXML
     Button xacNhan;
 
+    private Xe xe;
     public void xacNhan(String maVach){
-        System.out.println(maVach);
-        XeDAO xeDao = XeDAO.getInstance();
-        Xe  xe = xeDao.getAll().get(0);
+        BaseController baseController = new BaseController();
+        Xe xe = baseController.layThongTinXeTheoMa(maVach);
+        if (xe==null){
+            return;
+        }
         try {
-            GiaoDienThongTinXe giaoDienThongTinXe= new GiaoDienThongTinXe(this.getStage(),Configs.THONG_TIN_XE_PATH,xe);
+            GiaoDienThongTinXe giaoDienThongTinXe = new GiaoDienThongTinXe(this.stage,Configs.THONG_TIN_XE_PATH, xe);
             giaoDienThongTinXe.setPreviousScreen(this);
             giaoDienThongTinXe.show();
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     public GiaoDienNhapMaVach(Stage stage, String screenPath) throws IOException {
