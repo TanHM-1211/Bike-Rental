@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox fx:id="mainVBox" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0">
          <children>
@@ -21,12 +21,12 @@
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="maVach1" layoutX="103.0" layoutY="154.0" prefHeight="45.0" prefWidth="203.0">
+                  <TextField fx:id="the" editable="false" layoutX="92.0" layoutY="154.0" prefHeight="45.0" prefWidth="214.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </TextField>
-                  <Button blendMode="SRC_ATOP" layoutX="127.0" layoutY="242.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="93.0" style="-fx-background-color: #008000; -fx-background-radius: 15;" text="Xác nhận" textFill="WHITE">
+                  <Button blendMode="SRC_ATOP" layoutX="127.0" layoutY="242.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="93.0" style="-fx-background-color: green; -fx-background-radius: 15;" text="Xác nhận" textFill="WHITE" fx:id="xacNhan">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>

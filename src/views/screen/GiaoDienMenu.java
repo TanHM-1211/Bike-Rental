@@ -3,6 +3,7 @@ package views.screen;
 import common.exception.CheckXeDangThue;
 import common.exception.MaVachException;
 import controller.BaseController;
+import controller.DieuKhienXeDangThue;
 import entity.GiaoDichThueXe;
 import entity.Xe;
 import javafx.fxml.FXML;
@@ -64,8 +65,8 @@ public class GiaoDienMenu extends FXMLScreenHandler{
             }
         });
         xeDangThue.setOnAction(e ->{
-            BaseController baseController = new BaseController();
-            GiaoDichThueXe giaoDichThueXe = baseController.getGiaoDichHienTai();
+            DieuKhienXeDangThue dieuKhienXeDangThue= new DieuKhienXeDangThue();
+            GiaoDichThueXe giaoDichThueXe = dieuKhienXeDangThue.getGiaoDichHienTai();
             try{
                 Xe xe = giaoDichThueXe.getXe();
                 try {
@@ -76,7 +77,8 @@ public class GiaoDienMenu extends FXMLScreenHandler{
                     e1.printStackTrace();
                 }
             } catch (RuntimeException ex) {
-                throw new CheckXeDangThue("Bạn chưa thuê xe");
+                ex.printStackTrace();
+                throw new CheckXeDangThue();
             }
         });
         back.setOnMouseClicked(e ->{

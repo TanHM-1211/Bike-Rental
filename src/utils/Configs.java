@@ -13,7 +13,7 @@ public class Configs {
 	public static final String RESET_URL = "https://ecopark-system-api.herokuapp.com/api/card/reset";
 
 	// demo data
-	public static final String GROUP_NAME = "118131_group11_2020";
+	public static final String GROUP_NAME = "118131_group11_220";
 	public static final String OWNER = "Group 11";
 	public static final String CVV_CODE = "505";
 	public static final String DATE_EXPIRED = "1125";
@@ -54,8 +54,7 @@ public class Configs {
 	public static final String THONG_TIN_XE_PATH  = "/views/fxml/thongTinChiTietXe.fxml";
 	public static final String THONG_TIN_XE_DANG_THUE_PATH  = "/views/fxml/thongTinXeDangThue.fxml";
 	public static final String RESULT_PATH  = "/views/fxml/result.fxml";
-
-
+	public static final String TRAXE_PATH  = "/views/fxml/traxe.fxml";
 
 	public static Font REGULAR_FONT = Font.font("Segoe UI", FontWeight.NORMAL, FontPosture.REGULAR, 24);
 

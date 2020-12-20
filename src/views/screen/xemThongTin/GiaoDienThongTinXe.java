@@ -1,20 +1,20 @@
 package views.screen.xemThongTin;
 
-import controller.BaseController;
+import controller.DieuKhienThueXe;
+import controller.DieuKhienXeDangThue;
 import entity.GiaoDichThueXe;
 import entity.Xe;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import utils.Configs;
 import views.screen.BaseScreenHandler;
-import javafx.scene.image.Image;
+import views.screen.GiaoDienXacNhanTraXe;
 import views.screen.thongTinBrief.GiaoDienXeDangThue;
+import views.screen.thueXe.GiaoDienChonTheThanhToan;
 
 import java.io.IOException;
 
@@ -58,6 +58,16 @@ public class GiaoDienThongTinXe extends BaseScreenHandler{
         tenBaiXe.setText("Bai xe: " + xe.getBaiXe().getTenBaiXe());
         buton2.setVisible(true);
         buton2.setText("Thuê Xe");
+        buton2.setOnMouseClicked(e->{
+            try {
+                GiaoDienChonTheThanhToan giaoDienChonTheThanhToan;
+                giaoDienChonTheThanhToan= new GiaoDienChonTheThanhToan(getStage(),Configs.THUE_XE_CHON_THE_PATH,new DieuKhienThueXe(xe));
+                giaoDienChonTheThanhToan.setPreviousScreen(this);
+                giaoDienChonTheThanhToan.show();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
     }
 
     public void setDangThue(GiaoDichThueXe giaoDichThueXe) {
@@ -67,16 +77,26 @@ public class GiaoDienThongTinXe extends BaseScreenHandler{
         buton2.setVisible(true);
         buton2.setText("Trả xe");
         try {
-            GiaoDienXeDangThue giaoDienXeDangThue = new GiaoDienXeDangThue(Configs.THONG_TIN_XE_DANG_THUE_PATH, null);
+            GiaoDienXeDangThue giaoDienXeDangThue = new GiaoDienXeDangThue(Configs.THONG_TIN_XE_DANG_THUE_PATH, giaoDichThueXe);
             mainVBox.getChildren().add(giaoDienXeDangThue.getContent());
         } catch (IOException e) {
             e.printStackTrace();
         }
+        buton2.setOnMouseClicked(e->{
+            try {
+                GiaoDienXacNhanTraXe giaoDienXacNhanTraXe;
+                giaoDienXacNhanTraXe = new GiaoDienXacNhanTraXe(getStage(),Configs.TRAXE_PATH);
+                giaoDienXacNhanTraXe.setPreviousScreen(this);
+                giaoDienXacNhanTraXe.show();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
     }
 
     public void checkThongTin(){
-        BaseController baseController = new BaseController();
-        GiaoDichThueXe giaoDichThueXe = baseController.getGiaoDichHienTai();
+        DieuKhienXeDangThue dieuKhienXeDangThue= new DieuKhienXeDangThue();
+        GiaoDichThueXe giaoDichThueXe = dieuKhienXeDangThue.getGiaoDichHienTai();
         if (giaoDichThueXe==null && xe.getTrangThai()==Xe.CHUA_THUE)
             setThueXe();
         else {
@@ -103,5 +123,6 @@ public class GiaoDienThongTinXe extends BaseScreenHandler{
         phi15.setText(xe.getLoaiXe().getGiaMoi15p()+"");
         buton1.setVisible(false);
         buton2.setVisible(false);
+        checkThongTin();
     }
 }

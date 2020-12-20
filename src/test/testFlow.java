@@ -28,7 +28,7 @@ public class testFlow {
         NguoiDung nguoiDung = nguoiDungDAO.getNguoiDungHienTai();
         InterbankSubsystem interbankSubsystem = new InterbankSubsystem();
         The the = TheDAO.getInstance().getTheHienTai();
-
+        System.out.println(the.toString());
         // thue xe
         NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe = nguoiDungGiaoDichThueXeDAO.getNguoiDungGiaoDichThueXeTuongUng(nguoiDung);
         if (nguoiDungGiaoDichThueXe == null){
@@ -53,6 +53,8 @@ public class testFlow {
 
             nguoiDungGiaoDichThueXe.setGiaoDichThueXe(giaoDichThueXe);
             nguoiDungGiaoDichThueXeDAO.update(nguoiDungGiaoDichThueXe);
+
+            System.out.println(thanhToanThue.toString());
         }
 
         // tra xe

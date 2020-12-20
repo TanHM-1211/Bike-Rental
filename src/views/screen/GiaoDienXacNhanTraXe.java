@@ -2,6 +2,7 @@ package views.screen;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import views.screen.BaseScreenHandler;
 
@@ -14,9 +15,11 @@ import java.io.IOException;
  */
 
 public class GiaoDienXacNhanTraXe extends BaseScreenHandler{
+    @FXML
+    VBox mainBox;
 
     public GiaoDienXacNhanTraXe(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
-
+        setMenu(mainBox);
     }
 }

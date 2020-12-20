@@ -107,6 +107,10 @@ public class Xe {
     public void setPin(int pin) {
         this.pin = pin;
     }
+
+    public int getCoc(){
+        return (int)(getLoaiXe().getGiaTri() * 0.4);
+    }
 }
 
 /**
