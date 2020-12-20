@@ -4,7 +4,6 @@ import entity.Xe;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.logging.Logger;
 
 /**
  * Project Ecobike System
