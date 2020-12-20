@@ -8,8 +8,10 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import utils.Configs;
 import views.screen.BaseScreenHandler;
 import views.screen.GiaoDienKetQua;
+import views.screen.giaoDienChinh.GiaoDienChinh;
 
 import java.io.IOException;
 /**
@@ -57,6 +59,8 @@ public class GiaoDienXacNhanThanhToan extends BaseScreenHandler{
             dieuKhienThueXe.thanhToanCoc();
             dieuKhienThueXe.mokhoa();
             try {
+                GiaoDienChinh giaoDienChinh = new GiaoDienChinh(getStage(), Configs.HOME_PATH);
+                giaoDienChinh.show();
                 GiaoDienKetQua.success("Thanh toán thành công");
             } catch (IOException ex) {
                 ex.printStackTrace();

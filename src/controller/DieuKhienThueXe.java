@@ -44,6 +44,7 @@ public class DieuKhienThueXe extends BaseController{
         InterbankSubsystem interbankSubsystem = new InterbankSubsystem();
         GiaoDichThanhToan thanhToanThue = interbankSubsystem.pay(the, xe.getCoc(), "thue");
         giaoDichThanhToanDAO.save(thanhToanThue);
+        System.out.println(thanhToanThue.toString());
 
         BaiXe baiXeThue = xe.getBaiXe();
         GiaoDichThueXe giaoDichThueXe = giaoDichThueXeDAO.makeGiaoDichThueXeCoBan(xe, nguoiDung,baiXeThue, thanhToanThue);

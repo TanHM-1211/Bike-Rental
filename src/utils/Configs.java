@@ -13,7 +13,7 @@ public class Configs {
 	public static final String RESET_URL = "https://ecopark-system-api.herokuapp.com/api/card/reset";
 
 	// demo data
-	public static final String GROUP_NAME = "118131_group11_220";
+	public static final String GROUP_NAME = "118131_group11_2020";
 	public static final String OWNER = "Group 11";
 	public static final String CVV_CODE = "505";
 	public static final String DATE_EXPIRED = "1125";

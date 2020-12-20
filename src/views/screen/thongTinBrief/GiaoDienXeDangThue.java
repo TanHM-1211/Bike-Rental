@@ -23,8 +23,8 @@ public class GiaoDienXeDangThue extends FXMLScreenHandler {
     public GiaoDienXeDangThue(String screenPath, GiaoDichThueXe giaoDichThueXe) throws IOException {
         super(screenPath);
         DieuKhienXeDangThue dieuKhienXeDangThue = new DieuKhienXeDangThue();
-        int time = dieuKhienXeDangThue.getThoiGianThue(giaoDichThueXe);
-        int money = dieuKhienXeDangThue.tinhTienThue(time,giaoDichThueXe);
+        int time = dieuKhienXeDangThue.tinhThoiGianThue(giaoDichThueXe);
+        int money = dieuKhienXeDangThue.tinhTienThue(giaoDichThueXe);
         int gio = time/60;
         int phut = time-gio*60;
         thoiGian.setText(String.valueOf(gio)+" giờ "+ String.valueOf(phut)+" phút");

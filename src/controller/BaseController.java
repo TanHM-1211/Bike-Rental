@@ -13,6 +13,8 @@ import views.screen.GiaoDienKetQua;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Project Ecobike System
@@ -43,11 +45,6 @@ public class BaseController {
      * @param thoiDiemKetThuc theo khuon "yyyy/MM/dd HH:mm:ss"
      * @return so tien thue xe
      */
-    public int  tinhTienThue(String thoiDiemBatDau, String thoiDiemKetThuc, Xe xe){
-        int thueThuePhut = tinhThoiGianThue(thoiDiemBatDau,thoiDiemKetThuc);
-        return tinhTienThue(thueThuePhut,xe);
-    }
-
     public int tinhThoiGianThue(String thoiDiemBatDau, String thoiDiemKetThuc){
         java.util.Date temp1;
         java.util.Date temp2;
@@ -65,6 +62,17 @@ public class BaseController {
         return 0;
     }
 
+    public int tinhThoiGianThue(GiaoDichThueXe giaoDichThueXe){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String temp1 = dtf.format(now);
+        String temp2 = giaoDichThueXe.getThanhToanThue().getCreatedAt();
+        System.out.println(temp1);
+        System.out.println(temp2);
+        return tinhThoiGianThue(temp2,temp1);
+    }
+
+
     public int tinhTienThue(int thueTheoPhut, Xe xe){
         if (thueTheoPhut <= 30){
             return xe.getLoaiXe().getGia30pDau();
@@ -75,4 +83,15 @@ public class BaseController {
         return xe.getLoaiXe().getGia30pDau() + sau30*xe.getLoaiXe().getGiaMoi15p();
     }
 
+    public int tinhTienThue(String thoiDiemBatDau, String thoiDiemKetThuc, Xe xe){
+        int thueTheoPhut = tinhThoiGianThue(thoiDiemBatDau,thoiDiemKetThuc);
+        return tinhTienThue(thueTheoPhut,xe);
+    }
+
+
+    public int tinhTienThue(GiaoDichThueXe giaoDichThueXe){
+        int thueTheoPhut = tinhThoiGianThue(giaoDichThueXe);
+        Xe xe = giaoDichThueXe.getXe();
+        return tinhTienThue(thueTheoPhut,xe);
+    }
 }

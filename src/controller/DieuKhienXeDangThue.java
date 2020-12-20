@@ -23,17 +23,4 @@ public class DieuKhienXeDangThue extends BaseController {
         return nguoiDungGiaoDichThueXe.getGiaoDichThueXe();
     }
 
-    public int getThoiGianThue(GiaoDichThueXe giaoDichThueXe){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        String temp1 = dtf.format(now);
-        String temp2 = giaoDichThueXe.getThanhToanThue().getCreatedAt();
-        System.out.println(temp1);
-        System.out.println(temp2);
-        return tinhThoiGianThue(temp2,temp1);
-    }
-
-    public int tinhTienThue(int thueTheoPhut, GiaoDichThueXe giaoDichThueXe){
-        return super.tinhTienThue(thueTheoPhut,giaoDichThueXe.getXe());
-    }
 }

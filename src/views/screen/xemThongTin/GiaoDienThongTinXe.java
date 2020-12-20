@@ -85,7 +85,7 @@ public class GiaoDienThongTinXe extends BaseScreenHandler{
         buton2.setOnMouseClicked(e->{
             try {
                 GiaoDienXacNhanTraXe giaoDienXacNhanTraXe;
-                giaoDienXacNhanTraXe = new GiaoDienXacNhanTraXe(getStage(),Configs.TRAXE_PATH);
+                giaoDienXacNhanTraXe = new GiaoDienXacNhanTraXe(getStage(),Configs.TRAXE_PATH,giaoDichThueXe);
                 giaoDienXacNhanTraXe.setPreviousScreen(this);
                 giaoDienXacNhanTraXe.show();
             } catch (IOException e1) {
@@ -118,7 +118,7 @@ public class GiaoDienThongTinXe extends BaseScreenHandler{
             pin.setText("Không");
         }
         bienSo.setText(xe.getBienSoXe());
-        tienCoc.setText(xe.getLoaiXe().getGiaTri() + "");
+        tienCoc.setText(xe.getCoc() + "");
         phi30.setText(xe.getLoaiXe().getGia30pDau()+"");
         phi15.setText(xe.getLoaiXe().getGiaMoi15p()+"");
         buton1.setVisible(false);
