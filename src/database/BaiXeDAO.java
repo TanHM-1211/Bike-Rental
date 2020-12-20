@@ -12,11 +12,17 @@ import java.util.List;
  * Create at 4:26 PM , 12/17/2020
  */
 
+/**
+ * Thực hiện giao tiếp giữa controller và bảng bai_xe trong CSDL
+ */
 public class BaiXeDAO implements DAO<BaiXe> {
     private List<BaiXe> listBaiXe = new ArrayList<>();
     private DAOManager daoManager = DAOManager.getInstance();
     public static BaiXeDAO baiXeDAO = null;
 
+    /**
+     * Khởi tạo BaiXeDAO mới, đọc tất cả hàng trong bảng bai_xe
+     */
     public BaiXeDAO() {
         daoManager.open();
         ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + BaiXe.name + ";");
@@ -30,6 +36,10 @@ public class BaiXeDAO implements DAO<BaiXe> {
         }
     }
 
+    /**
+     * Singleton
+     * @return 1 đối tượng BaiXeDAO duy nhất của mỗi phiên
+     */
     public static BaiXeDAO getInstance(){
         if (baiXeDAO == null){
             baiXeDAO = new BaiXeDAO();
@@ -37,6 +47,11 @@ public class BaiXeDAO implements DAO<BaiXe> {
         return baiXeDAO;
     }
 
+    /**
+     * Xử lý 1 hàng trong CSDL và trả về BaiXe tương ứng
+     * @param resultSet ResultSet
+     * @return  BaiXe
+     */
     @Override
     public BaiXe parse(ResultSet resultSet) {
         try {
@@ -48,6 +63,11 @@ public class BaiXeDAO implements DAO<BaiXe> {
         return null;
     }
 
+    /**
+     * Nhận vào id và trả về BaiXe có id tương ứng
+     * @param id int
+     * @return BaiXe
+     */
     @Override
     public BaiXe get(int id) {
         for (BaiXe baiXe:
@@ -57,6 +77,10 @@ public class BaiXeDAO implements DAO<BaiXe> {
         return null;
     }
 
+    /**
+     * Danh sách tất cả BaiXe
+     * @return List
+     */
     @Override
     public List<BaiXe> getAll() {
         return listBaiXe;
