@@ -1,5 +1,6 @@
 package views.screen;
-import database.XeDAO;
+import controller.BaseController;
+import entity.GiaoDichThueXe;
 import entity.Xe;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,7 +11,6 @@ import javafx.stage.Stage;
 import utils.Configs;
 import views.screen.xemThongTin.GiaoDienThongTinXe;
 import java.io.IOException;
-import common.exception.maVachException;
 /**
  * Project Ecobike System
  * User: Nhom 11
@@ -25,24 +25,20 @@ public class GiaoDienNhapMaVach extends BaseScreenHandler {
     @FXML
     Button xacNhan;
 
+    private Xe xe;
     public void xacNhan(String maVach){
-        try {
-            XeDAO xeDao = XeDAO.getInstance();
-            Xe  xe = xeDao.get(Integer.parseInt(maVach));
-            GiaoDienThongTinXe giaoDienThongTinXe;
-//            if (xe.getTrangThai()==Xe.CHUA_THUE){
-//              //  giaoDienThongTinXenew GiaoDienThongTinXe(this.getStage(),Configs.THONG_TIN_XE_PATH,xe);
-//            }
-//            giaoDienThongTinXe.setPreviousScreen(this);
-//            giaoDienThongTinXe.show();
-        }catch (maVachException ex){
-            try {
-                GiaoDienKetQua.error("Mã vạch không hợp lệ");
-            } catch (IOException ex2) {
-                ex.printStackTrace();
-            }
+        BaseController baseController = new BaseController();
+        Xe xe = baseController.layThongTinXeTheoMa(maVach);
+        if (xe==null){
+            return;
         }
-
+        try {
+            GiaoDienThongTinXe giaoDienThongTinXe = new GiaoDienThongTinXe(this.stage,Configs.THONG_TIN_XE_PATH, xe);
+            giaoDienThongTinXe.setPreviousScreen(this);
+            giaoDienThongTinXe.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public GiaoDienNhapMaVach(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);

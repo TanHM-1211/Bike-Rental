@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  * Create at 9:48 AM , 12/16/2020
  */
 
-public class DieuKhienTraXe {
+public class DieuKhienTraXe extends BaseController {
     public DieuKhienTraXe() {
     }
 

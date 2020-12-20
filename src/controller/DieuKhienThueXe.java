@@ -6,7 +6,7 @@ package controller;
  * Create at 9:42 AM , 12/16/2020
  */
 
-public class DieuKhienThueXe {
+public class DieuKhienThueXe extends BaseController{
 
     /**
      *

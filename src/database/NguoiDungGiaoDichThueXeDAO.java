@@ -18,6 +18,8 @@ public class NguoiDungGiaoDichThueXeDAO implements DAO<NguoiDungGiaoDichThueXe> 
     public static NguoiDungGiaoDichThueXeDAO nguoiDungGiaoDichThueXeDAO = null;
 
     public NguoiDungGiaoDichThueXeDAO() {
+        NguoiDungDAO nguoiDungDAO = NguoiDungDAO.getInstance();
+        GiaoDichThueXeDAO giaoDichThueXeDAO = GiaoDichThueXeDAO.getInstance();
         daoManager.open();
         ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + NguoiDungGiaoDichThueXe.name + ";");
         try {

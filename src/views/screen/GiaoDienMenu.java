@@ -1,16 +1,11 @@
 package views.screen;
 
-import database.BaiXeDAO;
-import database.GiaoDichThueXeDAO;
-import database.XeDAO;
-import entity.BaiXe;
+import common.exception.CheckXeDangThue;
+import common.exception.MaVachException;
+import controller.BaseController;
 import entity.GiaoDichThueXe;
 import entity.Xe;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.effect.ImageInput;
@@ -18,13 +13,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import utils.Configs;
 import views.screen.giaoDienChinh.GiaoDienChinh;
-import views.screen.thongTinBrief.GiaoDienXeDangThue;
 import views.screen.xemThongTin.GiaoDienThongTinXe;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 /**
  * Project Ecobike System
@@ -72,14 +64,19 @@ public class GiaoDienMenu extends FXMLScreenHandler{
             }
         });
         xeDangThue.setOnAction(e ->{
-            try {
-                XeDAO xeDAO = XeDAO.getInstance();
-                Xe xe = xeDAO.getAll().get(0);
-                GiaoDienThongTinXe giaoDienThongTinXe= new GiaoDienThongTinXe(parentScene.getStage(),Configs.THONG_TIN_XE_PATH,xe, null);
-                giaoDienThongTinXe.setPreviousScreen(parentScene);
-                giaoDienThongTinXe.show();
-            } catch (IOException ex) {
-                ex.printStackTrace();
+            BaseController baseController = new BaseController();
+            GiaoDichThueXe giaoDichThueXe = baseController.getGiaoDichHienTai();
+            try{
+                Xe xe = giaoDichThueXe.getXe();
+                try {
+                    GiaoDienThongTinXe giaoDienThongTinXe = new GiaoDienThongTinXe(parentScene.getStage(),Configs.THONG_TIN_XE_PATH, xe);
+                    giaoDienThongTinXe.setPreviousScreen(parentScene);
+                    giaoDienThongTinXe.show();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            } catch (RuntimeException ex) {
+                throw new CheckXeDangThue("Bạn chưa thuê xe");
             }
         });
         back.setOnMouseClicked(e ->{
