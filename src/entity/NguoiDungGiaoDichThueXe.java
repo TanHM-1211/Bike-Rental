@@ -15,7 +15,7 @@ public class NguoiDungGiaoDichThueXe {
     private GiaoDichThueXe giaoDichThueXe;
     public static String paramsName = "(id_nguoi_dung_giao_dich_thue_xe, id_nguoi_dung, id_giao_dich_thue_xe)";
     public static String name = "nguoi_dung_giao_dich_thue_xe";
-    public static NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe = null;
+//    public static NguoiDungGiaoDichThueXe nguoiDungGiaoDichThueXe = null;
 
     public NguoiDungGiaoDichThueXe() {
     }
@@ -74,11 +74,11 @@ public class NguoiDungGiaoDichThueXe {
         this.giaoDichThueXe = giaoDichThueXe;
     }
 
-    public static NguoiDungGiaoDichThueXe getInstance(){
-        if (nguoiDungGiaoDichThueXe == null){
-            nguoiDungGiaoDichThueXe = new NguoiDungGiaoDichThueXe();
-        }
-        return nguoiDungGiaoDichThueXe;
-    }
+//    public static NguoiDungGiaoDichThueXe getInstance(){
+//        if (nguoiDungGiaoDichThueXe == null){
+//            nguoiDungGiaoDichThueXe = new NguoiDungGiaoDichThueXe();
+//        }
+//        return nguoiDungGiaoDichThueXe;
+//    }
 
 }

@@ -19,7 +19,6 @@ public class GiaoDichThanhToanDAO implements DAO<GiaoDichThanhToan> {
     public static GiaoDichThanhToanDAO giaoDichThanhToanDAO = null;
 
     public GiaoDichThanhToanDAO() {
-        daoManager.open();
         ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + GiaoDichThanhToan.name + ";");
         try {
             while (resultSet.next()){

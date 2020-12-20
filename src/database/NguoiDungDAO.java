@@ -21,7 +21,6 @@ public class NguoiDungDAO implements DAO<NguoiDung> {
 
     public NguoiDungDAO() {
         this.nguoiDungHienTai = NguoiDung.getInstance();
-        daoManager.open();
         ResultSet resultSet = daoManager.executeQuery("SELECT * FROM " + NguoiDung.name + ";");
         try {
             while (resultSet.next()){
